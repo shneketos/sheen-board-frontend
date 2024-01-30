@@ -7,4 +7,9 @@ export interface BuildPath {
 export interface BuildOptions {
   mode: BuildMode;
   paths: BuildPath;
+  port: number;
+}
+export interface BuildEnv {
+  mode: BuildMode;
+  port: number;
 }
