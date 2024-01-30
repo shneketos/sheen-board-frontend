@@ -1,9 +1,4 @@
 import { render } from "react-dom";
-import { Test } from "./test";
+import { App } from "./App";
 
-render(
-  <div>
-    <Test />
-  </div>,
-  document.getElementById("root")
-);
+render(<App />, document.getElementById("root"));
