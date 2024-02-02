@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import { Header } from "widgets/header";
 
 const AboutPage = () => {
-    return (
-        <div>
-            ABOUT PAGE
-        </div>
-    );
+  return (
+    <>
+      <Header authed={true} />
+    </>
+  );
 };
 
 export default AboutPage;
