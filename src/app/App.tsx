@@ -8,9 +8,6 @@ const App = () => {
   const { theme, toggleTheme } = useThemes();
   return (
     <div className={`app ${theme}`}>
-      <Link to={"/"}>Главная</Link>
-      <Link to={"/about"}>О сайте</Link>
-      <button onClick={toggleTheme}>Theme change</button>
       <AppRouter />
     </div>
   );
