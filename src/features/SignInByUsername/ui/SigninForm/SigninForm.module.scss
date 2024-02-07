@@ -1,0 +1,62 @@
+.signinForm {
+  width: 445px;
+  height: 630px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 10px;
+  &_wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &_info {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 13px;
+    h2,
+    p {
+      margin: 0;
+    }
+    p {
+      color: #c1c1c1;
+    }
+  }
+}
+.signinForm_fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+.signinForm_bottom {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+  &_links {
+    display: flex;
+    gap: 5px;
+    span {
+      color: #c1c1c1;
+    }
+    a {
+      color: #5570f1;
+      cursor: pointer;
+    }
+  }
+
+  &_button {
+    background-color: #5570f1;
+    color: #ffff;
+    cursor: pointer;
+    width: 180px;
+    height: 55px;
+    border: none;
+    border-radius: 6px;
+  }
+}

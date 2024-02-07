@@ -1,6 +1,11 @@
 import React from "react";
+import { Header } from "widgets/header";
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return (
+    <>
+      <Header authed={false} />
+    </>
+  );
 };
 
 export default MainPage;

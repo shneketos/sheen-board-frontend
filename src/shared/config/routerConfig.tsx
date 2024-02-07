@@ -1,24 +1,31 @@
-import { AboutPageAsync } from "pages/AboutPage";
-import { MainPageAsync } from "pages/MainPage";
+import { MainPage } from "pages/MainPage";
+import { SigninPage } from "pages/SigninPage";
+import { SignupPage } from "pages/SignupPage";
 import { RouteProps } from "react-router-dom";
 
 export enum AppRoutes {
   MAIN = "main",
-  ABOUT = "about",
+  SIGNIN = "signin",
+  SIGNUP = "signup",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
-  [AppRoutes.ABOUT]: "/about",
+  [AppRoutes.SIGNIN]: "/signin",
+  [AppRoutes.SIGNUP]: "/signup",
 };
 
 export const RoutesConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
     path: RouterPath.main,
-    element: <MainPageAsync />,
+    element: <MainPage />,
   },
-  [AppRoutes.ABOUT]: {
-    path: RouterPath.about,
-    element: <AboutPageAsync />,
+  [AppRoutes.SIGNIN]: {
+    path: RouterPath.signin,
+    element: <SigninPage />,
+  },
+  [AppRoutes.SIGNUP]: {
+    path: RouterPath.signup,
+    element: <SignupPage />,
   },
 };
