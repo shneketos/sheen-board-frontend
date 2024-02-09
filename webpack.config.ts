@@ -17,6 +17,7 @@ export default (env: BuildEnv) => {
     mode: MODE,
     paths: paths,
     port: PORT,
+    isDev: MODE === "development",
   });
   return config;
 };
