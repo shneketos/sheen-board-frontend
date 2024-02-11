@@ -48,10 +48,10 @@ export const Header = ({ authed }: { authed: boolean }) => {
         </div>
       ) : (
         <div className={styles.header_right_nonAuthed}>
-          <Link className={styles.signin} to="/auth/signin">
+          <Link className={styles.signin} to="/signin">
             Sign In
           </Link>
-          <Link className={styles.signup} to="/auth/signup">
+          <Link className={styles.signup} to="/signup">
             Sign Up
           </Link>
         </div>

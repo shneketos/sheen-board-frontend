@@ -1,0 +1,16 @@
+.sidebar {
+  height: calc(100vh - var(--header-height));
+  width: var(--sidebar-width);
+  background: red;
+  position: relative;
+  transition: width 0.3s;
+}
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+.toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+  display: flex;
+}
