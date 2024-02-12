@@ -5,12 +5,16 @@
 
 .app {
   font: var(--font-m);
-
   background: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
 }
-main {
-  min-height: 100vh;
+.content {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+}
+
+.content__wrapper {
+  flex-grow: 1;
+  background: #f0f2f5;
 }

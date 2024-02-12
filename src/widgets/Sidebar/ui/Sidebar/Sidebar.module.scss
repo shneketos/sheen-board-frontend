@@ -1,16 +1,30 @@
 .sidebar {
   height: calc(100vh - var(--header-height));
   width: var(--sidebar-width);
-  background: red;
+  background: #f7f8f9;
   position: relative;
   transition: width 0.3s;
 }
+.sidebar_bottom {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: white;
+  height: 60px;
+}
+
+.collapse_icon {
+  width: 20px;
+  height: 20px;
+  rotate: 180deg;
+  transition: 0.3s rotate;
+}
 .collapsed {
   width: var(--sidebar-width-collapsed);
-}
-.toggle {
-  position: absolute;
-  bottom: 20px;
-  right: 0px;
-  display: flex;
+  &_icon {
+    rotate: 0deg;
+    transition: 0.3s rotate;
+  }
 }

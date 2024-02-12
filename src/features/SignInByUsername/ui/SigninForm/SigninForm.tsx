@@ -28,6 +28,7 @@ export const SigninForm = () => {
           <div className={styles.signinForm_fields}>
             <Input
               onChange={onChangeName}
+              type="email"
               value={loginValue}
               theme={InputTheme.AUTH}
               placeholder="Enter Your Email"
@@ -36,6 +37,7 @@ export const SigninForm = () => {
             </Input>
             <Input
               onChange={onChangePassword}
+              type="password"
               value={passValue}
               theme={InputTheme.AUTH}
               placeholder="Enter Your Password"

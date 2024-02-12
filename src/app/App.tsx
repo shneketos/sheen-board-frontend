@@ -7,13 +7,16 @@ import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
 import { Footer } from "widgets/Footer";
+import { Header } from "widgets/Header";
 
 const App = () => {
   const { theme, toggleTheme } = useThemes();
   return (
     <div className={`app ${theme}`}>
-      <AppRouter />
-      <Footer />
+      <Header authed={false} />
+      <main className="content">
+        <AppRouter />
+      </main>
     </div>
   );
 };
