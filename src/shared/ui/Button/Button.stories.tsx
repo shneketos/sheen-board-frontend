@@ -14,5 +14,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Clear: Story = {
-  args: {},
+  args: {
+    children: "CLEAR",
+    theme: ButtonTheme.CLEAR,
+  },
+};
+export const DEFAULT: Story = {
+  args: {
+    children: "DEFAULT",
+    theme: ButtonTheme.DEFAULT,
+  },
+};
+export const REGISTER: Story = {
+  args: {
+    children: "REGISTER",
+    theme: ButtonTheme.REGISTER,
+  },
 };
