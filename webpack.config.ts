@@ -1,9 +1,9 @@
-import webpack from "webpack";
+import webpack, { Configuration } from "webpack";
 import { buildWebpackConfig } from "./config/build/BuildWebpackConfig";
 import { BuildEnv, BuildPath } from "./config/build/types/config";
 import path from "path";
 
-export default (env: BuildEnv) => {
+const customWebpackConfig = (env: BuildEnv): Configuration => {
   const paths: BuildPath = {
     entry: path.resolve(__dirname, "src", "index.tsx"),
     build: path.resolve(__dirname, "build"),
@@ -13,7 +13,7 @@ export default (env: BuildEnv) => {
 
   const MODE = env.mode || "development";
   const PORT = env.port || 3000;
-  const config: webpack.Configuration = buildWebpackConfig({
+  const config: Configuration = buildWebpackConfig({
     mode: MODE,
     paths: paths,
     port: PORT,
@@ -21,3 +21,5 @@ export default (env: BuildEnv) => {
   });
   return config;
 };
+
+export default customWebpackConfig;
