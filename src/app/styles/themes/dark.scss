@@ -1,8 +1,27 @@
 .app.dark {
-  --bg-color: rgb(105, 105, 236);
-  --primary-color: rgb(25, 0, 255);
-  --secondary-color: rgb(81, 199, 219);
-
+  --bg-color: rgb(0, 0, 0);
+  --primary-color: rgb(255, 255, 255);
+  --secondary-color: rgb(168, 168, 168);
+  --link-color: #5570f1;
   --invert-primary-color: rgb(0, 0, 0);
   --invert-secondary-color: rgb(218, 235, 68);
+
+  //header
+  --header-bg-color: rgb(59, 57, 57);
+  --header-btn-color: white;
+  --header-btn-bg-color: #5570f1;
+  --header-btn-border-color: #5570f1;
+  --header-btn-inverted-color: rgb(59, 57, 57);
+  --header-btn-inverted-bg-color: white;
+  --header-btn-inverted-border-color: rgb(59, 57, 57);
+  //header modal
+  --header-modal-bg-color: rgb(172, 172, 172);
+  --header-modal-settings-color: white;
+  --header-modal-btn-hover-settings-color: rgba(255, 255, 255, 0.048);
+  --header-modal-btn-hover-logout-color: rgba(255, 0, 0, 0.048);
+  //sidebar
+  --sidebar-bg-color: rgb(104, 102, 102);
+  --sidebar-bottom-color: rgb(59, 57, 57);
+
+  --auth-bg-color: rgb(26, 26, 26);
 }

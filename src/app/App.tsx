@@ -13,7 +13,7 @@ const App = () => {
   const { theme, toggleTheme } = useThemes();
   return (
     <div className={`app ${theme}`}>
-      <Header authed={false} />
+      <Header authed={true} />
       <main className="content">
         <AppRouter />
       </main>

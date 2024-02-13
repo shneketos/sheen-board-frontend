@@ -2,7 +2,7 @@
   width: 445px;
   height: 630px;
   margin: 20px auto;
-  background-color: white;
+  background-color: var(--auth-bg-color);
   border-radius: 10px;
   &_wrapper {
     padding: 15px;
@@ -21,7 +21,7 @@
       margin: 0;
     }
     p {
-      color: #c1c1c1;
+      color: var(--primary-color);
     }
   }
 }
@@ -42,10 +42,10 @@
     display: flex;
     gap: 5px;
     span {
-      color: #c1c1c1;
+      color: var(--primary-color);
     }
     a {
-      color: #5570f1;
+      color: var(--link-color);
       cursor: pointer;
     }
   }

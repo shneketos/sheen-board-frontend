@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: var(--header-height);
   padding: 0 29px;
+  background-color: var(--header-bg-color);
 }
 .header_left {
   img {
@@ -54,13 +55,14 @@
     text-decoration: none;
   }
   .signin {
-    color: white;
-    background: blue;
+    color: var(--header-btn-color);
+    background: var(--header-btn-bg-color);
+    border: 1px solid var(--header-btn-border-color);
   }
   .signup {
-    color: blue;
-    background: white;
-    border: 1px solid blue;
+    color: var(--header-btn-inverted-color);
+    background: var(--header-btn-inverted-bg-color);
+    border: 1px solid var(--header-btn-inverted-border-color);
   }
 }
 .header_right_modal {
@@ -69,14 +71,14 @@
   flex-direction: column;
   width: 150px;
   height: 120px;
-  background: white;
+  background: var(--header-modal-bg-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
   right: 29px;
   top: 64px;
 
   &_name {
-    color: rgba(0, 0, 0, 0.74);
+    color: var(--header-modal-settings-color);
     font-weight: 600;
     border-bottom: 1px solid rgba(0, 0, 0, 0.123);
     border-radius: 0 0 2px 2px;
@@ -106,16 +108,27 @@
     border-radius: 5px;
     height: 30px;
     cursor: pointer;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.048);
-    }
-    &_logout {
-      color: red;
-    }
 
     svg {
       width: 20px;
       height: 20px;
     }
+  }
+}
+.logout_btn {
+  &:hover {
+    background-color: var(--header-modal-btn-hover-logout-color);
+  }
+  span {
+    color: red;
+  }
+}
+.settings_btn {
+  &:hover {
+    background-color: var(--header-modal-btn-hover-settings-color);
+  }
+
+  span {
+    color: var(--header-modal-settings-color);
   }
 }

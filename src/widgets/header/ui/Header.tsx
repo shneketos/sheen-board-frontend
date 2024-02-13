@@ -5,6 +5,7 @@ import Slogo from "shared/assets/icons/Slogo.png";
 import Settings from "shared/assets/icons/settings.svg";
 import Logout from "shared/assets/icons/logout.svg";
 import React from "react";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 
 export const Header = ({ authed }: { authed: boolean }) => {
   const userName = "Alisson";
@@ -31,11 +32,17 @@ export const Header = ({ authed }: { authed: boolean }) => {
                   {userName}
                 </span>
                 <div className={styles.header_right_modal_buttons}>
-                  <button className={styles.header_right_modal_btn}>
+                  <button
+                    className={`${styles.header_right_modal_btn} ${styles.settings_btn}`}
+                  >
                     <Settings />
-                    <span>Settings</span>
+                    <span className={styles.header_right_modal_btn_settings}>
+                      Settings
+                    </span>
                   </button>
-                  <button className={styles.header_right_modal_btn}>
+                  <button
+                    className={`${styles.header_right_modal_btn} ${styles.logout_btn}`}
+                  >
                     <Logout />
                     <span className={styles.header_right_modal_btn_logout}>
                       Logout
@@ -48,12 +55,12 @@ export const Header = ({ authed }: { authed: boolean }) => {
         </div>
       ) : (
         <div className={styles.header_right_nonAuthed}>
-          <Link className={styles.signin} to="/signin">
+          <AppLink className={styles.signin} to="/signin">
             Sign In
-          </Link>
-          <Link className={styles.signup} to="/signup">
+          </AppLink>
+          <AppLink className={styles.signup} to="/signup">
             Sign Up
-          </Link>
+          </AppLink>
         </div>
       )}
     </header>
