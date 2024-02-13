@@ -3,6 +3,7 @@ import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export function buildPlugins({
   paths,
@@ -19,6 +20,9 @@ export function buildPlugins({
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ];
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin());

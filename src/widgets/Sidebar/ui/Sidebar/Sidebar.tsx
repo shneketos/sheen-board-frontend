@@ -9,9 +9,13 @@ export const Sidebar = () => {
     setCollapsed(!collapsed);
   };
   return (
-    <div className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}>
+    <div
+      data-testid="sidebar"
+      className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}
+    >
       <div className={styles.sidebar_bottom}>
         <Button
+          data-testid="sidebar-toggle"
           theme={ButtonTheme.CLEAR}
           className={styles.toggle_collapse}
           onClick={onClickCollapse}
