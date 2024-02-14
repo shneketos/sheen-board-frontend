@@ -1,3 +1,4 @@
+import { Dashboard } from "pages/Dashboard";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { SigninPage } from "pages/SigninPage";
@@ -9,13 +10,14 @@ export enum AppRoutes {
   SIGNIN = "signin",
   SIGNUP = "signup",
   NOTFOUND = "notfound",
+  DASHBOARD = "dashboard",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.SIGNIN]: "/signin",
   [AppRoutes.SIGNUP]: "/signup",
-
+  [AppRoutes.DASHBOARD]: "/dashboard",
   ////////
   [AppRoutes.NOTFOUND]: "*",
 };
@@ -33,7 +35,10 @@ export const RoutesConfig: Record<AppRoutes, RouteProps> = {
     path: RouterPath.signup,
     element: <SignupPage />,
   },
-
+  [AppRoutes.DASHBOARD]: {
+    path: RouterPath.dashboard,
+    element: <Dashboard />,
+  },
   ///////////
   [AppRoutes.NOTFOUND]: {
     path: RouterPath.notfound,

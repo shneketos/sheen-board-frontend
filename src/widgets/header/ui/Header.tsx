@@ -12,18 +12,20 @@ export const Header = ({ authed }: { authed: boolean }) => {
   const initials = userName.split(" ");
   const [open, setOpen] = React.useState(false);
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-testid="header">
       <div className={styles.header_left}>
         <img src={Slogo} />
       </div>
       {authed ? (
         <div className={styles.header_right_Authed}>
           <div
+            data-testid="header_toggle_btn"
             onClick={() => setOpen(!open)}
             className={styles.header_right_Authed_photo}
           >{`${initials[0][0]}`}</div>
           {open && (
             <div
+              data-testid="header_modal"
               onMouseLeave={() => setOpen(false)}
               className={styles.header_right_modal}
             >

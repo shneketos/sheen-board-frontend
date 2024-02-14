@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Sidebar } from "./Sidebar";
+import React from "react";
 
 describe("Sidebar", () => {
   test("Test render", () => {
