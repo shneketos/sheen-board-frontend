@@ -1,13 +1,15 @@
 .button {
   cursor: pointer;
+  color: var(--btn-color);
 }
 .clear {
   background: none;
   border: none;
+  color: var(--btn-color);
 }
 .register {
   background-color: #5570f1;
-  color: #ffff;
+  color: var(--btn-color);
   width: 180px;
   height: 55px;
   border: none;
