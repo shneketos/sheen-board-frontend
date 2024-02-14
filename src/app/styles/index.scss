@@ -1,7 +1,7 @@
-@import "./variables/globals.scss";
-@import "./reset.scss";
-@import "./themes/light.scss";
-@import "./themes/dark.scss";
+@import "./variables/globals";
+@import "./reset";
+@import "./themes/light";
+@import "./themes/dark";
 
 .app {
   font: var(--font-m);
@@ -9,6 +9,7 @@
   color: var(--primary-color);
   min-height: 100vh;
 }
+
 .content {
   display: flex;
   height: calc(100vh - var(--header-height));

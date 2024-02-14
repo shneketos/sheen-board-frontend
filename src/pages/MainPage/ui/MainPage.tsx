@@ -1,12 +1,9 @@
 import React from "react";
 import { Sidebar } from "widgets/Sidebar";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-const MainPage = () => {
-  return (
+const MainPage = () => (
     <>
-      <Sidebar />
+        <Sidebar />
     </>
-  );
-};
+);
 
 export default MainPage;

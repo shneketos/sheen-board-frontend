@@ -1,7 +1,6 @@
 import { SigninForm } from "features/SignInByUsername";
 import React from "react";
 
-export const Signinpage = () => {
-  return <SigninForm />;
-};
+export const Signinpage = () => <SigninForm />;
+
 export default Signinpage;

@@ -4,29 +4,30 @@ import Sidebar_arrow from "shared/assets/icons/sidebar_arrow.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
 export const Sidebar = () => {
-  const [collapsed, setCollapsed] = React.useState(false);
-  const onClickCollapse = () => {
-    setCollapsed(!collapsed);
-  };
-  return (
-    <div
-      data-testid="sidebar"
-      className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}
-    >
-      <div className={styles.sidebar_bottom}>
-        <Button
-          data-testid="sidebar-toggle"
-          theme={ButtonTheme.CLEAR}
-          className={styles.toggle_collapse}
-          onClick={onClickCollapse}
+    const [collapsed, setCollapsed] = React.useState(false);
+    const onClickCollapse = () => {
+        setCollapsed(!collapsed);
+    };
+
+    return (
+        <div
+            data-testid="sidebar"
+            className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}
         >
-          <Sidebar_arrow
-            className={`${styles.collapse_icon} ${
-              collapsed ? styles.collapsed_icon : ""
-            }`}
-          />
-        </Button>
-      </div>
-    </div>
-  );
+            <div className={styles.sidebar_bottom}>
+                <Button
+                    data-testid="sidebar-toggle"
+                    theme={ButtonTheme.CLEAR}
+                    className={styles.toggle_collapse}
+                    onClick={onClickCollapse}
+                >
+                    <Sidebar_arrow
+                        className={`${styles.collapse_icon} ${
+                            collapsed ? styles.collapsed_icon : ""
+                        }`}
+                    />
+                </Button>
+            </div>
+        </div>
+    );
 };

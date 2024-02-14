@@ -4,15 +4,15 @@ import styles from "./ThemeSwitcher.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
 export const ThemeSwitcher = () => {
-  const { toggleTheme } = useThemes();
+    const { toggleTheme } = useThemes();
 
-  return (
-    <Button
-      className={styles.ThemeSwitcher}
-      onClick={toggleTheme}
-      theme={ButtonTheme.CLEAR}
-    >
-      TOGGLESS
-    </Button>
-  );
+    return (
+        <Button
+            className={styles.ThemeSwitcher}
+            onClick={toggleTheme}
+            theme={ButtonTheme.CLEAR}
+        >
+        TOGGLESS
+        </Button>
+    );
 };
