@@ -1,6 +1,7 @@
 import { Dashboard } from "pages/Dashboard";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
+import { OverviewPage } from "pages/OverviewPage";
 import { SigninPage } from "pages/SigninPage";
 import { SignupPage } from "pages/SignupPage";
 import { type RouteProps } from "react-router-dom";
@@ -11,6 +12,7 @@ export enum AppRoutes {
     SIGNUP = "signup",
     NOTFOUND = "notfound",
     DASHBOARD = "dashboard",
+    OVERVIEW = "overview",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
@@ -18,8 +20,8 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.SIGNIN]: "/signin",
     [AppRoutes.SIGNUP]: "/signup",
     [AppRoutes.DASHBOARD]: "/dashboard",
-    /// /////
-    [AppRoutes.NOTFOUND]: "*",
+    [AppRoutes.OVERVIEW]: "/dashboard/:id/overview", // Use :id to indicate a dynamic parameter
+    [AppRoutes.NOTFOUND]: "*", // It's common to us
 };
 
 export const RoutesConfig: Record<AppRoutes, RouteProps> = {
@@ -38,6 +40,10 @@ export const RoutesConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.DASHBOARD]: {
         path: RouterPath.dashboard,
         element: <Dashboard />,
+    },
+    [AppRoutes.OVERVIEW]: {
+        path: RouterPath.overview,
+        element: <OverviewPage />,
     },
     /// ////////
     [AppRoutes.NOTFOUND]: {

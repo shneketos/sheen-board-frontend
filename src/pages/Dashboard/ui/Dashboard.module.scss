@@ -1,0 +1,30 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_meet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 28px;
+    gap: 35px;
+    color: var(--primary-color);
+
+    p {
+        font-size: 36px;
+    }
+
+    span {
+        font: var(--font-l);
+    }
+}
+
+.daboard_bottom {
+    margin-top: 28px;
+    margin: 28px auto 0;
+    display: grid;
+    grid-template-columns: repeat(5, 290px);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 25px 5px;
+}

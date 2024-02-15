@@ -1,0 +1,77 @@
+.dashboard_card {
+    width: 280px;
+    height: 180px;
+    background: var(--dashboard-card-bg-color);
+    border-radius: 6px;
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    transition: 0.4s box-shadow ease;
+
+    &:hover {
+        box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+        transition: 0.4s box-shadow ease;
+    }
+}
+
+.dashboard_card_wrapper {
+    padding: 10px;
+}
+
+.dashboard_card_top {
+    display: flex;
+    justify-content: space-between;
+
+    &_left {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &_title {
+            font-size: 28px;
+            color: var(--secondary-color);
+            line-height: 1.1;
+            word-break: break-all;
+            width: 215px;
+        }
+    }
+
+    &_right {
+        position: relative;
+    }
+}
+
+.dashboard_card_bottom {
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.dashboard_card_modal {
+    z-index: 10;
+    position: absolute;
+    width: 150px;
+    height: 44px;
+    background: var(--header-modal-bg-color);
+    box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+    border-radius: 7px;
+    right: -120px;
+    display: flex;
+    top: 35px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: rgb(255 171 171);
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        color: red;
+        font-weight: 600;
+    }
+}
