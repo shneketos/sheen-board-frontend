@@ -2,12 +2,14 @@ import React from "react";
 import styles from "./Dashboard.module.scss";
 import { DashboardCard } from "entities/Dashboard";
 import { DashboardCreateCard } from "entities/Dashboard/ui/DashboardCreateCard";
+import { Sidebar } from "widgets/Sidebar";
 
 export const Dashboard = () => {
     const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
     return (
         <>
-            <div className="content__wrapper">
+            <Sidebar />
+            <section className="content__wrapper">
                 <div className={styles.dashboard}>
                     <div className={styles.dashboard_meet}>
                         <p>Hello,User!</p>
@@ -24,7 +26,7 @@ export const Dashboard = () => {
                         <DashboardCreateCard />
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 };

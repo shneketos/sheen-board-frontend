@@ -16,6 +16,7 @@ export const Header = ({ authed }: { authed: boolean }) => {
             </div>
             {authed ? (
                 <div className={styles.header_right_Authed}>
+                    <span className={styles.header_username}>{userName}</span>
                     <div
                         data-testid="header_toggle_btn"
                         onClick={() => {
@@ -23,53 +24,6 @@ export const Header = ({ authed }: { authed: boolean }) => {
                         }}
                         className={styles.header_right_Authed_photo}
                     >{`${initials[0][0]}`}</div>
-                    {open && (
-                        <div
-                            data-testid="header_modal"
-                            onMouseLeave={() => {
-                                setOpen(false);
-                            }}
-                            className={styles.header_right_modal}
-                        >
-                            <div className={styles.header_right_modal_wrapper}>
-                                <span
-                                    className={styles.header_right_modal_name}
-                                >
-                                    {userName}
-                                </span>
-                                <div
-                                    className={
-                                        styles.header_right_modal_buttons
-                                    }
-                                >
-                                    <button
-                                        className={`${styles.header_right_modal_btn} ${styles.settings_btn}`}
-                                    >
-                                        <Settings />
-                                        <span
-                                            className={
-                                                styles.header_right_modal_btn_settings
-                                            }
-                                        >
-                                            Settings
-                                        </span>
-                                    </button>
-                                    <button
-                                        className={`${styles.header_right_modal_btn} ${styles.logout_btn}`}
-                                    >
-                                        <Logout />
-                                        <span
-                                            className={
-                                                styles.header_right_modal_btn_logout
-                                            }
-                                        >
-                                            Logout
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                 </div>
             ) : (
                 <div className={styles.header_right_nonAuthed}>

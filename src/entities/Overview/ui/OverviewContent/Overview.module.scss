@@ -1,0 +1,111 @@
+.overview {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    &_tasks {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        &_chart {
+            width: 350px;
+            height: 350px;
+        }
+    }
+    &_members_list {
+        ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            overflow: auto;
+            height: 350px;
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #c1c1c1;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #5570f1;
+            }
+        }
+    }
+}
+.stats_block {
+    width: 450px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    background: var(--overview-stats-item-bg-color);
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 10px;
+    justify-content: space-between;
+    &_upper {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+        span {
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            text-align: center;
+        }
+    }
+    &_bottom {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &_center {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.stats_item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    p {
+        color: var(--primary-color);
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+        text-align: center;
+    }
+    span {
+        color: var(--link-color);
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+.stats_progressbar {
+    width: 300px;
+    background-color: #e4e4e4;
+    border-radius: 5px;
+    overflow: hidden;
+    &_line {
+        height: 10px;
+        background-color: #5570f1;
+        text-align: center;
+        line-height: 10px;
+        color: white;
+    }
+    &_text {
+        background: none;
+        font-size: 14px;
+        color: #313131;
+        font-weight: 500;
+    }
+}

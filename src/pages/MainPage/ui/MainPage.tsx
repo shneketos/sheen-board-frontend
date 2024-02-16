@@ -1,9 +1,4 @@
 import React from "react";
-import { Sidebar } from "widgets/Sidebar";
-const MainPage = () => (
-    <>
-        <Sidebar />
-    </>
-);
+const MainPage = () => <> </>;
 
 export default MainPage;

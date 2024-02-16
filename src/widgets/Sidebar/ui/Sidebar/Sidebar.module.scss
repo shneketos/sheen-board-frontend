@@ -22,6 +22,9 @@
     rotate: 180deg;
     transition: 0.3s rotate;
 }
+.sidebar_content {
+    width: 100%;
+}
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
@@ -30,4 +33,7 @@
         rotate: 0deg;
         transition: 0.3s rotate;
     }
+}
+.hidden {
+    display: none;
 }

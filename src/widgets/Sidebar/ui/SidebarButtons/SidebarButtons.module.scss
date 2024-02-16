@@ -1,0 +1,41 @@
+.sidebar_buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    gap: 7px;
+    svg {
+        flex: none;
+    }
+    button {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0 5px 0 5px;
+        border-radius: 7px;
+    }
+    span {
+        font-weight: 500;
+    }
+    &_settings {
+        &:hover {
+            background-color: var(--header-modal-btn-hover-settings-color);
+        }
+
+        span {
+            color: var(--link-color);
+            overflow: hidden;
+        }
+    }
+    &_logout {
+        &:hover {
+            background-color: var(--header-modal-btn-hover-logout-color);
+        }
+
+        span {
+            color: red;
+            overflow: hidden;
+        }
+    }
+}

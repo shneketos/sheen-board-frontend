@@ -5,12 +5,9 @@ import MoreIcon from "shared/assets/icons/more.svg";
 import LogoutIcon from "shared/assets/icons/logout.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import type { DashboardCardType } from "entities/Dashboard/model/types/DashboardCard";
 
-interface ICard {
-    id: string;
-    name: string;
-}
-export const DashboardCard = (props: ICard) => {
+export const DashboardCard = (props: DashboardCardType) => {
     const { id, name } = props;
 
     const [showMore, setShowMore] = React.useState(false);

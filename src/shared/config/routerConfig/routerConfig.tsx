@@ -1,4 +1,5 @@
 import { Dashboard } from "pages/Dashboard";
+import { KanbanPage } from "pages/KanbanPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { OverviewPage } from "pages/OverviewPage";
@@ -13,6 +14,7 @@ export enum AppRoutes {
     NOTFOUND = "notfound",
     DASHBOARD = "dashboard",
     OVERVIEW = "overview",
+    KANBAN = "kanban",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
@@ -20,8 +22,10 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.SIGNIN]: "/signin",
     [AppRoutes.SIGNUP]: "/signup",
     [AppRoutes.DASHBOARD]: "/dashboard",
-    [AppRoutes.OVERVIEW]: "/dashboard/:id/overview", // Use :id to indicate a dynamic parameter
-    [AppRoutes.NOTFOUND]: "*", // It's common to us
+    [AppRoutes.OVERVIEW]: "/dashboard/:id/overview",
+    [AppRoutes.KANBAN]: "/dashboard/:id/kanban",
+    ///
+    [AppRoutes.NOTFOUND]: "*",
 };
 
 export const RoutesConfig: Record<AppRoutes, RouteProps> = {
@@ -44,6 +48,10 @@ export const RoutesConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.OVERVIEW]: {
         path: RouterPath.overview,
         element: <OverviewPage />,
+    },
+    [AppRoutes.KANBAN]: {
+        path: RouterPath.kanban,
+        element: <KanbanPage />,
     },
     /// ////////
     [AppRoutes.NOTFOUND]: {
