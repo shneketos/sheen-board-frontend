@@ -4,7 +4,7 @@ import { DashboardCard } from "entities/Dashboard";
 import { DashboardCreateCard } from "entities/Dashboard/ui/DashboardCreateCard";
 import { Sidebar } from "widgets/Sidebar";
 
-export const Dashboard = () => {
+export const DashboardPage = () => {
     const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
     return (
         <>
@@ -15,7 +15,7 @@ export const Dashboard = () => {
                         <p>Hello,User!</p>
                         <span>Choose workspace</span>
                     </div>
-                    <div className={styles.daboard_bottom}>
+                    <div className={styles.dashboard_bottom}>
                         {test.map((card) => (
                             <DashboardCard
                                 id={card.id}
@@ -31,4 +31,4 @@ export const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default DashboardPage;

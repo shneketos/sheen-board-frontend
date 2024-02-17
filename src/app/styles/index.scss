@@ -3,10 +3,13 @@
 @import "./themes/light";
 @import "./themes/dark";
 
-.app {
+body {
     font: var(--font-m);
-    background: var(--bg-color);
     color: var(--primary-color);
+}
+
+.app {
+    background: var(--bg-color);
     min-height: 100vh;
 }
 
@@ -20,6 +23,5 @@
     background: var(--bg-color);
     padding: 10px;
     overflow: auto;
-    margin-bottom: 20px;
     width: calc(100vw - var(--sidebar-width));
 }

@@ -1,7 +1,5 @@
 import styles from "./Header.module.scss";
 import Slogo from "shared/assets/icons/Slogo.png";
-import Settings from "shared/assets/icons/settings.svg";
-import Logout from "shared/assets/icons/logout.svg";
 import React from "react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 

@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-
+import "app/styles/index.scss";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./app/providers/themeProvider";
 import App from "app/App";
@@ -10,5 +10,5 @@ root.render(
         <ThemeProvider>
             <App />
         </ThemeProvider>
-    </BrowserRouter>,
+    </BrowserRouter>
 );

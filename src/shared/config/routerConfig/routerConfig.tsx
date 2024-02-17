@@ -1,8 +1,11 @@
-import { Dashboard } from "pages/Dashboard";
+import { BacklogPage } from "pages/BacklogPage";
+import { CalendarPage } from "pages/CalendarPage";
+import { Dashboard } from "pages/DashboardPage";
 import { KanbanPage } from "pages/KanbanPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { OverviewPage } from "pages/OverviewPage";
+import { RoadmapPage } from "pages/RoadmapPage";
 import { SigninPage } from "pages/SigninPage";
 import { SignupPage } from "pages/SignupPage";
 import { type RouteProps } from "react-router-dom";
@@ -15,6 +18,9 @@ export enum AppRoutes {
     DASHBOARD = "dashboard",
     OVERVIEW = "overview",
     KANBAN = "kanban",
+    BACKLOG = "backlog",
+    ROADMAP = "roadmap",
+    CALENDAR = "calendar",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
@@ -24,6 +30,10 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.DASHBOARD]: "/dashboard",
     [AppRoutes.OVERVIEW]: "/dashboard/:id/overview",
     [AppRoutes.KANBAN]: "/dashboard/:id/kanban",
+    [AppRoutes.BACKLOG]: "/dashboard/:id/backlog",
+    [AppRoutes.ROADMAP]: "/dashboard/:id/roadmap",
+    [AppRoutes.CALENDAR]: "/dashboard/:id/calendar",
+
     ///
     [AppRoutes.NOTFOUND]: "*",
 };
@@ -52,6 +62,18 @@ export const RoutesConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.KANBAN]: {
         path: RouterPath.kanban,
         element: <KanbanPage />,
+    },
+    [AppRoutes.BACKLOG]: {
+        path: RouterPath.backlog,
+        element: <BacklogPage />,
+    },
+    [AppRoutes.ROADMAP]: {
+        path: RouterPath.roadmap,
+        element: <RoadmapPage />,
+    },
+    [AppRoutes.CALENDAR]: {
+        path: RouterPath.calendar,
+        element: <CalendarPage />,
     },
     /// ////////
     [AppRoutes.NOTFOUND]: {

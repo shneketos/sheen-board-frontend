@@ -22,11 +22,13 @@ export const Sidebar = () => {
             className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}
         >
             <div className={styles.sidebar_content}>
-                <div className={styles.sidebar_workspace}>
-                    <SidebarList id={id} />
-                </div>
+                {isWorkSpace && (
+                    <div className={styles.sidebar_workspace}>
+                        <SidebarList id={id} collapsed={collapsed} />
+                    </div>
+                )}
             </div>
-            <SidebarButtons />
+            <SidebarButtons collapsed={collapsed} />
             <div className={styles.sidebar_bottom}>
                 <Button
                     data-testid="sidebar-toggle"

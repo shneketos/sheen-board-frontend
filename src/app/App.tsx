@@ -1,12 +1,9 @@
-import "./styles/index.scss";
-import { useThemes } from "./providers/themeProvider";
 import { AppRouter } from "./providers/routerProvider";
 import { Header } from "widgets/Header";
 
 const App = () => {
-    const { theme } = useThemes();
     return (
-        <div className={`app ${theme}`}>
+        <div className="app">
             <Header authed={true} />
             <main className="content">
                 <AppRouter />

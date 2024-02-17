@@ -23,7 +23,7 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
     },
-    plugins: ["react", "@typescript-eslint"],
+    plugins: ["react", "@typescript-eslint", "react-hooks"],
     rules: {
         "@typescript-eslint/quotes": [2, "double"],
         "@typescript-eslint/indent": [2, 4],
@@ -39,5 +39,7 @@ module.exports = {
         "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/member-delimiter-style": "off",
         "@typescript-eslint/space-before-function-paren": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
     },
 };

@@ -97,6 +97,9 @@ devDependencies:
   eslint-plugin-react:
     specifier: ^7.33.2
     version: 7.33.2(eslint@8.56.0)
+  eslint-plugin-react-hooks:
+    specifier: 5.0.0-canary-a9cc32511-20240215
+    version: 5.0.0-canary-a9cc32511-20240215(eslint@8.56.0)
   file-loader:
     specifier: ^6.2.0
     version: 6.2.0(webpack@5.90.0)
@@ -4595,6 +4598,15 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
+    dependencies:
+      eslint: 8.56.0
+    dev: true
+
+  /eslint-plugin-react-hooks@5.0.0-canary-a9cc32511-20240215(eslint@8.56.0):
+    resolution: {integrity: sha512-iElS+aXL1X9cpvoeQeEmmUk+j5c9xAMx2k2/9jn8bN0PZwuVs4GMgafAFFE+/xpV6hRMTFOX7IBw/6hpNCKLxw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
     dependencies:
       eslint: 8.56.0
     dev: true

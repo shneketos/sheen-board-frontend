@@ -1,9 +1,9 @@
 import { lazy } from "react";
 
-export const DashboardAsync = lazy(
+export const RoadmapPageAsync = lazy(
     async () =>
         await new Promise((resolve) => {
             // @ts-expect-error:TEST
-            setTimeout(() => resolve(import("./Dashboard")), 1500);
+            setTimeout(() => resolve(import("./RoadmapPage")), 1500);
         })
 );

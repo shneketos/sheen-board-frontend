@@ -1,12 +1,12 @@
-.app.light {
+.app_light_theme {
     --bg-color: #f0f2f5;
     --primary-color: rgb(0 0 0);
-    --secondary-color: #5570f1;
+    --secondary-color: #222;
     --link-color: #5570f1;
     --invert-primary-color: rgb(25 0 255);
     --invert-secondary-color: rgb(81 199 219);
 
-    //header
+    // header
     --header-bg-color: rgb(255 255 255);
     --header-btn-color: white;
     --header-btn-bg-color: #5570f1;
@@ -15,20 +15,23 @@
     --header-btn-inverted-bg-color: white;
     --header-btn-inverted-border-color: #5570f1;
 
-    //header modal
+    // header modal
     --header-modal-bg-color: white;
     --header-modal-settings-color: black;
     --header-modal-btn-hover-settings-color: rgb(0 0 0 / 4.8%);
     --header-modal-btn-hover-logout-color: rgb(255 0 0 / 4.8%);
 
-    //sidebar
+    // sidebar
     --sidebar-bg-color: #f7f8f9;
     --sidebar-bottom-color: rgb(255 255 255);
     --auth-bg-color: rgb(255 255 255);
+    --sidebar-active-bg-color: #e6f4ff;
+    --sidebar-active-color: #1677ff;
 
-    //dashboard
+    // dashboard
     --dashboard-card-bg-color: white;
     --dashoard-card-border-color: #5570f1;
-    //overview
+
+    // overview
     --overview-stats-item-bg-color: white;
 }

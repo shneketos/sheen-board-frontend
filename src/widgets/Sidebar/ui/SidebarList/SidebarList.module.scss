@@ -5,26 +5,3 @@
     margin-top: 20px;
     gap: 7px;
 }
-.sidebar_list_item {
-    a {
-        svg {
-            flex: none;
-        }
-
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 0 5px 0 5px;
-        border-radius: 7px;
-        &:hover {
-            background-color: var(--header-modal-btn-hover-settings-color);
-        }
-        span {
-            overflow: hidden;
-
-            font-weight: 500;
-
-            color: var(--link-color);
-        }
-    }
-}

@@ -5,29 +5,38 @@
     bottom: 70px;
     width: 100%;
     gap: 7px;
+
     svg {
         flex: none;
     }
+
     button {
         display: flex;
         align-items: center;
         gap: 5px;
-        padding: 0 5px 0 5px;
+        padding: 0 5px;
         border-radius: 7px;
+        height: 40px;
     }
+
     span {
-        font-weight: 500;
+        font-weight: 400;
+        font-size: 20px;
     }
+
     &_settings {
+        fill: var(--primary-color);
+
         &:hover {
             background-color: var(--header-modal-btn-hover-settings-color);
         }
 
         span {
-            color: var(--link-color);
+            color: var(--primary-color);
             overflow: hidden;
         }
     }
+
     &_logout {
         &:hover {
             background-color: var(--header-modal-btn-hover-logout-color);
@@ -37,5 +46,12 @@
             color: red;
             overflow: hidden;
         }
+    }
+}
+
+.collapsed {
+    button {
+        padding: 0 25px 0 18px;
+        transition: 0.4s all ease;
     }
 }
