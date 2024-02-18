@@ -7,9 +7,11 @@ import TrashcanIcon from "shared/assets/icons/trashcan.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { KanbanRowAddItem } from "../../KanbanRowAddItem";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
+import { Modal } from "shared/ui/modal/Modal";
 
 export const KanbanRow = () => {
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
+    const [editTitle, setEditTitle] = React.useState(false);
     return (
         <div className={styles.row}>
             <div className={styles.row_top}>
@@ -36,6 +38,7 @@ export const KanbanRow = () => {
                                         className={
                                             styles.row_modal_wrapper_edit
                                         }
+                                        onClick={() => setEditTitle(true)}
                                     >
                                         <PencilIcon width={15} height={15} />
                                         <span>Edit title</span>
@@ -72,6 +75,9 @@ export const KanbanRow = () => {
                     </div>
                 </div>
             </div>
+            <Modal isOpen={editTitle} onClose={() => setEditTitle(false)}>
+                <div>edit title</div>
+            </Modal>
             <div className={styles.row_items}>
                 <KanbanRowItem priority="low" />
                 <KanbanRowItem priority="medium" />

@@ -7,19 +7,30 @@ import TrashcanIcon from "shared/assets/icons/trashcan.svg";
 
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
+import { Modal } from "shared/ui/modal/Modal";
 
 interface KanbanRowItemProps {
     priority: string;
 }
 
 export const KanbanRowItem = (props: KanbanRowItemProps) => {
+    const info = {
+        title: "Title exmaple",
+        desc: "descasfasfasfasfasfasfasfasfasf",
+    };
     const { priority } = props;
+    const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     return (
         <div className={styles.row_item_wrapper}>
             <div className={styles.row_item}>
                 <div className={styles.row_item_top}>
-                    <p className={styles.row_item_top_title}>Title exmaple</p>
+                    <p
+                        className={styles.row_item_top_title}
+                        onClick={() => setCardOpened(true)}
+                    >
+                        {info.title}
+                    </p>
                     <Button
                         theme={ButtonTheme.CLEAR}
                         className={styles.row_item_top_btn}
@@ -38,6 +49,7 @@ export const KanbanRowItem = (props: KanbanRowItemProps) => {
                                     className={
                                         styles.row_item_modal_wrapper_view
                                     }
+                                    onClick={() => setCardOpened(true)}
                                 >
                                     <EyeIcon width={15} height={15} />
                                     <span>View card</span>
@@ -77,6 +89,12 @@ export const KanbanRowItem = (props: KanbanRowItemProps) => {
                     </div>
                 </div>
             </div>
+            <Modal isOpen={cardOpened} onClose={() => setCardOpened(false)}>
+                <div className={styles.cardOpened}>
+                    <div> {info.title}</div>
+                    <div> {info.desc}</div>
+                </div>
+            </Modal>
         </div>
     );
 };
