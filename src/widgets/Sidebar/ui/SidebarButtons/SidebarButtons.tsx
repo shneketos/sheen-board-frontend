@@ -26,7 +26,11 @@ export const SidebarButtons = (props: sidebarListProps) => {
             >
                 <SettingsIcon width={20} height={20} />
                 <span>Settings</span>
-                {collapsed && showSettings && <InfoModal>Settings</InfoModal>}
+                {collapsed && showSettings && (
+                    <InfoModal className={styles.sidebar_buttons_modal}>
+                        Settings
+                    </InfoModal>
+                )}
             </Button>
             <Button
                 theme={ButtonTheme.CLEAR}
@@ -36,7 +40,11 @@ export const SidebarButtons = (props: sidebarListProps) => {
             >
                 <LogoutIcon width={20} height={20} />
                 <span>Logout</span>
-                {collapsed && showLogout && <InfoModal>Logout</InfoModal>}
+                {collapsed && showLogout && (
+                    <InfoModal className={styles.sidebar_buttons_modal}>
+                        Logout
+                    </InfoModal>
+                )}
             </Button>
         </div>
     );
