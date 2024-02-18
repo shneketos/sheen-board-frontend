@@ -28,7 +28,11 @@ export const SidebarItem = (props: sidebarListProps) => {
             >
                 <Icon width={20} height={20} />
                 <span>{name}</span>
-                {collapsed && showInfo && <InfoModal>{name}</InfoModal>}
+                {collapsed && showInfo && (
+                    <InfoModal className={styles.sidebar_list_item_modal}>
+                        {name}
+                    </InfoModal>
+                )}
             </AppLink>
         </li>
     );

@@ -3,7 +3,6 @@ import styles from "./KanbanRow.module.scss";
 import { KanbanRowItem } from "../../KanbanRowItem";
 import MoreIcon from "shared/assets/icons/more.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import PlusIcon from "shared/assets/icons/plus.svg";
 import { KanbanRowAddItem } from "../../KanbanRowAddItem";
 
 export const KanbanRow = () => {
@@ -18,12 +17,6 @@ export const KanbanRow = () => {
                             theme={ButtonTheme.CLEAR}
                         >
                             <MoreIcon width={16} height={16} />
-                        </Button>
-                        <Button
-                            className={styles.row_top_btn}
-                            theme={ButtonTheme.CLEAR}
-                        >
-                            <PlusIcon width={16} height={16} />
                         </Button>
                     </div>
                 </div>

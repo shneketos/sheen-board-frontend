@@ -2,13 +2,19 @@ import React from "react";
 import styles from "./KanbanRowItem.module.scss";
 import MoreIcon from "shared/assets/icons/more.svg";
 import ClockIcon from "shared/assets/icons/clock.svg";
+import EyeIcon from "shared/assets/icons/eye.svg";
+import TrashcanIcon from "shared/assets/icons/trashcan.svg";
+
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { InfoModal } from "shared/ui/InfoModal/InfoModal";
+
 interface KanbanRowItemProps {
     priority: string;
 }
 
 export const KanbanRowItem = (props: KanbanRowItemProps) => {
     const { priority } = props;
+    const [rowModalOpened, setRowModalOpened] = React.useState(false);
     return (
         <div className={styles.row_item_wrapper}>
             <div className={styles.row_item}>
@@ -17,9 +23,41 @@ export const KanbanRowItem = (props: KanbanRowItemProps) => {
                     <Button
                         theme={ButtonTheme.CLEAR}
                         className={styles.row_item_top_btn}
+                        onClick={() => setRowModalOpened(!rowModalOpened)}
                     >
                         <MoreIcon width={15} height={15} />
                     </Button>
+                    {rowModalOpened && (
+                        <InfoModal className={styles.row_item_modal}>
+                            <div
+                                className={styles.row_item_modal_wrapper}
+                                onMouseLeave={() => setRowModalOpened(false)}
+                            >
+                                <Button
+                                    theme={ButtonTheme.CLEAR}
+                                    className={
+                                        styles.row_item_modal_wrapper_view
+                                    }
+                                >
+                                    <EyeIcon width={15} height={15} />
+                                    <span>View card</span>
+                                </Button>
+                                <Button
+                                    theme={ButtonTheme.CLEAR}
+                                    className={
+                                        styles.row_item_modal_wrapper_delete
+                                    }
+                                >
+                                    <TrashcanIcon
+                                        width={15}
+                                        height={15}
+                                        fill="red"
+                                    />
+                                    <span>Delete card</span>
+                                </Button>
+                            </div>
+                        </InfoModal>
+                    )}
                 </div>
                 <div className={styles.row_item_bottom}>
                     <span

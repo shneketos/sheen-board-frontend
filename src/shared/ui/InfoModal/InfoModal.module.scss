@@ -1,25 +1,13 @@
 .info {
     position: absolute;
-    width: 100px;
-    height: 40px;
-    background: var(--invert-primary-color);
-    right: -111px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.418);
     z-index: var(--siderbar-info-z-index);
+    background: var(--invert-primary-color);
 }
+
 .info_wrapper {
     color: var(--primary-color);
     font-weight: 500;
-}
-.info::after {
-    content: "";
-    position: absolute;
-    border: 10px solid transparent;
-    border-right: 10px solid var(--invert-primary-color);
-    left: -19px;
-    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
