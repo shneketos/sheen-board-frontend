@@ -4,7 +4,7 @@ import React from "react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 
 export const Header = ({ authed }: { authed: boolean }) => {
-    const userName = "Alisson";
+    const userName = "Sheeeen";
     const initials = userName.split(" ");
     const [open, setOpen] = React.useState(false);
     return (

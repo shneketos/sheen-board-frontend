@@ -1,8 +1,17 @@
 import React from "react";
-interface KanbanContentProps {
-    type: string;
-}
-export const KanbanContent = (props: KanbanContentProps) => {
-    const { type } = props;
-    return <div>{type}</div>;
+import styles from "./KanbanContent.module.scss";
+import { KanbanRow } from "../../KanbanRowStyle/KanbanRow";
+import { KanbanRowAddRow } from "../../KanbanRowStyle/KanbanRowAddRow/ui/KanbanRowAddRow";
+
+export const KanbanContent = () => {
+    return (
+        <div className={styles.kanban_content}>
+            <KanbanRow />
+            <KanbanRow />
+            <KanbanRow />
+            <KanbanRow />
+            <KanbanRow />
+            <KanbanRowAddRow />
+        </div>
+    );
 };
