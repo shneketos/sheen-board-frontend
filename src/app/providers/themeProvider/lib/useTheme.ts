@@ -12,8 +12,8 @@ export const useThemes = () => {
         setTheme(newTheme);
     };
     React.useEffect(() => {
-        document.body.className = theme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+        document.body.className = theme;
     }, [theme]);
     return {
         theme,
