@@ -6,6 +6,7 @@ import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { OverviewPage } from "pages/OverviewPage";
 import { RoadmapPage } from "pages/RoadmapPage";
+import { SettingsPage } from "pages/SettingsPage";
 import { SigninPage } from "pages/SigninPage";
 import { SignupPage } from "pages/SignupPage";
 import { type RouteProps } from "react-router-dom";
@@ -21,6 +22,7 @@ export enum AppRoutes {
     BACKLOG = "backlog",
     ROADMAP = "roadmap",
     CALENDAR = "calendar",
+    SETTINGS = "settings",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
@@ -33,7 +35,7 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.BACKLOG]: "/dashboard/:id/backlog",
     [AppRoutes.ROADMAP]: "/dashboard/:id/roadmap",
     [AppRoutes.CALENDAR]: "/dashboard/:id/calendar",
-
+    [AppRoutes.SETTINGS]: "/settings",
     ///
     [AppRoutes.NOTFOUND]: "*",
 };
@@ -74,6 +76,10 @@ export const RoutesConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.CALENDAR]: {
         path: RouterPath.calendar,
         element: <CalendarPage />,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: RouterPath.settings,
+        element: <SettingsPage />,
     },
     /// ////////
     [AppRoutes.NOTFOUND]: {
