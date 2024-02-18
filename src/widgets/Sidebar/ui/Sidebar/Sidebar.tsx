@@ -4,7 +4,7 @@ import Sidebar_arrow from "shared/assets/icons/sidebar_arrow.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
 import { useLocation, useParams } from "react-router-dom";
-import { SidebarList } from "../SidebarList/SidebarList";
+import { SidebarList } from "entities/Sidebar";
 import { SidebarButtons } from "../SidebarButtons/SidebarButtons";
 
 export const Sidebar = () => {

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./SidebarItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { useLocation } from "react-router-dom";
+import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 interface sidebarListProps {
     id: string;
     Icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -11,7 +12,7 @@ interface sidebarListProps {
 }
 export const SidebarItem = (props: sidebarListProps) => {
     const { id, Icon, name, to, collapsed } = props;
-
+    const [showInfo, setShowInfo] = React.useState(false);
     const location = useLocation();
     console.log(collapsed);
     return (
@@ -20,9 +21,14 @@ export const SidebarItem = (props: sidebarListProps) => {
                 collapsed ? styles.collapsed : ""
             } ${location.pathname.includes(`/${to}`) ? styles.active : ""}`}
         >
-            <AppLink to={`/dashboard/${id}/${to}`}>
+            <AppLink
+                to={`/dashboard/${id}/${to}`}
+                onMouseEnter={() => setShowInfo(true)}
+                onMouseLeave={() => setShowInfo(false)}
+            >
                 <Icon width={20} height={20} />
                 <span>{name}</span>
+                {collapsed && showInfo && <InfoModal>{name}</InfoModal>}
             </AppLink>
         </li>
     );

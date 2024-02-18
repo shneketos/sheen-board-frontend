@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Dashboard.module.scss";
-import { DashboardCard } from "entities/Dashboard";
-import { DashboardCreateCard } from "entities/Dashboard/ui/DashboardCreateCard";
+import { DashboardCard, DashboardCreateCard } from "entities/Dashboard";
 import { Sidebar } from "widgets/Sidebar";
 
 export const DashboardPage = () => {
