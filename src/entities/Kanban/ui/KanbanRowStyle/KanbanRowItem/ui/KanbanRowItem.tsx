@@ -8,17 +8,11 @@ import TrashcanIcon from "shared/assets/icons/trashcan.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
+import { EditKanbanCardForm } from "features/EditKanbanCard";
+import { type KanbanCardProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
 
-interface KanbanRowItemProps {
-    priority: string;
-}
-
-export const KanbanRowItem = (props: KanbanRowItemProps) => {
-    const info = {
-        title: "Title exmaple",
-        desc: "descasfasfasfasfasfasfasfasfasf",
-    };
-    const { priority } = props;
+export const KanbanRowItem = (props: KanbanCardProps) => {
+    const { id, title, desc, priority, date, rowId, rowTitle } = props;
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     return (
@@ -29,7 +23,7 @@ export const KanbanRowItem = (props: KanbanRowItemProps) => {
                         className={styles.row_item_top_title}
                         onClick={() => setCardOpened(true)}
                     >
-                        {info.title}
+                        {title}
                     </p>
                     <Button
                         theme={ButtonTheme.CLEAR}
@@ -84,16 +78,21 @@ export const KanbanRowItem = (props: KanbanRowItemProps) => {
                             height={18}
                         />
                         <span className={styles.row_item_bottom_due}>
-                            Feb 24
+                            {date}
                         </span>
                     </div>
                 </div>
             </div>
             <Modal isOpen={cardOpened} onClose={() => setCardOpened(false)}>
-                <div className={styles.cardOpened}>
-                    <div> {info.title}</div>
-                    <div> {info.desc}</div>
-                </div>
+                <EditKanbanCardForm
+                    rowId={rowId}
+                    rowTitle={rowTitle}
+                    title={title}
+                    desc={desc}
+                    id={id}
+                    priority={priority}
+                    date={date}
+                />
             </Modal>
         </div>
     );

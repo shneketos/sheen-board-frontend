@@ -8,15 +8,17 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { KanbanRowAddItem } from "../../KanbanRowAddItem";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
+import { type KanbanRowProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
 
-export const KanbanRow = () => {
+export const KanbanRow = (props: KanbanRowProps) => {
+    const { id, title, cards } = props;
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     const [editTitle, setEditTitle] = React.useState(false);
     return (
         <div className={styles.row}>
             <div className={styles.row_top}>
                 <div className={styles.row_top_wrapper}>
-                    <p className={styles.row_top_title}>Row Title</p>
+                    <p className={styles.row_top_title}>{title}</p>
                     <div className={styles.row_top_buttons}>
                         <Button
                             className={styles.row_top_btn}
@@ -79,9 +81,18 @@ export const KanbanRow = () => {
                 <div>edit title</div>
             </Modal>
             <div className={styles.row_items}>
-                <KanbanRowItem priority="low" />
-                <KanbanRowItem priority="medium" />
-                <KanbanRowItem priority="high" />
+                {cards.map((card) => (
+                    <KanbanRowItem
+                        rowId={id}
+                        rowTitle={title}
+                        key={card.id}
+                        id={card.id}
+                        desc={card.desc}
+                        priority={card.priority}
+                        title={card.title}
+                        date={card.date}
+                    />
+                ))}
             </div>
             <div className={styles.row_add}>
                 <KanbanRowAddItem />

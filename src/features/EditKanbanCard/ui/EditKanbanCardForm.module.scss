@@ -1,0 +1,88 @@
+.form {
+    width: 500px;
+    height: 700px;
+    position: relative;
+}
+.form_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    height: 55px;
+    &_left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    &_right {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.form_center {
+    display: flex;
+    flex-direction: column;
+    &_row {
+        padding: 15px 0;
+        display: flex;
+
+        border-bottom: 1px solid black;
+    }
+    &_desc {
+        padding: 15px 0;
+        display: flex;
+        span {
+            height: 200px;
+        }
+        border-bottom: 1px solid black;
+    }
+    &_priority {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid black;
+
+        span {
+            width: 140px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .low {
+            background: #5fff81;
+            color: black;
+        }
+        .medium {
+            background: #fdfb60;
+            color: black;
+        }
+        .high {
+            background: #fd6060;
+            color: black;
+        }
+    }
+    &_due {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid black;
+    }
+}
+.form_bottom {
+    position: absolute;
+    bottom: 10px;
+
+    &_delete {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        background: #fdb1b1;
+        border-radius: 7px;
+        gap: 5px;
+    }
+}
