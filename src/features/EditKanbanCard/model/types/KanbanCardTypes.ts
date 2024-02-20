@@ -10,5 +10,5 @@ export interface KanbanCardProps {
 export interface KanbanRowProps {
     id: number;
     title: string;
-    cards: KanbanCardProps[];
+    cards?: KanbanCardProps[];
 }

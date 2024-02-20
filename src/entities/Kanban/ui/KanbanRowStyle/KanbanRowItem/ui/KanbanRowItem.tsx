@@ -83,17 +83,19 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
                     </div>
                 </div>
             </div>
-            <Modal isOpen={cardOpened} onClose={() => setCardOpened(false)}>
-                <EditKanbanCardForm
-                    rowId={rowId}
-                    rowTitle={rowTitle}
-                    title={title}
-                    desc={desc}
-                    id={id}
-                    priority={priority}
-                    date={date}
-                />
-            </Modal>
+            {cardOpened && (
+                <Modal isOpen={cardOpened} onClose={() => setCardOpened(false)}>
+                    <EditKanbanCardForm
+                        rowId={rowId}
+                        rowTitle={rowTitle}
+                        title={title}
+                        desc={desc}
+                        id={id}
+                        priority={priority}
+                        date={date}
+                    />
+                </Modal>
+            )}
         </div>
     );
 };

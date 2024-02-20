@@ -5,6 +5,7 @@
     align-items: center;
     border-radius: 7px;
     position: relative;
+
     &:hover {
         background-color: var(--header-modal-btn-hover-settings-color);
     }
@@ -31,6 +32,7 @@
         }
     }
 }
+
 .sidebar_list_item_modal {
     width: 100px;
     height: 40px;
@@ -39,7 +41,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.418);
+    box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
+
     &::after {
         content: "";
         position: absolute;

@@ -1,0 +1,35 @@
+.form {
+    width: 500px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.form_center {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 20px;
+    border-bottom: 1px solid black;
+    gap: 15px;
+
+    .input {
+        width: 100%;
+    }
+}
+
+.form_bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 20px;
+    height: 100%;
+}

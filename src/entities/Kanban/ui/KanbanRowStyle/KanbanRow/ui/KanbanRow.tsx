@@ -9,6 +9,7 @@ import { KanbanRowAddItem } from "../../KanbanRowAddItem";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
 import { type KanbanRowProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
+import { EditKanbanRowTitleForm } from "features/EditKanbanRowTitle";
 
 export const KanbanRow = (props: KanbanRowProps) => {
     const { id, title, cards } = props;
@@ -77,9 +78,11 @@ export const KanbanRow = (props: KanbanRowProps) => {
                     </div>
                 </div>
             </div>
-            <Modal isOpen={editTitle} onClose={() => setEditTitle(false)}>
-                <div>edit title</div>
-            </Modal>
+            {editTitle && (
+                <Modal isOpen={editTitle} onClose={() => setEditTitle(false)}>
+                    <EditKanbanRowTitleForm id={id} title={title} />
+                </Modal>
+            )}
             <div className={styles.row_items}>
                 {cards.map((card) => (
                     <KanbanRowItem
@@ -95,7 +98,7 @@ export const KanbanRow = (props: KanbanRowProps) => {
                 ))}
             </div>
             <div className={styles.row_add}>
-                <KanbanRowAddItem />
+                <KanbanRowAddItem id={id} title={title} />
             </div>
         </div>
     );

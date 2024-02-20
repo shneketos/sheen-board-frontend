@@ -3,7 +3,10 @@ import styles from "./KanbanRowAddItem.module.scss";
 import PlusIcon from "shared/assets/icons/plus.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
-export const KanbanRowAddItem = () => {
+import { type KanbanRowProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
+import { AddKanbanCard } from "features/AddKanbanCard";
+export const KanbanRowAddItem = (props: KanbanRowProps) => {
+    const { id, title } = props;
     const [openAdd, setOpenAdd] = React.useState(false);
     return (
         <>
@@ -15,9 +18,11 @@ export const KanbanRowAddItem = () => {
                 <PlusIcon width={16} height={16} />
                 <span>Add New Task</span>
             </Button>
-            <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
-                <div>DOBAVIT TASK</div>
-            </Modal>
+            {openAdd && (
+                <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
+                    <AddKanbanCard id={id} title={title} />
+                </Modal>
+            )}
         </>
     );
 };

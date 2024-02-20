@@ -7,48 +7,57 @@
     align-items: center;
     position: relative;
 }
+
 .row_top {
     background: transparent;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgb(0 0 0 / 15%);
     width: 268px;
+
     svg {
         fill: black;
     }
+
     &_title {
         font-size: 18px;
     }
+
     &_btn {
-        display: flex;
         height: 30px;
         width: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
+
         &:hover {
             background: gray;
             border-radius: 15px;
         }
     }
 }
+
 .row_top_wrapper {
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .row_top_buttons {
     display: flex;
     align-items: center;
     gap: 15px;
 }
+
 .row_items {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
 .row_add {
     width: 260px;
 }
+
 .row_modal {
     width: 165px;
     height: 100px;
@@ -58,7 +67,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.418);
+    box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
+
     &::after {
         content: "";
         position: absolute;
@@ -68,11 +78,13 @@
         top: -16px;
     }
 }
+
 .row_modal_wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 5px;
+
     button {
         display: flex;
         align-items: center;
@@ -82,35 +94,43 @@
         padding: 0 10px;
         border-radius: 7px;
     }
+
     span {
         font-size: 15px;
         font-weight: 400;
     }
+
     &_edit {
         &:hover {
-            background: rgb(197, 197, 197);
+            background: rgb(197 197 197);
         }
     }
+
     &_delete_cards {
         span {
             color: red;
         }
+
         svg {
             fill: red;
         }
+
         &:hover {
-            background: rgb(255, 161, 161);
+            background: rgb(255 161 161);
         }
     }
+
     &_delete_row {
         span {
             color: red;
         }
+
         svg {
             fill: red;
         }
+
         &:hover {
-            background: rgb(255, 161, 161);
+            background: rgb(255 161 161);
         }
     }
 }
