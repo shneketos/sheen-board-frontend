@@ -1,30 +1,13 @@
+import { DashboardContent } from "entities/Dashboard/ui/DashboardContent";
 import React from "react";
-import styles from "./Dashboard.module.scss";
-import { DashboardCard, DashboardCreateCard } from "entities/Dashboard";
 import { Sidebar } from "widgets/Sidebar";
 
 export const DashboardPage = () => {
-    const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
     return (
         <>
             <Sidebar />
             <section className="content__wrapper">
-                <div className={styles.dashboard}>
-                    <div className={styles.dashboard_meet}>
-                        <p>Hello,User!</p>
-                        <span>Choose workspace</span>
-                    </div>
-                    <div className={styles.dashboard_bottom}>
-                        {test.map((card) => (
-                            <DashboardCard
-                                id={card.id}
-                                name={card.name}
-                                key={card.id}
-                            />
-                        ))}
-                        <DashboardCreateCard />
-                    </div>
-                </div>
+                <DashboardContent />
             </section>
         </>
     );
