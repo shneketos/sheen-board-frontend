@@ -1,4 +1,4 @@
-import { DashboardContent } from "entities/Dashboard/ui/DashboardContent";
+import { DashboardContent } from "entities/Dashboard";
 import React from "react";
 import { Sidebar } from "widgets/Sidebar";
 

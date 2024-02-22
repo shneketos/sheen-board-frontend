@@ -5,7 +5,7 @@ import BoardIcon from "shared/assets/icons/kanban.svg";
 import BacklogIcon from "shared/assets/icons/backlog.svg";
 import RoadmapIcon from "shared/assets/icons/roadmap.svg";
 import CalendarIcon from "shared/assets/icons/calendar.svg";
-import { SidebarItem } from "../../SidebarItem";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface sidebarListProps {
     id: string;

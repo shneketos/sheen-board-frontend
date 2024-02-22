@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./DashboardContent.module.scss";
-import { DashboardCard } from "../../DashboardCard";
-import { DashboardCreateCard } from "../../DashboardCreateCard";
+import { DashboardCard } from "../DashboardCard/DashboardCard";
+import { DashboardCreateCard } from "../DashboardCreateCard/DashboardCreateCard";
 export const DashboardContent = () => {
     const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
 

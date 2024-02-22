@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./KanbanContent.module.scss";
-import { KanbanRow } from "../../KanbanRowStyle/KanbanRow";
-import { KanbanRowAddRow } from "../../KanbanRowStyle/KanbanRowAddRow/ui/KanbanRowAddRow";
+import { KanbanRow } from "../KanbanRowStyle/KanbanRow/KanbanRow";
+import { KanbanRowAddRow } from "../KanbanRowStyle/KanbanRowAddRow/KanbanRowAddRow";
 
 export const KanbanContent = () => {
     const kanbanData = [
