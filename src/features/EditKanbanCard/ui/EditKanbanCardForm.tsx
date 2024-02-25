@@ -6,11 +6,11 @@ import PriorityIcon from "shared/assets/icons/priority.svg";
 import ClockIcon from "shared/assets/icons/clock.svg";
 import FlagIcon from "shared/assets/icons/flag.svg";
 import TrashcanIcon from "shared/assets/icons/trashcan.svg";
-
 import { type KanbanCardProps } from "entities/Kanban";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
 import { TextArea } from "shared/ui/TextArea/TextArea";
+import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 interface EditKanbanCardProps extends KanbanCardProps {
     onClose: () => void;
 }
@@ -18,8 +18,12 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const { id, title, desc, priority, date, rowTitle, onClose } = props;
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(desc);
+    const [newStage, setNewStage] = useState(rowTitle);
     const [newPriority, setNewPriority] = useState(priority);
     const [isEditing, setIsEditing] = useState(false);
+    const [StageEditing, setStageEditing] = useState(false);
+    const [PriorityEditing, setPriorityEditing] = useState(false);
+
     const onClickSave = () => {
         console.log(
             `saved with ${newTitle},${newDesc},${newPriority} in ${rowTitle}`
@@ -29,11 +33,16 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
         console.log(`deleted ${id} in ${rowTitle}`);
     };
     const onClickDiscard = () => {
+        setStageEditing(false);
+        setPriorityEditing(false);
         setIsEditing(false);
         setNewTitle(title);
         setNewDesc(desc);
+        setNewStage(rowTitle);
         setNewPriority(priority);
     };
+
+    const ArrayTitles = ["TO do", "in progres", "done", "active", "active"];
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
@@ -60,8 +69,34 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                     <span className={styles.form_info}>Stage</span>
                     <div className={styles.stageBlock}>
                         <FlagIcon width={22} height={22} />
-                        <span>{rowTitle}</span>
+                        <Button
+                            theme={ButtonTheme.CLEAR}
+                            onClick={() => {
+                                isEditing && setStageEditing(!StageEditing);
+                            }}
+                        >
+                            {newStage}
+                        </Button>
                     </div>
+                    {StageEditing ? (
+                        <InfoModal className={styles.stage_modal}>
+                            <ul onMouseLeave={() => setStageEditing(false)}>
+                                {ArrayTitles.map((item) => (
+                                    <li
+                                        key={item}
+                                        onClick={() => {
+                                            setNewStage(item);
+                                            setStageEditing(false);
+                                        }}
+                                    >
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </InfoModal>
+                    ) : (
+                        ""
+                    )}
                 </div>
                 <div className={styles.form_center_desc}>
                     <span className={styles.form_info}>Desc</span>
@@ -83,11 +118,60 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
 
                     <div className={styles.priorityBlock}>
                         <PriorityIcon width={22} height={22} />
-                        <span
-                            className={`${styles[priority]} ${styles.priority}`}
+                        <Button
+                            theme={ButtonTheme.CLEAR}
+                            onClick={() => {
+                                isEditing &&
+                                    setPriorityEditing(!PriorityEditing);
+                            }}
+                            className={`${styles[newPriority]} ${styles.priority}`}
                         >
-                            {priority}
-                        </span>
+                            {newPriority}
+                        </Button>
+                        {PriorityEditing && (
+                            <InfoModal className={styles.priority_modal}>
+                                <div
+                                    className={styles.priority_modal_wrapper}
+                                    onMouseLeave={() =>
+                                        setPriorityEditing(false)
+                                    }
+                                >
+                                    <span
+                                        onClick={() => {
+                                            setNewPriority("Low");
+                                            setPriorityEditing(false);
+                                        }}
+                                        className={
+                                            styles.priority_modal_wrapper_low
+                                        }
+                                    >
+                                        Low
+                                    </span>
+                                    <span
+                                        onClick={() => {
+                                            setNewPriority("Medium");
+                                            setPriorityEditing(false);
+                                        }}
+                                        className={
+                                            styles.priority_modal_wrapper_medium
+                                        }
+                                    >
+                                        Medium
+                                    </span>
+                                    <span
+                                        onClick={() => {
+                                            setNewPriority("High");
+                                            setPriorityEditing(false);
+                                        }}
+                                        className={
+                                            styles.priority_modal_wrapper_high
+                                        }
+                                    >
+                                        High
+                                    </span>
+                                </div>
+                            </InfoModal>
+                        )}
                     </div>
                 </div>
                 <div className={styles.form_center_due}>
