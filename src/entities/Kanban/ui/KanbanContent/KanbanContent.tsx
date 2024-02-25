@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./KanbanContent.module.scss";
 import { KanbanRowAddRow } from "../KanbanRowStyle/KanbanRowAddRow/KanbanRowAddRow";
 import { KanbanRow } from "../KanbanRowStyle/KanbanRow/KanbanRow";
+import { formatDate } from "shared/lib/FormatDate/FormatDate";
 
 export const KanbanContent = () => {
     const kanbanData = [
@@ -13,21 +14,21 @@ export const KanbanContent = () => {
                     id: 101,
                     title: "Task 1",
                     desc: "Complete feature Aasgasg \n aasgasasgasgasgasgagasgasgasgasgasg\naasgasasgasgasgasgagasgasgasgasgasg aasgasasgasgasgasgagasgasgasgasgasg",
-                    date: formatToMonthDay(new Date("2024-02-20")),
+                    date: formatDate(new Date("2024-02-23")),
                     priority: "Medium",
                 },
                 {
                     id: 102,
                     title: "Task 2",
                     desc: "Review code for bug fixes",
-                    date: formatToMonthDay(new Date("2024-02-22")),
+                    date: formatDate(new Date("2024-02-22")),
                     priority: "High",
                 },
                 {
                     id: 103,
                     title: "Task 3",
                     desc: "Create user documentation",
-                    date: formatToMonthDay(new Date("2024-02-25")),
+                    date: formatDate(new Date("2024-02-25")),
                     priority: "Low",
                 },
             ],
@@ -40,21 +41,21 @@ export const KanbanContent = () => {
                     id: 201,
                     title: "Task 4",
                     desc: "Implement login functionality",
-                    date: formatToMonthDay(new Date("2024-02-21")),
+                    date: formatDate(new Date("2024-02-21")),
                     priority: "High",
                 },
                 {
                     id: 202,
                     title: "Task 5",
                     desc: "Optimize database queries",
-                    date: formatToMonthDay(new Date("2024-02-24")),
+                    date: formatDate(new Date("2024-02-24")),
                     priority: "Medium",
                 },
                 {
                     id: 203,
                     title: "Task 6",
                     desc: "Fix UI responsiveness issues",
-                    date: formatToMonthDay(new Date("2024-02-27")),
+                    date: formatDate(new Date("2024-02-27")),
                     priority: "Low",
                 },
             ],
@@ -67,31 +68,26 @@ export const KanbanContent = () => {
                     id: 301,
                     title: "Task 7",
                     desc: "Deploy application to production",
-                    date: formatToMonthDay(new Date("2024-02-23")),
+                    date: formatDate(new Date("2024-02-23")),
                     priority: "Low",
                 },
                 {
                     id: 302,
                     title: "Task 8",
                     desc: "Conduct final testing",
-                    date: formatToMonthDay(new Date("2024-02-26")),
+                    date: formatDate(new Date("2024-02-26")),
                     priority: "Medium",
                 },
                 {
                     id: 303,
                     title: "Task 9",
                     desc: "Prepare release notes",
-                    date: formatToMonthDay(new Date("2024-02-28")),
+                    date: formatDate(new Date("2024-02-28")),
                     priority: "High",
                 },
             ],
         },
     ];
-    function formatToMonthDay(date: any) {
-        const month = date.toLocaleString("en-us", { month: "short" });
-        const day = date.getDate();
-        return `${month} ${day}`;
-    }
     return (
         <div className={styles.kanban_content}>
             {kanbanData.map((row) => (

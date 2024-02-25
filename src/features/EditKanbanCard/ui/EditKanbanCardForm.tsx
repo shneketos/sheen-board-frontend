@@ -23,7 +23,6 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [StageEditing, setStageEditing] = useState(false);
     const [PriorityEditing, setPriorityEditing] = useState(false);
-
     const onClickSave = () => {
         console.log(
             `saved with ${newTitle},${newDesc},${newPriority} in ${rowTitle}`

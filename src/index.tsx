@@ -3,6 +3,7 @@ import "app/styles/index.scss";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./app/providers/themeProvider";
 import App from "app/App";
+
 const root = createRoot(document.getElementById("root"));
 
 root.render(
