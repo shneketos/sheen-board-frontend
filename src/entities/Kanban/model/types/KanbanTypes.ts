@@ -11,4 +11,5 @@ export interface KanbanRowProps {
     id: number;
     title: string;
     cards?: KanbanCardProps[];
+    onClose?: () => void;
 }

@@ -1,4 +1,4 @@
-import { type KanbanRowProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
+import { type KanbanRowProps } from "entities/Kanban";
 import React from "react";
 import styles from "./AddKanbanCard.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg";
@@ -6,7 +6,7 @@ import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
 export const AddKanbanCard = (props: KanbanRowProps) => {
-    const { id, title } = props;
+    const { id, title, onClose } = props;
     console.log(title, id);
     const [titleValue, setTitleValue] = React.useState("");
 
@@ -16,8 +16,14 @@ export const AddKanbanCard = (props: KanbanRowProps) => {
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
-                <p>Add new card</p>
-                <CloseIcon width={20} height={20} />
+                <p>Add new task</p>
+                <Button
+                    className={styles.btn_close}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClose}
+                >
+                    <CloseIcon width={20} height={20} />
+                </Button>
             </div>
             <div className={styles.form_center}>
                 <span>Title</span>
@@ -25,11 +31,20 @@ export const AddKanbanCard = (props: KanbanRowProps) => {
                     className={styles.input}
                     value={titleValue}
                     onChange={onChangeTitle}
+                    placeholder="Enter title"
                 />
             </div>
             <div className={styles.form_bottom}>
-                <Button theme={ButtonTheme.DEFAULT}>Cancel</Button>
-                <Button theme={ButtonTheme.DEFAULT}>Save</Button>
+                <Button
+                    className={styles.btn_cancel}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClose}
+                >
+                    Cancel
+                </Button>
+                <Button className={styles.btn_save} theme={ButtonTheme.CLEAR}>
+                    Add
+                </Button>
             </div>
         </div>
     );

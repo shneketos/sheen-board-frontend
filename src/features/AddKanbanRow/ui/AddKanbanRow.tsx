@@ -4,7 +4,13 @@ import CloseIcon from "shared/assets/icons/close.svg";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
-export const AddKanbanRow = () => {
+interface addKanbanRowProps {
+    onClose: () => void;
+}
+
+export const AddKanbanRow = (props: addKanbanRowProps) => {
+    const { onClose } = props;
+
     const [titleValue, setTitleValue] = React.useState("");
 
     const onChangeTitle = (val: string) => {
@@ -13,8 +19,14 @@ export const AddKanbanRow = () => {
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
-                <p>Add new row</p>
-                <CloseIcon width={20} height={20} />
+                <p>Create new row</p>
+                <Button
+                    className={styles.btn_close}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClose}
+                >
+                    <CloseIcon width={20} height={20} />
+                </Button>
             </div>
             <div className={styles.form_center}>
                 <span>Title</span>
@@ -22,11 +34,20 @@ export const AddKanbanRow = () => {
                     className={styles.input}
                     value={titleValue}
                     onChange={onChangeTitle}
+                    placeholder="Enter title"
                 />
             </div>
             <div className={styles.form_bottom}>
-                <Button theme={ButtonTheme.DEFAULT}>Cancel</Button>
-                <Button theme={ButtonTheme.DEFAULT}>Save</Button>
+                <Button
+                    className={styles.btn_cancel}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClose}
+                >
+                    Cancel
+                </Button>
+                <Button className={styles.btn_save} theme={ButtonTheme.CLEAR}>
+                    Create
+                </Button>
             </div>
         </div>
     );

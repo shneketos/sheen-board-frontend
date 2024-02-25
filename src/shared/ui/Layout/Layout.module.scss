@@ -1,0 +1,7 @@
+.content_wrapper {
+    flex-grow: 1;
+    background: var(--bg-color);
+    padding: 10px;
+    overflow: auto;
+    width: calc(100vw - var(--sidebar-width));
+}

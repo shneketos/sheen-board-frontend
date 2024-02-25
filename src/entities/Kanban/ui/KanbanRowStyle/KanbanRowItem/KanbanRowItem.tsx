@@ -4,12 +4,11 @@ import MoreIcon from "shared/assets/icons/more.svg";
 import ClockIcon from "shared/assets/icons/clock.svg";
 import EyeIcon from "shared/assets/icons/eye.svg";
 import TrashcanIcon from "shared/assets/icons/trashcan.svg";
-
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanCardForm } from "features/EditKanbanCard";
-import { type KanbanCardProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
+import { type KanbanCardProps } from "entities/Kanban/model/types/KanbanTypes";
 
 export const KanbanRowItem = (props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;

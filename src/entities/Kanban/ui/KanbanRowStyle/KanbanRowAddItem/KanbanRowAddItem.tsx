@@ -3,7 +3,7 @@ import styles from "./KanbanRowAddItem.module.scss";
 import PlusIcon from "shared/assets/icons/plus.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
-import { type KanbanRowProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
+import { type KanbanRowProps } from "entities/Kanban/model/types/KanbanTypes";
 import { AddKanbanCard } from "features/AddKanbanCard";
 export const KanbanRowAddItem = (props: KanbanRowProps) => {
     const { id, title } = props;
@@ -20,7 +20,11 @@ export const KanbanRowAddItem = (props: KanbanRowProps) => {
             </Button>
             {openAdd && (
                 <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
-                    <AddKanbanCard id={id} title={title} />
+                    <AddKanbanCard
+                        id={id}
+                        title={title}
+                        onClose={() => setOpenAdd(false)}
+                    />
                 </Modal>
             )}
         </>

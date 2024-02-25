@@ -8,7 +8,7 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { KanbanRowAddItem } from "../KanbanRowAddItem/KanbanRowAddItem";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
-import { type KanbanRowProps } from "features/EditKanbanCard/model/types/KanbanCardTypes";
+import { type KanbanRowProps } from "entities/Kanban/model/types/KanbanTypes";
 import { EditKanbanRowTitleForm } from "features/EditKanbanRowTitle";
 import { KanbanRowItem } from "../KanbanRowItem/KanbanRowItem";
 
@@ -81,7 +81,11 @@ export const KanbanRow = (props: KanbanRowProps) => {
             </div>
             {editTitle && (
                 <Modal isOpen={editTitle} onClose={() => setEditTitle(false)}>
-                    <EditKanbanRowTitleForm id={id} title={title} />
+                    <EditKanbanRowTitleForm
+                        id={id}
+                        title={title}
+                        onClose={() => setEditTitle(false)}
+                    />
                 </Modal>
             )}
             <div className={styles.row_items}>

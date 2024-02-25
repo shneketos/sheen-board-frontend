@@ -19,7 +19,7 @@ export const KanbanRowAddRow = () => {
             </Button>
             {openAdd && (
                 <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
-                    <AddKanbanRow />
+                    <AddKanbanRow onClose={() => setOpenAdd(false)} />
                 </Modal>
             )}
         </>

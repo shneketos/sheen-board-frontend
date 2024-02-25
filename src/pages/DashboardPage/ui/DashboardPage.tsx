@@ -1,15 +1,12 @@
 import { DashboardContent } from "entities/Dashboard";
 import React from "react";
-import { Sidebar } from "widgets/Sidebar";
+import { Layout } from "shared/ui/Layout/Layout";
 
 export const DashboardPage = () => {
     return (
-        <>
-            <Sidebar />
-            <section className="content__wrapper">
-                <DashboardContent />
-            </section>
-        </>
+        <Layout>
+            <DashboardContent />
+        </Layout>
     );
 };
 
