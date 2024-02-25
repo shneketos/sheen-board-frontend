@@ -12,6 +12,7 @@
     align-items: center;
     padding-bottom: 20px;
     border-bottom: 1px solid #d9d9d9;
+
     .btn_close {
         width: 20px;
         height: 20px;
@@ -21,18 +22,20 @@
 .form_center {
     display: flex;
     flex-direction: column;
-    padding: 10px 10px 60px 10px;
+    padding: 10px 10px 60px;
     border-bottom: 1px solid #d9d9d9;
     gap: 25px;
+
     .input {
         width: 100%;
         padding: 10px;
         border-radius: 10px;
         border: 1px solid #d9d9d9;
+
         &:focus {
             outline: none;
             border-color: var(--link-color);
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.349); /* Тень при фокусе */
+            box-shadow: 0 0 5px rgb(0 123 255 / 34.9%); /* Тень при фокусе */
         }
     }
 }
@@ -43,6 +46,7 @@
     justify-content: flex-end;
     gap: 20px;
     height: 100%;
+
     .btn_cancel {
         padding: 6px;
         width: 65px;
@@ -50,12 +54,13 @@
         border: 1px solid #d9d9d9;
         border-radius: 7px;
     }
+
     .btn_save {
         width: 65px;
         padding: 6px;
         color: #fff;
         background: #1677ff;
-        box-shadow: 0 2px 0 rgba(229, 244, 255, 0.93);
+        box-shadow: 0 2px 0 rgb(229 244 255 / 93%);
         border: 1px solid #d9d9d9;
         border-radius: 7px;
     }
