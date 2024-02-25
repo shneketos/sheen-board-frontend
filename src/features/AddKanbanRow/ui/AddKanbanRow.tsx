@@ -5,7 +5,7 @@ import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
 interface addKanbanRowProps {
-    onClose: () => void;
+    onClose?: () => void;
 }
 
 export const AddKanbanRow = (props: addKanbanRowProps) => {
@@ -16,6 +16,10 @@ export const AddKanbanRow = (props: addKanbanRowProps) => {
     const onChangeTitle = (val: string) => {
         setTitleValue(val);
     };
+    const onClickCreate = () => {
+        console.log(`created row ${titleValue}`);
+    };
+
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
@@ -45,7 +49,11 @@ export const AddKanbanRow = (props: addKanbanRowProps) => {
                 >
                     Cancel
                 </Button>
-                <Button className={styles.btn_save} theme={ButtonTheme.CLEAR}>
+                <Button
+                    className={styles.btn_save}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClickCreate}
+                >
                     Create
                 </Button>
             </div>

@@ -2,62 +2,86 @@
     width: 500px;
     height: 700px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
+.form_info {
+    font-size: 12px;
+    color: gray;
+}
 .form_top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #d9d9d9;
     height: 55px;
+    padding: 0 0 15px 0;
 
     &_left {
         display: flex;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column;
+        height: 55px;
     }
 
     &_right {
         display: flex;
         align-items: center;
+        button {
+            width: 22px;
+            height: 22px;
+        }
     }
 }
 
 .form_center {
     display: flex;
     flex-direction: column;
-
-    &_row {
-        padding: 15px 0;
+    height: 600px;
+    &_stage {
+        padding: 0 0 15px 0;
         display: flex;
-        border-bottom: 1px solid black;
-    }
-
-    &_desc {
-        padding: 15px 0;
-        display: flex;
-
-        span {
-            height: 200px;
+        flex-direction: column;
+        border-bottom: 1px solid #d9d9d9;
+        .stageBlock {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        border-bottom: 1px solid black;
     }
-
+    &_desc {
+        padding: 0 0 15px 0;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #d9d9d9;
+        .descBlock {
+            display: flex;
+            gap: 10px;
+        }
+        .desc {
+            height: 260px;
+            font-size: 16px;
+            width: 460px;
+            overflow: auto;
+        }
+    }
     &_priority {
         display: flex;
-        gap: 20px;
-        align-items: center;
-        padding: 15px 0;
-        border-bottom: 1px solid black;
-
-        span {
+        flex-direction: column;
+        padding: 0 0 15px 0;
+        border-bottom: 1px solid #d9d9d9;
+        .priority {
             width: 140px;
             height: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 10px;
+        }
+        .priorityBlock {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .low {
@@ -75,26 +99,87 @@
             color: black;
         }
     }
-
     &_due {
         display: flex;
-        gap: 20px;
-        align-items: center;
-        padding: 15px 0;
-        border-bottom: 1px solid black;
+        padding: 0 0 15px 0;
+        border-bottom: 1px solid #d9d9d9;
+        flex-direction: column;
+    }
+    .dueBlock {
+        display: flex;
+        gap: 10px;
     }
 }
 
 .form_bottom {
-    position: absolute;
-    bottom: 10px;
-
-    &_delete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_right {
+        display: flex;
+        gap: 10px;
+    }
+    .btn_delete {
         display: flex;
         align-items: center;
         padding: 5px;
         background: #fdb1b1;
         border-radius: 7px;
-        gap: 5px;
+        height: 38px;
+    }
+    .btn_cancel {
+        padding: 6px;
+        width: 65px;
+        height: 38px;
+        background: #f7f8f9;
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+    }
+    .btn_save {
+        width: 65px;
+        height: 38px;
+        padding: 6px;
+        color: #fff;
+        background: #1677ff;
+        box-shadow: 0 2px 0 rgba(229, 244, 255, 0.93);
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+    }
+    .btn_edit {
+        width: 65px;
+        height: 38px;
+        padding: 6px;
+        color: #fff;
+        background: #1677ff;
+        box-shadow: 0 2px 0 rgba(229, 244, 255, 0.93);
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+    }
+}
+
+.edit_title {
+    border-radius: 7px;
+    border: 1px solid #d9d9d9;
+    padding: 2px 2px 2px 8px;
+    &:focus {
+        outline: none;
+        border-color: var(--link-color);
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.349); /* Тень при фокусе */
+    }
+}
+.edit_desc {
+    width: 460px;
+    height: 260px;
+    textarea {
+        resize: none;
+        padding: 5px;
+        border-radius: 7px;
+        border: 1px solid #d9d9d9;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--link-color);
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.349); /* Тень при фокусе */
     }
 }

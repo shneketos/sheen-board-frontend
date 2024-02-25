@@ -2,24 +2,25 @@ import React, { type FC, type InputHTMLAttributes } from "react";
 import styles from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
-InputHTMLAttributes<HTMLInputElement>,
-"value" | "onChange"
+    InputHTMLAttributes<HTMLInputElement>,
+    "value" | "onChange"
 >;
 
 export enum InputTheme {
     AUTH = "auth",
+    DEFAULT = "default",
 }
 
 type InputProps = {
-    value?: string
-    onChange?: (value: string) => void
-    theme?: InputTheme
+    value?: string;
+    onChange?: (value: string) => void;
+    theme?: InputTheme;
 } & HTMLInputProps;
 
-export const Input: FC<InputProps> = React.memo(props => {
+export const Input: FC<InputProps> = React.memo((props) => {
     const {
         children,
-        theme,
+        theme = InputTheme.DEFAULT,
         value,
         onChange,
         type = "text",
@@ -31,7 +32,7 @@ export const Input: FC<InputProps> = React.memo(props => {
     };
 
     return (
-        <div className={`${styles.input} ${styles[theme]}`}>
+        <div className={`${styles[theme]}`}>
             {children}
             <input
                 className={`${styles[theme]}_field`}

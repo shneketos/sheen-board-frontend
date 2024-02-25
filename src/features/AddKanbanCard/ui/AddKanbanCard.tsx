@@ -13,6 +13,11 @@ export const AddKanbanCard = (props: KanbanRowProps) => {
     const onChangeTitle = (val: string) => {
         setTitleValue(val);
     };
+
+    const onClickAddCard = () => {
+        console.log(`added card ${titleValue}in row ${title},id ${id} `);
+        onClose();
+    };
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
@@ -42,7 +47,11 @@ export const AddKanbanCard = (props: KanbanRowProps) => {
                 >
                     Cancel
                 </Button>
-                <Button className={styles.btn_save} theme={ButtonTheme.CLEAR}>
+                <Button
+                    className={styles.btn_save}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClickAddCard}
+                >
                     Add
                 </Button>
             </div>

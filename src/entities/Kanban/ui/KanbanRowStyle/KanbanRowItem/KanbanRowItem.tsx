@@ -14,6 +14,15 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
+    const [cardOpened2, setCardOpened2] = React.useState(false);
+
+    const onClickDeleteCard = () => {
+        console.log(
+            `card ${title} id ${id} in row ${rowTitle} id ${rowId} deleted`
+        );
+        setRowModalOpened(false);
+    };
+
     return (
         <div className={styles.row_item_wrapper}>
             <div className={styles.row_item}>
@@ -48,6 +57,7 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
                                     <span>View card</span>
                                 </Button>
                                 <Button
+                                    onClick={onClickDeleteCard}
                                     theme={ButtonTheme.CLEAR}
                                     className={
                                         styles.row_item_modal_wrapper_delete
@@ -92,6 +102,7 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
                         id={id}
                         priority={priority}
                         date={date}
+                        onClose={() => setCardOpened(false)}
                     />
                 </Modal>
             )}

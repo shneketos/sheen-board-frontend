@@ -12,7 +12,7 @@ export const KanbanContent = () => {
                 {
                     id: 101,
                     title: "Task 1",
-                    desc: "Complete feature A",
+                    desc: "Complete feature Aasgasg \n aasgasasgasgasgasgagasgasgasgasgasg\naasgasasgasgasgasgagasgasgasgasgasg aasgasasgasgasgasgagasgasgasgasgasg",
                     date: formatToMonthDay(new Date("2024-02-20")),
                     priority: "medium",
                 },
