@@ -11,9 +11,13 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
 import { TextArea } from "shared/ui/TextArea/TextArea";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
+import DatePicker from "react-datepicker";
+import "shared/ui/DatePicker/DatePicker.scss";
+
 interface EditKanbanCardProps extends KanbanCardProps {
     onClose: () => void;
 }
+
 export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const { id, title, desc, priority, date, rowTitle, onClose } = props;
     const [newTitle, setNewTitle] = useState(title);
@@ -23,6 +27,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [StageEditing, setStageEditing] = useState(false);
     const [PriorityEditing, setPriorityEditing] = useState(false);
+    const [newDate, setNewDate] = useState(new Date());
     const onClickSave = () => {
         console.log(
             `saved with ${newTitle},${newDesc},${newPriority} in ${rowTitle}`
@@ -41,6 +46,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
         setNewPriority(priority);
     };
 
+    console.log(newDate);
     const ArrayTitles = ["TO do", "in progres", "done", "active", "active"];
     return (
         <div className={styles.form}>
@@ -176,8 +182,16 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                 <div className={styles.form_center_due}>
                     <span className={styles.form_info}>Due</span>
                     <div className={styles.dueBlock}>
-                        <ClockIcon width={20} height={20} />
-                        <span>{date}</span>
+                        <ClockIcon width={22} height={22} />
+                        {isEditing ? (
+                            <DatePicker
+                                selected={newDate}
+                                onChange={(date) => setNewDate(date)}
+                                minDate={new Date()}
+                            />
+                        ) : (
+                            <span>{date}</span>
+                        )}
                     </div>
                 </div>
             </div>
