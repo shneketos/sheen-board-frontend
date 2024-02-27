@@ -4,6 +4,7 @@ import { BacklogItem } from "../BacklogItem/BacklogItem";
 export const BacklogList = () => {
     return (
         <div className={styles.backlog_list}>
+            <p>Название спринта</p>
             <BacklogItem />
         </div>
     );

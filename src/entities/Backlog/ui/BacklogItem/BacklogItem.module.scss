@@ -1,0 +1,22 @@
+.backlog_item {
+    display: flex;
+    background: white;
+    height: 36px;
+    align-items: center;
+    padding: 5px;
+    border-radius: 6px;
+}
+.backlog_title {
+    width: 500px;
+}
+.backlog_points {
+    width: 150px;
+}
+
+.backlog_priority {
+    width: 100px;
+}
+
+.backlog_status {
+    width: 100px;
+}
