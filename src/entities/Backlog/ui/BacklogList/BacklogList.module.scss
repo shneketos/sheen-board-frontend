@@ -1,0 +1,16 @@
+.backlog_title {
+    display: flex;
+    background: white;
+    height: 36px;
+    align-items: center;
+    padding: 5px;
+    border-radius: 6px;
+    justify-content: space-between;
+}
+
+.backlog_list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 15px;
+}
