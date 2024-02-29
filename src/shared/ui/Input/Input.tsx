@@ -2,8 +2,8 @@ import React, { type FC, type InputHTMLAttributes } from "react";
 import styles from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
-InputHTMLAttributes<HTMLInputElement>,
-"value" | "onChange"
+    InputHTMLAttributes<HTMLInputElement>,
+    "value" | "onChange"
 >;
 
 export enum InputTheme {

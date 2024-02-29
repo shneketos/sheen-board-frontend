@@ -6,7 +6,8 @@
     border: 1px solid black;
     border-radius: 6px 0 0 6px;
     border-right: none;
-    width: 575px;
+    height: 22px;
+    width: 275px;
     &:focus {
         outline: none;
     }
@@ -16,13 +17,14 @@
     }
 }
 .icon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 .btn {
-    height: 26px;
+    height: 22px;
     width: 30px;
     display: flex;
+    padding-right: 5px;
     align-items: center;
     justify-content: center;
     border: 1px solid black;

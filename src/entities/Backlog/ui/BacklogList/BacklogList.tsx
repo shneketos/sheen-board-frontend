@@ -4,7 +4,7 @@ import { BacklogItem } from "../BacklogItem/BacklogItem";
 import { DeleteBacklogSprint } from "features/DeleteBacklogSprint";
 import { EditBacklogSprintTitle } from "features/EditBacklogSprintTitle";
 export const BacklogList = () => {
-    const [titleEditing, setTitleEditing] = React.useState(true);
+    const [titleEditing, setTitleEditing] = React.useState(false);
 
     const handleTitleEditingChange = (newTitleEditingValue: boolean) => {
         setTitleEditing(newTitleEditingValue);

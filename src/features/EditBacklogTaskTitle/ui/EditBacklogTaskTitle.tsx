@@ -1,18 +1,15 @@
 import React from "react";
-import styles from "./EditBacklogSprintTitle.module.scss";
+import styles from "./EditBacklogTaskTitle.module.scss";
 import Input, { InputTheme } from "shared/ui/Input/Input";
 import CheckIcon from "shared/assets/icons/check.svg";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-
-interface EditBacklogSprintTitleProps {
+interface EditBacklogTaskTitleProps {
     onTitleEditingChange: (newTitleEditingValue: boolean) => void;
 }
-
-export const EditBacklogSprintTitle = ({
+export const EditBacklogTaskTitle = ({
     onTitleEditingChange,
-}: EditBacklogSprintTitleProps) => {
+}: EditBacklogTaskTitleProps) => {
     const [NewTitle, setNewTitle] = React.useState("");
-
     const handleButtonClick = () => {
         onTitleEditingChange(false);
     };
