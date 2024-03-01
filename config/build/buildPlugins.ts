@@ -7,9 +7,8 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export function buildPlugins({
     paths,
-    mode,
+    isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
-    const isDev = mode === "development";
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -19,12 +18,14 @@ export function buildPlugins({
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].css",
         }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }),
     ];
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
+        plugins.push(
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false,
+            })
+        );
     }
 
     return plugins;
