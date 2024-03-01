@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./BacklogContent.module.scss";
 import { BacklogList } from "../BacklogList/BacklogList";
 export const BacklogContent = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const sprintsData = [
         {
             id: 1,

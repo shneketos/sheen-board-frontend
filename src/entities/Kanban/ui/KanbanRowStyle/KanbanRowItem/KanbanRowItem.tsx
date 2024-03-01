@@ -14,7 +14,6 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
-    const [cardOpened2, setCardOpened2] = React.useState(false);
 
     const onClickDeleteCard = () => {
         console.log(

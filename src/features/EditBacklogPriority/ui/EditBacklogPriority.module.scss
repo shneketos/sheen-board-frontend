@@ -44,16 +44,34 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
-    &:hover {
-        background: rgb(0 0 0 / 11%);
-    }
 }
 
-.active {
-    background: #1e65fe;
+.Low:hover {
+    background: #5fff81;
+    color: black;
+}
 
-    &:hover {
-        background: #1e65fe;
-    }
+.Medium:hover {
+    background: #fdfb60;
+    color: black;
+}
+
+.High:hover {
+    background: #fd6060;
+    color: black;
+}
+
+.Low_active {
+    background: #5fff81;
+    color: black;
+}
+
+.Medium_active {
+    background: #fdfb60;
+    color: black;
+}
+
+.High_active {
+    background: #fd6060;
+    color: black;
 }

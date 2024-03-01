@@ -3,14 +3,24 @@ import styles from "./BacklogItem.module.scss";
 import { DeleteBacklogTask } from "features/DeleteBacklogTask";
 import { EditBacklogTaskTitle } from "features/EditBacklogTaskTitle";
 import { EditBacklogStory } from "features/EditBacklogStory";
+import { EditBacklogPriority } from "features/EditBacklogPriority";
+import { EditBacklogStatus } from "features/EditBacklogStatus/ui/EditBacklogStatus";
 export const BacklogItem = () => {
     const [titleEditing, setTitleEditing] = React.useState(false);
     const [storyEditing, setStoryEditing] = React.useState(false);
+    const [priorityEditing, setPriorityEditing] = React.useState(false);
+    const [statusEditing, setStatusEditing] = React.useState(false);
     const handleTitleEditingChange = (newTitleEditingValue: boolean) => {
         setTitleEditing(newTitleEditingValue);
     };
     const handleStoryEditingChange = (newStoryEditingValue: boolean) => {
         setStoryEditing(newStoryEditingValue);
+    };
+    const handlePriorityEditingChange = (newPriorityEditingValue: boolean) => {
+        setPriorityEditing(newPriorityEditingValue);
+    };
+    const handleStatusEditingChange = (newStatusEditingValue: boolean) => {
+        setStatusEditing(newStatusEditingValue);
     };
     return (
         <div className={styles.backlog_item}>
@@ -34,7 +44,7 @@ export const BacklogItem = () => {
 
                 <p
                     className={styles.item_block_content}
-                    onClick={() => setStoryEditing(true)}
+                    onClick={() => setStoryEditing(!storyEditing)}
                 >
                     17
                 </p>
@@ -46,11 +56,31 @@ export const BacklogItem = () => {
             </div>
             <div className={`${styles.item_block} ${styles.priority}`}>
                 <span className={styles.item_block_info}>Priority</span>
-                <p className={styles.item_block_content}>Medium Priority</p>
+                <p
+                    className={`${styles.item_block_content} ${styles.Low}`}
+                    onClick={() => setPriorityEditing(!priorityEditing)}
+                >
+                    Medium
+                </p>
+                {priorityEditing && (
+                    <EditBacklogPriority
+                        onPriorityEditingChange={handlePriorityEditingChange}
+                    />
+                )}
             </div>
             <div className={`${styles.item_block} ${styles.status}`}>
                 <span className={styles.item_block_info}>Status</span>
-                <p className={styles.item_block_content}>Активно</p>
+                <p
+                    className={styles.item_block_content}
+                    onClick={() => setStatusEditing(!statusEditing)}
+                >
+                    Not Started
+                </p>
+                {statusEditing && (
+                    <EditBacklogStatus
+                        onStatusEditingChange={handleStatusEditingChange}
+                    />
+                )}
             </div>
             <DeleteBacklogTask />
         </div>

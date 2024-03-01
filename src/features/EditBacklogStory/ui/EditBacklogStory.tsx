@@ -1,13 +1,9 @@
 import React from "react";
 import styles from "./EditBacklogStory.module.scss";
+import { type EditBacklogStoryProps } from "../modal/types/EditBacklogStory";
 
-interface EditBacklogStoryProps {
-    onStoryEditingChange: (newStoryEditingValue: boolean) => void;
-}
-
-export const EditBacklogStory = ({
-    onStoryEditingChange,
-}: EditBacklogStoryProps) => {
+export const EditBacklogStory = (props: EditBacklogStoryProps) => {
+    const { onStoryEditingChange } = props;
     const StoryVariables = Array.from({ length: 30 }, (_, i) => i + 1);
     const [newStoryValue, setNewStoryValue] = React.useState(15);
 

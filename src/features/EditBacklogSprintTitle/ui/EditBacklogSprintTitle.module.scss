@@ -2,23 +2,29 @@
     display: flex;
     align-items: center;
 }
+
 .input_edit {
     border: 1px solid black;
     border-radius: 6px 0 0 6px;
     border-right: none;
     width: 575px;
+
     &:focus {
         outline: none;
     }
+
     padding-left: 5px;
+
     &[type="text"] {
         padding-left: 8px;
     }
 }
+
 .icon {
     width: 18px;
     height: 18px;
 }
+
 .btn {
     height: 26px;
     width: 30px;

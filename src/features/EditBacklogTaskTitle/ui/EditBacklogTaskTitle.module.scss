@@ -2,24 +2,30 @@
     display: flex;
     align-items: center;
 }
+
 .input_edit {
     border: 1px solid black;
     border-radius: 6px 0 0 6px;
     border-right: none;
     height: 22px;
     width: 275px;
+
     &:focus {
         outline: none;
     }
+
     padding-left: 5px;
+
     &[type="text"] {
         padding-left: 8px;
     }
 }
+
 .icon {
     width: 16px;
     height: 16px;
 }
+
 .btn {
     height: 22px;
     width: 30px;
