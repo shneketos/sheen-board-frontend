@@ -14,6 +14,7 @@ export const SidebarButtons = (props: sidebarListProps) => {
 
     return (
         <div
+            data-testid="sidebar_buttons"
             className={`${styles.sidebar_buttons} ${
                 collapsed ? styles.collapsed : ""
             }`}

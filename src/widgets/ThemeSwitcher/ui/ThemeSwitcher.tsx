@@ -8,11 +8,12 @@ export const ThemeSwitcher = () => {
 
     return (
         <Button
+            data-testid="themeswitcher"
             className={styles.ThemeSwitcher}
             onClick={toggleTheme}
             theme={ButtonTheme.CLEAR}
         >
-        TOGGLESS
+            TOGGLESS
         </Button>
     );
 };
