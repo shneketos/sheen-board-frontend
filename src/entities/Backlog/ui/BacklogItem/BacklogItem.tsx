@@ -5,7 +5,11 @@ import { EditBacklogTaskTitle } from "features/EditBacklogTaskTitle";
 import { EditBacklogStory } from "features/EditBacklogStory";
 import { EditBacklogPriority } from "features/EditBacklogPriority";
 import { EditBacklogStatus } from "features/EditBacklogStatus/ui/EditBacklogStatus";
-export const BacklogItem = () => {
+import { BacklogTaskI } from "entities/Backlog/types/BacklogTypes";
+export const BacklogItem = (props: BacklogTaskI) => {
+    const { taskId, title, storypoints, status, priority } = props;
+    console.log(taskId);
+
     const [titleEditing, setTitleEditing] = React.useState(false);
     const [storyEditing, setStoryEditing] = React.useState(false);
     const [priorityEditing, setPriorityEditing] = React.useState(false);
@@ -29,13 +33,14 @@ export const BacklogItem = () => {
                 {titleEditing ? (
                     <EditBacklogTaskTitle
                         onTitleEditingChange={handleTitleEditingChange}
+                        title={title}
                     />
                 ) : (
                     <p
                         className={styles.item_block_content}
                         onClick={() => setTitleEditing(true)}
                     >
-                        Задача разработать UI
+                        {title}
                     </p>
                 )}
             </div>
@@ -46,25 +51,27 @@ export const BacklogItem = () => {
                     className={styles.item_block_content}
                     onClick={() => setStoryEditing(!storyEditing)}
                 >
-                    17
+                    {storypoints}
                 </p>
                 {storyEditing && (
                     <EditBacklogStory
                         onStoryEditingChange={handleStoryEditingChange}
+                        storypoints={storypoints}
                     />
                 )}
             </div>
             <div className={`${styles.item_block} ${styles.priority}`}>
                 <span className={styles.item_block_info}>Priority</span>
                 <p
-                    className={`${styles.item_block_content} ${styles.Low}`}
+                    className={`${styles.item_block_content} ${styles[priority]}`}
                     onClick={() => setPriorityEditing(!priorityEditing)}
                 >
-                    Medium
+                    {priority}
                 </p>
                 {priorityEditing && (
                     <EditBacklogPriority
                         onPriorityEditingChange={handlePriorityEditingChange}
+                        priority={priority}
                     />
                 )}
             </div>
@@ -74,11 +81,12 @@ export const BacklogItem = () => {
                     className={styles.item_block_content}
                     onClick={() => setStatusEditing(!statusEditing)}
                 >
-                    Not Started
+                    {status}
                 </p>
                 {statusEditing && (
                     <EditBacklogStatus
                         onStatusEditingChange={handleStatusEditingChange}
+                        status={status}
                     />
                 )}
             </div>

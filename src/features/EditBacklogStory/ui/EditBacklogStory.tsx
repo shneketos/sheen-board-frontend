@@ -3,9 +3,9 @@ import styles from "./EditBacklogStory.module.scss";
 import { type EditBacklogStoryProps } from "../modal/types/EditBacklogStory";
 
 export const EditBacklogStory = (props: EditBacklogStoryProps) => {
-    const { onStoryEditingChange } = props;
+    const { onStoryEditingChange, storypoints } = props;
     const StoryVariables = Array.from({ length: 30 }, (_, i) => i + 1);
-    const [newStoryValue, setNewStoryValue] = React.useState(15);
+    const [newStoryValue, setNewStoryValue] = React.useState(storypoints);
 
     const handleButtonClick = () => {
         onStoryEditingChange(false);

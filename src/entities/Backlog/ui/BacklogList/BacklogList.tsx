@@ -3,7 +3,11 @@ import styles from "./BacklogList.module.scss";
 import { BacklogItem } from "../BacklogItem/BacklogItem";
 import { DeleteBacklogSprint } from "features/DeleteBacklogSprint";
 import { EditBacklogSprintTitle } from "features/EditBacklogSprintTitle";
-export const BacklogList = () => {
+import { BacklogSprintI } from "entities/Backlog/types/BacklogTypes";
+
+export const BacklogList = (props: BacklogSprintI) => {
+    const { id, title, tasks } = props;
+    console.log(id);
     const [titleEditing, setTitleEditing] = React.useState(false);
 
     const handleTitleEditingChange = (newTitleEditingValue: boolean) => {
@@ -21,15 +25,21 @@ export const BacklogList = () => {
                         className={styles.backlog_list_title}
                         onClick={() => setTitleEditing(true)}
                     >
-                        Название спринта
+                        {title}
                     </p>
                 )}
                 <DeleteBacklogSprint />
             </div>
             <div className={styles.backlog_list}>
-                <BacklogItem />
-                <BacklogItem />
-                <BacklogItem />
+                {tasks.map((task) => (
+                    <BacklogItem
+                        taskId={task.taskId}
+                        title={task.title}
+                        status={task.status}
+                        storypoints={task.storypoints}
+                        priority={task.priority}
+                    />
+                ))}
             </div>
         </>
     );

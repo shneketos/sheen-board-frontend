@@ -7,49 +7,61 @@ export const BacklogContent = () => {
         {
             id: 1,
             title: "Спринт 1",
-            tasks: {
-                task1: {
+            tasks: [
+                {
+                    taskId: 1,
                     title: "Задача 1",
-                    priority: "high",
+                    priority: "High",
                     storypoints: 35,
-                    status: "done",
+                    status: "Completed",
                 },
-                task2: {
+                {
+                    taskId: 2,
                     title: "Задача 2",
-                    priority: "medium",
+                    priority: "Medium",
                     storypoints: 20,
-                    status: "in progress",
+                    status: "In Progress",
                 },
-                task3: {
+                {
+                    taskId: 3,
                     title: "Задача 3",
-                    priority: "low",
+                    priority: "Low",
                     storypoints: 15,
-                    status: "to do",
+                    status: "Not Started",
                 },
-            },
+            ],
         },
         {
             id: 2,
             title: "Спринт 2",
-            tasks: {
-                task4: {
+            tasks: [
+                {
+                    taskId: 4,
                     title: "Задача 4",
-                    priority: "medium",
+                    priority: "Medium",
                     storypoints: 25,
-                    status: "done",
+                    status: "Completed",
                 },
-                task5: {
+                {
+                    taskId: 5,
                     title: "Задача 5",
-                    priority: "high",
+                    priority: "High",
                     storypoints: 40,
-                    status: "in progress",
+                    status: "In Progress",
                 },
-            },
+            ],
         },
     ];
+
     return (
         <div className={styles.backlog_content}>
-            <BacklogList />
+            {sprintsData.map((sprint) => (
+                <BacklogList
+                    id={sprint.id}
+                    title={sprint.title}
+                    tasks={sprint.tasks}
+                />
+            ))}
         </div>
     );
 };

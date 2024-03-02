@@ -1,15 +1,11 @@
 import React from "react";
 import styles from "./EditBacklogPriority.module.scss";
+import { EditBacklogPriorityProps } from "../model/types/EditBacklogPriority";
 
-interface EditBacklogPriorityProps {
-    onPriorityEditingChange: (newPriorityEditingValue: boolean) => void;
-}
-
-export const EditBacklogPriority = ({
-    onPriorityEditingChange,
-}: EditBacklogPriorityProps) => {
+export const EditBacklogPriority = (props: EditBacklogPriorityProps) => {
+    const { onPriorityEditingChange, priority } = props;
     const PriorityVariables = ["Low", "Medium", "High"];
-    const [newPriorityValue, setNewPriorityValue] = React.useState("Low");
+    const [newPriorityValue, setNewPriorityValue] = React.useState(priority);
 
     const handleButtonClick = () => {
         onPriorityEditingChange(false);

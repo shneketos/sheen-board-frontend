@@ -3,9 +3,9 @@ import styles from "./EditBacklogStatus.module.scss";
 import { type EditBacklogStatusProps } from "../model/types/EditBacklogStatus";
 
 export const EditBacklogStatus = (props: EditBacklogStatusProps) => {
-    const { onStatusEditingChange } = props;
+    const { onStatusEditingChange, status } = props;
     const StatusVariables = ["Not Started", "In Progress", "Completed"];
-    const [newStatusValue, setNewStatusValue] = React.useState("Not Started");
+    const [newStatusValue, setNewStatusValue] = React.useState(status);
 
     const handleButtonClick = () => {
         onStatusEditingChange(false);

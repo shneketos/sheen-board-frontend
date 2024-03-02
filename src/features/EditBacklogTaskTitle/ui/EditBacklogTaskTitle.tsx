@@ -6,8 +6,8 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { type EditBacklogTaskTitleProps } from "../model/types/EditBacklogTaskTitle";
 
 export const EditBacklogTaskTitle = (props: EditBacklogTaskTitleProps) => {
-    const { onTitleEditingChange } = props;
-    const [NewTitle, setNewTitle] = React.useState("");
+    const { onTitleEditingChange, title } = props;
+    const [NewTitle, setNewTitle] = React.useState(title);
     const handleButtonClick = () => {
         onTitleEditingChange(false);
     };
