@@ -2,8 +2,8 @@ import React, { type FC, type InputHTMLAttributes } from "react";
 import styles from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
-InputHTMLAttributes<HTMLInputElement>,
-"value" | "onChange"
+    InputHTMLAttributes<HTMLInputElement>,
+    "value" | "onChange"
 >;
 
 export enum InputTheme {
@@ -32,7 +32,7 @@ export const Input: FC<InputProps> = React.memo((props) => {
     };
 
     return (
-        <div className={`${styles[theme]}`}>
+        <div className={`${styles[theme]}`} data-testid="input">
             {children}
             <input
                 className={`${styles[theme]}_field`}

@@ -53,6 +53,7 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div
+                data-testid="modal"
                 className={` ${styles.modal} ${isOpen ? styles.opened : ""} ${
                     isClosing ? styles.closed : ""
                 }`}

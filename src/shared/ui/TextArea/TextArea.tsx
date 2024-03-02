@@ -14,7 +14,7 @@ export const TextArea = (props: TextAreaProps) => {
         onChange?.(e.target.value);
     };
     return (
-        <div className={` ${cname}`}>
+        <div className={` ${cname}`} data-testid="textarea">
             {children}
             <textarea
                 className={cname}
