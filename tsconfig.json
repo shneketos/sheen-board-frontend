@@ -1,32 +1,30 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "noImplicitAny": true,
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
         "module": "ESNext",
-        "target": "es5",
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        "moduleResolution": "Bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
         "jsx": "react-jsx",
+        "esModuleInterop": true,
         "allowJs": true,
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
             "*": ["./src/*"]
         },
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        /* Linting */
+        "strict": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true
     },
-    "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS",
-            "strictNullChecks": true
-        }
-    },
-    "include": [
-        "./config/jest/setupTests.ts",
-        "./config/jest/jest.config.ts",
-        "./config/jest/JestEmptyComponent.tsx",
-        "./src/**/*.ts",
-        "./src/**/*.tsx",
-        "./.eslintrc.js",
-        "./webpack.config.ts"
-    ]
+    "include": ["src"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }

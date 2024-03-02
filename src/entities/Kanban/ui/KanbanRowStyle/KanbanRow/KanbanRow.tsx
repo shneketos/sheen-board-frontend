@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./KanbanRow.module.scss";
 
-import MoreIcon from "shared/assets/icons/more.svg";
-import PencilIcon from "shared/assets/icons/pencil.svg";
-import TrashcanIcon from "shared/assets/icons/trashcan.svg";
+import MoreIcon from "shared/assets/icons/more.svg?react";
+import PencilIcon from "shared/assets/icons/pencil.svg?react";
+import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { KanbanRowAddItem } from "../KanbanRowAddItem/KanbanRowAddItem";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";

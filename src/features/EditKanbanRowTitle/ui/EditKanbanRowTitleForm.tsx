@@ -1,7 +1,7 @@
 import { type KanbanRowProps } from "entities/Kanban";
 import React from "react";
 import styles from "./EditKanbanRowTitleForm.module.scss";
-import CloseIcon from "shared/assets/icons/close.svg";
+import CloseIcon from "shared/assets/icons/close.svg?react";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 

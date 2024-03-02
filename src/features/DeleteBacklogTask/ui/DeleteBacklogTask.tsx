@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./DeleteBacklogTask.module.scss";
-import TrashcanIcon from "shared/assets/icons/trashcan.svg";
+import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 export const DeleteBacklogTask = () => {
     return (

@@ -1,10 +1,10 @@
-import { AppRouter } from "./providers/routerProvider";
-import { Header } from "widgets/Header";
+import React from "react";
 import { useThemes } from "./providers/themeProvider";
+import { AppRouter } from "./providers/routerProvider/ui/AppRouter";
+import { Header } from "widgets/Header";
 
-const App = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { theme } = useThemes();
+export const App = () => {
+    useThemes();
     return (
         <div className="app">
             <Header authed={true} />
@@ -14,5 +14,4 @@ const App = () => {
         </div>
     );
 };
-
 export default App;

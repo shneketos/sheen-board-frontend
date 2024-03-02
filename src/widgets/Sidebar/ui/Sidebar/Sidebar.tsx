@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Sidebar.module.scss";
-import Sidebar_arrow from "shared/assets/icons/sidebar_arrow.svg";
+import Sidebar_arrow from "shared/assets/icons/sidebar_arrow.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 
 import { useLocation, useParams } from "react-router-dom";

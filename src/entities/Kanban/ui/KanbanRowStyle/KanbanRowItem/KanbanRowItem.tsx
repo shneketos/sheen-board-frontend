@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./KanbanRowItem.module.scss";
-import MoreIcon from "shared/assets/icons/more.svg";
-import ClockIcon from "shared/assets/icons/clock.svg";
-import EyeIcon from "shared/assets/icons/eye.svg";
-import TrashcanIcon from "shared/assets/icons/trashcan.svg";
+import MoreIcon from "shared/assets/icons/more.svg?react";
+import ClockIcon from "shared/assets/icons/clock.svg?react";
+import EyeIcon from "shared/assets/icons/eye.svg?react";
+import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";

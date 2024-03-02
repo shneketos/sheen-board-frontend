@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./SignupForm.module.scss";
 import slogo from "shared/assets/icons/Slogo.png";
 import Input, { InputTheme } from "shared/ui/Input/Input";
-import User from "shared/assets/icons/user.svg";
-import Email from "shared/assets/icons/email.svg";
-import Pass from "shared/assets/icons/password.svg";
+import User from "shared/assets/icons/user.svg?react";
+import Email from "shared/assets/icons/email.svg?react";
+import Pass from "shared/assets/icons/password.svg?react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 export const SignupForm = () => {

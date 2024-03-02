@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./DashboardCard.module.scss";
-import WorkspaceIcon from "shared/assets/icons/workspace.svg";
-import MoreIcon from "shared/assets/icons/more.svg";
-import LogoutIcon from "shared/assets/icons/logout.svg";
+import WorkspaceIcon from "shared/assets/icons/workspace.svg?react";
+import MoreIcon from "shared/assets/icons/more.svg?react";
+import LogoutIcon from "shared/assets/icons/logout.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import type { DashboardCardType } from "entities/Dashboard/model/types/DashboardCard";

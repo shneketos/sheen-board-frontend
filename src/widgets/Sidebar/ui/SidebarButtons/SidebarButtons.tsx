@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./SidebarButtons.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import SettingsIcon from "shared/assets/icons/settings.svg";
-import LogoutIcon from "shared/assets/icons/logout.svg";
+import SettingsIcon from "shared/assets/icons/settings.svg?react";
+import LogoutIcon from "shared/assets/icons/logout.svg?react";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 interface sidebarListProps {
     collapsed: boolean;

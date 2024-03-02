@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from "./EditKanbanCardForm.module.scss";
-import CloseIcon from "shared/assets/icons/close.svg";
-import ListIcon from "shared/assets/icons/list.svg";
-import PriorityIcon from "shared/assets/icons/priority.svg";
-import ClockIcon from "shared/assets/icons/clock.svg";
-import FlagIcon from "shared/assets/icons/flag.svg";
-import TrashcanIcon from "shared/assets/icons/trashcan.svg";
+import CloseIcon from "shared/assets/icons/close.svg?react";
+import ListIcon from "shared/assets/icons/list.svg?react";
+import PriorityIcon from "shared/assets/icons/priority.svg?react";
+import ClockIcon from "shared/assets/icons/clock.svg?react";
+import FlagIcon from "shared/assets/icons/flag.svg?react";
+import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
 import { type KanbanCardProps } from "entities/Kanban";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";

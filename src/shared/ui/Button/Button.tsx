@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes, type FC } from "react";
+import { type ButtonHTMLAttributes, type FC } from "react";
 import styles from "./Button.module.scss";
 
 export enum ButtonTheme {
@@ -8,9 +8,9 @@ export enum ButtonTheme {
 }
 
 type ButtonProps = {
-    theme?: ButtonTheme
+    theme?: ButtonTheme;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
-export const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = (props) => {
     const {
         className,
         children,
@@ -19,9 +19,7 @@ export const Button: FC<ButtonProps> = props => {
     } = props;
     return (
         <button
-            className={` ${styles.button} ${styles[theme]} ${
-                className || ""
-            }`}
+            className={` ${styles.button} ${styles[theme]} ${className || ""}`}
             {...otherProps}
         >
             {children}

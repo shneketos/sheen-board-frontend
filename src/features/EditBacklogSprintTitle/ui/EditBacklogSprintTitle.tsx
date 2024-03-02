@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./EditBacklogSprintTitle.module.scss";
 import Input, { InputTheme } from "shared/ui/Input/Input";
-import CheckIcon from "shared/assets/icons/check.svg";
+import CheckIcon from "shared/assets/icons/check.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { type EditBacklogSprintTitleProps } from "../model/types/EditBacklogSprintTitle";
 

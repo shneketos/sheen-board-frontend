@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./KanbanRowAddRow.module.scss";
-import PlusIcon from "shared/assets/icons/plus.svg";
+import PlusIcon from "shared/assets/icons/plus.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
 import { AddKanbanRow } from "features/AddKanbanRow";

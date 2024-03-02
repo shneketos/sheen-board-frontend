@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./SidebarList.module.scss";
-import OverviewIcon from "shared/assets/icons/overview.svg";
-import BoardIcon from "shared/assets/icons/kanban.svg";
-import BacklogIcon from "shared/assets/icons/backlog.svg";
-import RoadmapIcon from "shared/assets/icons/roadmap.svg";
-import CalendarIcon from "shared/assets/icons/calendar.svg";
+import OverviewIcon from "shared/assets/icons/overview.svg?react";
+import BoardIcon from "shared/assets/icons/kanban.svg?react";
+import BacklogIcon from "shared/assets/icons/backlog.svg?react";
+import RoadmapIcon from "shared/assets/icons/roadmap.svg?react";
+import CalendarIcon from "shared/assets/icons/calendar.svg?react";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface sidebarListProps {
