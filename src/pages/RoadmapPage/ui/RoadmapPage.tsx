@@ -1,15 +1,14 @@
-import React from "react";
+import { RoadmapContent } from "entities/Roadmap";
 import { useParams } from "react-router-dom";
-import { Sidebar } from "widgets/Sidebar";
+import { Layout } from "shared/ui/Layout/Layout";
 
 export const RoadmapPage = () => {
     const { id } = useParams();
     console.log(id);
     return (
-        <>
-            <Sidebar />
-            <section className="content__wrapper">Roadmap</section>
-        </>
+        <Layout>
+            <RoadmapContent />
+        </Layout>
     );
 };
 export default RoadmapPage;

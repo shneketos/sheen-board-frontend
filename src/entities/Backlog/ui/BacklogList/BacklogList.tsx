@@ -9,7 +9,6 @@ export const BacklogList = (props: BacklogSprintI) => {
     const { id, title, tasks } = props;
     console.log(id);
     const [titleEditing, setTitleEditing] = React.useState(false);
-
     const handleTitleEditingChange = (newTitleEditingValue: boolean) => {
         setTitleEditing(newTitleEditingValue);
     };
@@ -19,6 +18,7 @@ export const BacklogList = (props: BacklogSprintI) => {
                 {titleEditing ? (
                     <EditBacklogSprintTitle
                         onTitleEditingChange={handleTitleEditingChange}
+                        title={title}
                     />
                 ) : (
                     <p

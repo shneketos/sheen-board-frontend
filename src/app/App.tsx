@@ -1,7 +1,7 @@
 import React from "react";
 import { useThemes } from "./providers/themeProvider";
 import { AppRouter } from "./providers/routerProvider/ui/AppRouter";
-import { Header } from "widgets/Header";
+import { Header } from "widgets/header";
 
 export const App = () => {
     useThemes();
