@@ -1,5 +1,5 @@
 import React from "react";
 
 export const RoadmapContent = () => {
-    return <div>RoadmapContent</div>;
+    return <div>CHART</div>;
 };

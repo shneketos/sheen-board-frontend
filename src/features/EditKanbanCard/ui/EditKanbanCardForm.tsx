@@ -12,8 +12,7 @@ import Input from "shared/ui/Input/Input";
 import { TextArea } from "shared/ui/TextArea/TextArea";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import DatePicker from "react-datepicker";
-import "shared/ui/DatePicker/DatePicker.scss";
-
+import "react-datepicker/dist/react-datepicker.css";
 interface EditKanbanCardProps extends KanbanCardProps {
     onClose: () => void;
 }
