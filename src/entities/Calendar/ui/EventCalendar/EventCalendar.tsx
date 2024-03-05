@@ -16,6 +16,7 @@ export const EventCalendar = () => {
             start: new Date(2024, 2, 1),
             end: new Date(2024, 2, 5),
             color: "#6121ab",
+            desc: "123124",
         },
         {
             id: 1,
@@ -24,25 +25,12 @@ export const EventCalendar = () => {
             start: new Date(2024, 2, 13, 10, 1, 1),
             end: new Date(2024, 2, 13, 22, 2, 2),
             color: "#61dafb",
+            desc: "123124",
         },
     ]);
-    const onClickAddEvent = () => {
-        setEvents([
-            ...events,
-            {
-                id: 2,
-                title: "time",
-                allDay: false,
-                start: new Date(2024, 2, 15, 10, 1, 1),
-                end: new Date(2024, 2, 15, 22, 2, 2),
-                color: "#6121ab",
-            },
-        ]);
-    };
 
     return (
-        <div>
-            <button onClick={onClickAddEvent}>Add EVenet</button>
+        <div className="calendar_wrapper">
             <Calendar
                 localizer={localizer}
                 startAccessor="start"
@@ -51,6 +39,7 @@ export const EventCalendar = () => {
                 style={{ height: 500 }}
                 selectable
                 onSelectSlot={(event) => console.log(event)}
+                onSelectEvent={(event) => console.log(event)}
                 eventPropGetter={(event) => {
                     return {
                         style: {

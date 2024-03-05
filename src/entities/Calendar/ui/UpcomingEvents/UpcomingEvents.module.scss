@@ -1,10 +1,32 @@
 .upcoming {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.upcoming_events {
     width: 260px;
     height: 300px;
     background: white;
+    border-radius: 10px;
+}
+.create_event {
+    width: 260px;
+    height: 60px;
+    background: rgb(221, 221, 221);
 }
 .title {
     background: #fafafa;
     width: 100%;
     height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+}
+.events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

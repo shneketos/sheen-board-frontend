@@ -7,3 +7,12 @@
 @import "./styles/time-grid.scss";
 @import "./styles/toolbar.scss";
 @import "./styles/variables.scss";
+.calendar_wrapper {
+    background: white;
+    width: 682px;
+    height: 538px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
