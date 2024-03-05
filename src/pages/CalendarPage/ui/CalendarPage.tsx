@@ -1,15 +1,14 @@
-import React from "react";
+import { CalendarContent } from "entities/Calendar";
 import { useParams } from "react-router-dom";
-import { Sidebar } from "widgets/Sidebar";
+import { Layout } from "shared/ui/Layout/Layout";
 
 export const CalendarPage = () => {
     const { id } = useParams();
     console.log(id);
     return (
-        <>
-            <Sidebar />
-            <section className="content__wrapper">Calendar</section>
-        </>
+        <Layout>
+            <CalendarContent />
+        </Layout>
     );
 };
 export default CalendarPage;
