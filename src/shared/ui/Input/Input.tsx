@@ -35,7 +35,7 @@ export const Input: FC<InputProps> = React.memo((props) => {
         <div className={`${styles[theme]}`} data-testid="input">
             {children}
             <input
-                className={`${styles[theme]}_field`}
+                className={`${styles[theme + "_field"]}`}
                 type={type}
                 value={value}
                 onChange={onChangeHandler}

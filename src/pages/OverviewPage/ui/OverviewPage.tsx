@@ -1,7 +1,6 @@
 import { OverviewContent, OverviewHeader } from "entities/Overview";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Layout } from "shared/ui/Layout/Layout";
 import { Modal } from "shared/ui/modal/Modal";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 export const OverviewPage = () => {
@@ -9,7 +8,7 @@ export const OverviewPage = () => {
     console.log(id);
     const [isOpen, setIsOpen] = React.useState(false);
     return (
-        <Layout>
+        <>
             <button onClick={() => setIsOpen(true)}>toggle</button>
             <OverviewHeader />
             <OverviewContent />
@@ -19,7 +18,7 @@ export const OverviewPage = () => {
                 perferendis optio at placeat praesentium similique veritatis,
                 reiciendis distinctio quam veniam?
             </Modal>
-        </Layout>
+        </>
     );
 };
 export default OverviewPage;
