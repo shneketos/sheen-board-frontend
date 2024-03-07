@@ -3,7 +3,7 @@ import styles from "./EditBacklogTaskTitle.module.scss";
 import Input, { InputTheme } from "shared/ui/Input/Input";
 import CheckIcon from "shared/assets/icons/check.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { type EditBacklogTaskTitleProps } from "../model/types/EditBacklogTaskTitle";
+import { type EditBacklogTaskTitleProps } from "../model/types/EditBacklogTaskTitleType";
 
 export const EditBacklogTaskTitle = (props: EditBacklogTaskTitleProps) => {
     const { onTitleEditingChange, title } = props;

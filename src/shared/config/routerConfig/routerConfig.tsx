@@ -11,6 +11,11 @@ import { SigninPage } from "pages/SigninPage";
 import { SignupPage } from "pages/SignupPage";
 import { type RouteProps } from "react-router-dom";
 
+type AppRouterProps = RouteProps & {
+    authOnly?: boolean;
+    sidebar_off?: boolean;
+};
+
 export enum AppRoutes {
     MAIN = "main",
     SIGNIN = "signin",
@@ -40,46 +45,58 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.NOTFOUND]: "*",
 };
 
-export const RoutesConfig: Record<AppRoutes, RouteProps> = {
+export const RoutesConfig: Record<AppRoutes, AppRouterProps> = {
     [AppRoutes.MAIN]: {
         path: RouterPath.main,
         element: <MainPage />,
+        sidebar_off: true,
     },
     [AppRoutes.SIGNIN]: {
         path: RouterPath.signin,
         element: <SigninPage />,
+        authOnly: true,
+        sidebar_off: true,
     },
     [AppRoutes.SIGNUP]: {
         path: RouterPath.signup,
         element: <SignupPage />,
+        authOnly: true,
+        sidebar_off: true,
     },
     [AppRoutes.DASHBOARD]: {
         path: RouterPath.dashboard,
         element: <Dashboard />,
+        authOnly: true,
     },
     [AppRoutes.OVERVIEW]: {
         path: RouterPath.overview,
         element: <OverviewPage />,
+        authOnly: true,
     },
     [AppRoutes.KANBAN]: {
         path: RouterPath.kanban,
         element: <KanbanPage />,
+        authOnly: true,
     },
     [AppRoutes.BACKLOG]: {
         path: RouterPath.backlog,
         element: <BacklogPage />,
+        authOnly: true,
     },
     [AppRoutes.ROADMAP]: {
         path: RouterPath.roadmap,
         element: <RoadmapPage />,
+        authOnly: true,
     },
     [AppRoutes.CALENDAR]: {
         path: RouterPath.calendar,
         element: <CalendarPage />,
+        authOnly: true,
     },
     [AppRoutes.SETTINGS]: {
         path: RouterPath.settings,
         element: <SettingsPage />,
+        authOnly: true,
     },
     /// ////////
     [AppRoutes.NOTFOUND]: {

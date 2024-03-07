@@ -3,12 +3,16 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "./EventCalendar.scss";
 import "moment/locale/ru";
+import { EditCalendarEventForm } from "features/EditCalendarEvent";
+import { CalendarEventProps } from "features/EditCalendarEvent/model/types/EditCalendarEventType";
+import { CalendarModal } from "shared/ui/CalendarModal/CalendarModal";
 
 moment.updateLocale("ru", { week: { dow: 1 } });
 const localizer = momentLocalizer(moment);
 
 export const EventCalendar = () => {
-    const [events, setEvents] = React.useState([
+    const events = [
+        // Ваши начальные события
         {
             id: 0,
             title: "All Day Event very long title",
@@ -27,19 +31,28 @@ export const EventCalendar = () => {
             color: "#61dafb",
             desc: "123124",
         },
-    ]);
-
+    ];
+    const [opened, setOpened] = React.useState(false);
+    const [thisEvent, setThisEvent] = React.useState<CalendarEventProps>(null);
+    console.log(thisEvent);
+    const onClickCloseModal = () => {
+        setOpened(false);
+        setThisEvent(null);
+    };
     return (
         <div className="calendar_wrapper">
             <Calendar
                 localizer={localizer}
                 startAccessor="start"
                 endAccessor="end"
+                views={["month"]}
                 events={events}
                 style={{ height: 500 }}
                 selectable
-                onSelectSlot={(event) => console.log(event)}
-                onSelectEvent={(event) => console.log(event)}
+                onSelectEvent={(event) => {
+                    setThisEvent(event);
+                    setOpened(true);
+                }}
                 eventPropGetter={(event) => {
                     return {
                         style: {
@@ -49,6 +62,19 @@ export const EventCalendar = () => {
                     };
                 }}
             />
+            <CalendarModal isOpen={opened} onClose={onClickCloseModal}>
+                {thisEvent !== null && (
+                    <EditCalendarEventForm
+                        id={thisEvent.id}
+                        title={thisEvent.title}
+                        desc={thisEvent.desc}
+                        start={thisEvent.start}
+                        end={thisEvent.end}
+                        allDay={thisEvent.allDay}
+                        color={thisEvent.color}
+                    />
+                )}
+            </CalendarModal>
         </div>
     );
 };

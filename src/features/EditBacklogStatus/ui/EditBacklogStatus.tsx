@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./EditBacklogStatus.module.scss";
-import { type EditBacklogStatusProps } from "../model/types/EditBacklogStatus";
+import { type EditBacklogStatusProps } from "../model/types/EditBacklogStatusType";
 
 export const EditBacklogStatus = (props: EditBacklogStatusProps) => {
     const { onStatusEditingChange, status } = props;

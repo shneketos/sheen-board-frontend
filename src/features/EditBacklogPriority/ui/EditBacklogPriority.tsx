@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./EditBacklogPriority.module.scss";
-import { EditBacklogPriorityProps } from "../model/types/EditBacklogPriority";
+import { EditBacklogPriorityProps } from "../model/types/EditBacklogPriorityType";
 
 export const EditBacklogPriority = (props: EditBacklogPriorityProps) => {
     const { onPriorityEditingChange, priority } = props;

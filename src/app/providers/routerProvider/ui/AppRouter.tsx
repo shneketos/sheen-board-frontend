@@ -7,17 +7,19 @@ import { PageLoader } from "widgets/PageLoader/PageLoader";
 export const AppRouter = () => (
     <Suspense fallback={""}>
         <Routes>
-            {Object.values(RoutesConfig).map(({ element, path }) => (
-                <Route
-                    key={path}
-                    path={path}
-                    element={
-                        <Suspense fallback={<PageLoader />}>
-                            <Layout>{element}</Layout>
-                        </Suspense>
-                    }
-                />
-            ))}
+            {Object.values(RoutesConfig).map(
+                ({ element, path, sidebar_off }) => (
+                    <Route
+                        key={path}
+                        path={path}
+                        element={
+                            <Suspense fallback={<PageLoader />}>
+                                <Layout off={sidebar_off}>{element}</Layout>
+                            </Suspense>
+                        }
+                    />
+                )
+            )}
         </Routes>
     </Suspense>
 );

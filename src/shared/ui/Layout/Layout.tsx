@@ -3,13 +3,14 @@ import styles from "./Layout.module.scss";
 import { Sidebar } from "widgets/Sidebar";
 interface LayoutProps {
     children: ReactNode;
+    off?: boolean;
 }
 
 export const Layout = (props: LayoutProps) => {
-    const { children } = props;
+    const { children, off } = props;
     return (
         <>
-            <Sidebar />
+            {!off && <Sidebar />}
             <section className={styles.content_wrapper}>{children}</section>
         </>
     );

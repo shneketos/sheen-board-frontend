@@ -1,0 +1,17 @@
+.eventForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.event {
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(72, 48, 24, 0.04);
+    }
+    .info {
+    }
+}

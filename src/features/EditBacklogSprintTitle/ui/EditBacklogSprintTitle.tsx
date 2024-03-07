@@ -3,7 +3,7 @@ import styles from "./EditBacklogSprintTitle.module.scss";
 import Input, { InputTheme } from "shared/ui/Input/Input";
 import CheckIcon from "shared/assets/icons/check.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { type EditBacklogSprintTitleProps } from "../model/types/EditBacklogSprintTitle";
+import { type EditBacklogSprintTitleProps } from "../model/types/EditBacklogSprintTitleType";
 
 export const EditBacklogSprintTitle = (props: EditBacklogSprintTitleProps) => {
     const { onTitleEditingChange, title } = props;

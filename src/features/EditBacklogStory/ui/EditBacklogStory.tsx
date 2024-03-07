@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./EditBacklogStory.module.scss";
-import { type EditBacklogStoryProps } from "../modal/types/EditBacklogStory";
+import { type EditBacklogStoryProps } from "../modal/types/EditBacklogStoryType";
 
 export const EditBacklogStory = (props: EditBacklogStoryProps) => {
     const { onStoryEditingChange, storypoints } = props;
