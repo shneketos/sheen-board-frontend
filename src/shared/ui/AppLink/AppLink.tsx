@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import { type FC } from "react";
 import styles from "./AppLink.module.scss";
 import { Link, type LinkProps } from "react-router-dom";
 export enum AppLinkTheme {

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Overview.module.scss";
 export const OverviewContent = () => {
     const kanban = {

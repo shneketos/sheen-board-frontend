@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./KanbanContent.module.scss";
 import { KanbanRowAddRow } from "../KanbanRowStyle/KanbanRowAddRow/KanbanRowAddRow";
 import { KanbanRow } from "../KanbanRowStyle/KanbanRow/KanbanRow";

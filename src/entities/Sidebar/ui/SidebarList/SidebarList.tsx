@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./SidebarList.module.scss";
 import OverviewIcon from "shared/assets/icons/overview.svg?react";
 import BoardIcon from "shared/assets/icons/kanban.svg?react";

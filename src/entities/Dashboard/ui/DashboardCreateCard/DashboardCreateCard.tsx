@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DashboardCreateCard.module.scss";
 import PlusCircle from "shared/assets/icons/plusCircle.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";

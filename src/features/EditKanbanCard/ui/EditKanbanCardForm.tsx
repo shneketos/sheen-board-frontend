@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./EditKanbanCardForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import InfoIcon from "shared/assets/icons/info.svg?react";

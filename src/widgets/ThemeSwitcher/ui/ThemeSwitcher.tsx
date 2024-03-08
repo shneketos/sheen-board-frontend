@@ -1,5 +1,4 @@
 import { useThemes } from "app/providers/themeProvider";
-import React from "react";
 import styles from "./ThemeSwitcher.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 

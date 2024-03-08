@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./UpcomingEventItem.module.scss";
 export const UpcomingEventItem = () => {
     return (

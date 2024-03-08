@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DashboardContent.module.scss";
 import { DashboardCard } from "../DashboardCard/DashboardCard";
 import { DashboardCreateCard } from "../DashboardCreateCard/DashboardCreateCard";

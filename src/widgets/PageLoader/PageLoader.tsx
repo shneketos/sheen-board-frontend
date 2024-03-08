@@ -1,4 +1,3 @@
-import React from "react";
 import "./PageLoader.scss";
 export const PageLoader = () => (
     <div className="page__loader" data-testid="pageLoader">

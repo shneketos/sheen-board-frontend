@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./BacklogContent.module.scss";
 import { BacklogList } from "../BacklogList/BacklogList";
 import { BacklogAddSprint } from "../BacklogAddSprint/BacklogAddSprint";

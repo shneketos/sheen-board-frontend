@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./OverviewHeader.module.scss";
 export const OverviewHeader = () => {
     const Params = { name: "PGUTI TEST PAGE" };

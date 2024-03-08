@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./UpcomingEvents.module.scss";
 import CalendarIcon from "shared/assets/icons/calendar.svg?react";
 import { UpcomingEventItem } from "../UpcomingEventItem/UpcomingEventItem";
