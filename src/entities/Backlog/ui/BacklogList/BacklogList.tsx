@@ -4,7 +4,7 @@ import { BacklogItem } from "../BacklogItem/BacklogItem";
 import { DeleteBacklogSprint } from "features/DeleteBacklogSprint";
 import { EditBacklogSprintTitle } from "features/EditBacklogSprintTitle";
 import { BacklogSprintI } from "entities/Backlog/types/BacklogTypes";
-import { AddBacklogTask } from "../AddBacklogTask/AddBacklogTask";
+import { BacklogAddTask } from "../BacklogAddTask/BacklogAddTask";
 
 export const BacklogList = (props: BacklogSprintI) => {
     const { id, title, tasks } = props;
@@ -41,7 +41,7 @@ export const BacklogList = (props: BacklogSprintI) => {
                         priority={task.priority}
                     />
                 ))}
-                <AddBacklogTask />
+                <BacklogAddTask />
             </div>
         </>
     );

@@ -1,10 +1,11 @@
 import React from "react";
-import styles from "./AddBacklogTask.module.scss";
+import styles from "./BacklogAddTask.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
+import { AddBacklogTask } from "features/AddBacklogTask";
 
-export const AddBacklogTask = () => {
+export const BacklogAddTask = () => {
     const [openAdd, setOpenAdd] = React.useState(false);
     return (
         <div className={styles.addTask}>
@@ -17,10 +18,9 @@ export const AddBacklogTask = () => {
                 <span>Add New Task</span>
             </Button>
             {openAdd && (
-                <Modal
-                    isOpen={openAdd}
-                    onClose={() => setOpenAdd(false)}
-                ></Modal>
+                <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
+                    <AddBacklogTask />
+                </Modal>
             )}
         </div>
     );
