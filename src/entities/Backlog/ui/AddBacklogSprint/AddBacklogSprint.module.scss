@@ -1,0 +1,21 @@
+.row_add {
+    height: 44px;
+    width: 300px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    flex-shrink: 0;
+    border: 1px dotted gray !important;
+    gap: 10px;
+
+    svg {
+        fill: var(--svg-fill-color);
+    }
+
+    span {
+        font-weight: 500;
+        font-size: 16px;
+    }
+}

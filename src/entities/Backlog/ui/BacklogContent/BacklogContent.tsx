@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./BacklogContent.module.scss";
 import { BacklogList } from "../BacklogList/BacklogList";
+import { AddBacklogSprint } from "../AddBacklogSprint/AddBacklogSprint";
 export const BacklogContent = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const sprintsData = [
@@ -62,6 +63,7 @@ export const BacklogContent = () => {
                     tasks={sprint.tasks}
                 />
             ))}
+            <AddBacklogSprint />
         </div>
     );
 };
