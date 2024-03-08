@@ -4,12 +4,13 @@
 }
 
 .input_edit {
-    border: 1px solid black;
+    border: 1px solid var(--edit-task-border);
     border-radius: 6px 0 0 6px;
     border-right: none;
+    background: var(--edit-task-bg);
     height: 22px;
     width: 275px;
-
+    color: var(--primary-color);
     &:focus {
         outline: none;
     }
@@ -24,6 +25,7 @@
 .icon {
     width: 16px;
     height: 16px;
+    fill: var(--svg-fill-color);
 }
 
 .btn {
@@ -33,7 +35,8 @@
     padding-right: 5px;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 1px solid var(--edit-task-border);
+    background: var(--edit-task-bg);
     border-radius: 0 6px 6px 0;
     border-left: none;
 }

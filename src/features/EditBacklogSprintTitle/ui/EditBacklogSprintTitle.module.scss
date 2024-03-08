@@ -4,11 +4,12 @@
 }
 
 .input_edit {
-    border: 1px solid black;
+    border: 1px solid var(--edit-task-border);
+    background: var(--edit-task-bg);
+    color: var(--primary-color);
     border-radius: 6px 0 0 6px;
     border-right: none;
     width: 575px;
-
     &:focus {
         outline: none;
     }
@@ -31,7 +32,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    background: var(--edit-task-bg);
+    border: 1px solid var(--edit-task-border);
     border-radius: 0 6px 6px 0;
     border-left: none;
+    svg {
+        fill: var(--svg-fill-color);
+    }
 }

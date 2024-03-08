@@ -1,6 +1,7 @@
 .backlog_title {
     display: flex;
-    background: white;
+    background: var(--task-bg-color);
+    color: var(--primary-color);
     height: 40px;
     align-items: center;
     padding: 5px;
@@ -13,7 +14,6 @@
     flex-direction: column;
     gap: 5px;
     padding-left: 15px;
-
     &_title {
         cursor: pointer;
     }

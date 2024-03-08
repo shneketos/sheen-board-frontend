@@ -44,11 +44,25 @@
     --kanban-new-card-border-color: #d9d9d9;
     --kanban-new-card-btn-bg: #f7f8f9;
     --kanban-new-card-btn-box-shadow: rgb(229 244 255 / 93%);
-    //kanban-card-edit
+    //kanban-card
     --item-info-color: gray;
     --item-desc-bg: #3b3b3b;
-    --title-bg-color: red;
-    --desc-bg-color: green;
-    --card-modal-bg-color: yellow;
-    --stage-hover-color: blue;
+    --title-bg-color: rgb(255, 255, 255);
+    --desc-bg-color: rgb(255, 255, 255);
+    --card-modal-bg-color: rgb(255, 255, 255);
+    --stage-hover-color: rgb(231, 231, 231);
+    --cancel-bg-color: #eeecec;
+    --cancel-border-color: rgb(224, 224, 224);
+    --delete-btn-color: black;
+    --datepicker-bg-color: white;
+    --datepicker-border-color: #3b3b3b;
+    //backlog
+    --task-bg-color: #ffffff;
+    --edit-task-border: rgb(0, 0, 0);
+    --edit-task-bg: #ffffff;
+    --scroll-track-color: #fff;
+    --scroll-thumb-color: #1e65fe;
+    --modal-task-hover: rgb(224, 224, 224);
+    --edit-modal-hover-color: #1e65fe;
+    --edit-modal-box-shadow-color: rgb(0 0 0 / 41.8%);
 }

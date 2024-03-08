@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "../../../app/styles/index.scss";
 .react-datepicker__year-read-view--down-arrow,
 .react-datepicker__month-read-view--down-arrow,
 .react-datepicker__month-year-read-view--down-arrow,
@@ -643,11 +644,13 @@
     border: none;
     input {
         border-radius: 6px;
-        border: 1px solid #d9d9d9;
+        border: 1px solid var(--datepicker-border-color);
+        color: var(--primary-color);
+        background: var(--datepicker-bg-color);
         padding: 0 10px;
         &:focus {
             outline: none;
-            border: 1px solid #d9d9d9;
+            border: 1px solid var(--datepicker-border-color);
         }
     }
 }

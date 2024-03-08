@@ -1,11 +1,12 @@
 .backlog_item {
     display: flex;
-    background: white;
+    background: var(--edit-task-bg);
     height: 44px;
     align-items: center;
     padding: 5px;
     border-radius: 6px;
     justify-content: flex-end;
+    color: var(--primary-color);
 }
 
 .item_block {
@@ -15,7 +16,7 @@
 
     &_info {
         font-size: 12px;
-        color: gray;
+        color: var(--item-info-color);
         height: 11px;
         line-height: 9px;
     }
@@ -28,21 +29,21 @@
 
 .title {
     width: 100%;
-    border-right: 1px solid #d9d9d9;
+    border-right: 1px solid var(--edit-task-border);
     padding-left: 6px;
 }
 
 .story {
     max-width: 150px;
     min-width: 150px;
-    border-right: 1px solid #d9d9d9;
+    border-right: 1px solid var(--edit-task-border);
     padding-left: 6px;
 }
 
 .priority {
     max-width: 180px;
     min-width: 180px;
-    border-right: 1px solid #d9d9d9;
+    border-right: 1px solid var(--edit-task-border);
     padding-left: 6px;
 
     p {

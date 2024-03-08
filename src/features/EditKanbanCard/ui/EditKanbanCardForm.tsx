@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./EditKanbanCardForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
-import ListIcon from "shared/assets/icons/list.svg?react";
+import InfoIcon from "shared/assets/icons/info.svg?react";
 import PriorityIcon from "shared/assets/icons/priority.svg?react";
 import ClockIcon from "shared/assets/icons/clock.svg?react";
 import FlagIcon from "shared/assets/icons/flag.svg?react";
@@ -102,7 +102,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                 <div className={styles.form_center_desc}>
                     <span className={styles.form_info}>Desc</span>
                     <div className={styles.descBlock}>
-                        <ListIcon width={22} height={22} />
+                        <InfoIcon width={22} height={22} />
                         {isEditing ? (
                             <TextArea
                                 value={newDesc}

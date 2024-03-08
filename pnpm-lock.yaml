@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@types/react-big-calendar':
-    specifier: ^1.8.9
-    version: 1.8.9
   date-fns:
     specifier: ^3.3.1
     version: 3.3.1
@@ -46,6 +43,9 @@ devDependencies:
   '@types/react':
     specifier: ^18.2.56
     version: 18.2.61
+  '@types/react-big-calendar':
+    specifier: ^1.8.9
+    version: 1.8.9
   '@types/react-datepicker':
     specifier: ^6.0.2
     version: 6.0.2(react-dom@18.2.0)(react@18.2.0)
@@ -1138,7 +1138,7 @@ packages:
 
   /@types/date-arithmetic@4.1.4:
     resolution: {integrity: sha512-p9eZ2X9B80iKiTW4ukVj8B4K6q9/+xFtQ5MGYA5HWToY9nL4EkhV9+6ftT2VHpVMEZb5Tv00Iel516bVdO+yRw==}
-    dev: false
+    dev: true
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -1161,7 +1161,7 @@ packages:
       '@types/date-arithmetic': 4.1.4
       '@types/prop-types': 15.7.11
       '@types/react': 18.2.61
-    dev: false
+    dev: true
 
   /@types/react-datepicker@6.0.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-RnBAD9hO9GgSNZ2WjUZKltP3OkLxHNxmvFHyp8SC5A5qItPH20VWj/4krJ3iqGUiH1pqV/vRTOQKeJfEOqcXSw==}

@@ -162,6 +162,7 @@
         background: #fdb1b1;
         border-radius: 7px;
         height: 38px;
+        color: var(--delete-btn-color);
         svg {
             fill: red !important;
         }
@@ -171,8 +172,8 @@
         padding: 6px;
         width: 65px;
         height: 38px;
-        background: var(--kanban-new-card-btn-bg);
-        border: 1px solid var(--kanban-card-border-color);
+        background: var(--cancel-bg-color);
+        border: 1px solid var(--cancel-border-color);
         border-radius: 7px;
     }
 
@@ -182,7 +183,6 @@
         padding: 6px;
         color: #fff;
         background: #1677ff;
-        box-shadow: 0 2px 0 var(--kanban-new-card-btn-box-shadow);
         border: 1px solid var(--kanban-card-border-color);
         border-radius: 7px;
     }
@@ -193,7 +193,6 @@
         padding: 6px;
         color: #fff;
         background: #1677ff;
-        box-shadow: 0 2px 0 rgb(229 244 255 / 93%);
         border: 1px solid var(--kanban-card-border-color);
         border-radius: 7px;
     }
@@ -204,6 +203,8 @@
     border: 1px solid var(--kanban-card-border-color);
     padding: 2px 2px 2px 8px;
     background: var(--title-bg-color);
+    color: var(--primary-color);
+
     &:focus {
         outline: none;
         border-color: var(--kanban-card-border-color);
@@ -214,13 +215,12 @@
 .edit_desc {
     width: 460px;
     height: 260px;
-
     textarea {
         resize: none;
         padding: 5px;
         border-radius: 7px;
         background: var(--desc-bg-color);
-
+        color: var(--primary-color);
         border: 1px solid var(--kanban-card-border-color);
     }
 

@@ -1,13 +1,13 @@
 .story {
     position: absolute;
     z-index: var(--modal-z-index);
-    background: white;
+    background: var(--edit-task-bg);
     width: 100px;
     height: 117px;
     left: -100px;
     top: -27px;
     border-radius: 6px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
+    box-shadow: 0 0 10px var(--edit-modal-box-shadow-color);
 }
 
 .variables_list {
@@ -19,20 +19,20 @@
     align-items: center;
     gap: 5px;
     margin: 10px 0;
-
+    background: var(--edit-task-bg);
     &::-webkit-scrollbar {
         width: 5px;
     }
 
     &::-webkit-scrollbar-track {
-        background: #fff;
+        background: var(--scroll-track-color);
         border-radius: 15px;
     }
 
     &::-webkit-scrollbar-thumb {
         height: 20px;
         border-radius: 15px;
-        background-color: #1e65fe;
+        background-color: var(--scroll-thumb-color);
     }
 }
 
@@ -44,16 +44,14 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
     &:hover {
-        background: rgb(0 0 0 / 11%);
+        background: var(--modal-task-hover);
     }
 }
 
 .active {
-    background: #1e65fe;
-
+    background: var(--edit-modal-hover-color);
     &:hover {
-        background: #1e65fe;
+        background: var(--edit-modal-hover-color);
     }
 }
