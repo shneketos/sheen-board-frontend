@@ -6,16 +6,13 @@ import PriorityIcon from "shared/assets/icons/priority.svg?react";
 import ClockIcon from "shared/assets/icons/clock.svg?react";
 import FlagIcon from "shared/assets/icons/flag.svg?react";
 import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
-import { type KanbanCardProps } from "entities/Kanban";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
 import { TextArea } from "shared/ui/TextArea/TextArea";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import DatePicker from "react-datepicker";
-import "./date-picker.scss";
-interface EditKanbanCardProps extends KanbanCardProps {
-    onClose: () => void;
-}
+import "shared/ui/DatePicker/DatePicker.scss";
+import { EditKanbanCardProps } from "../model/types/EditKanbanCardFormType";
 
 export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const { id, title, desc, priority, date, rowTitle, onClose } = props;

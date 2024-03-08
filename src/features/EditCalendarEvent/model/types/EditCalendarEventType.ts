@@ -6,4 +6,5 @@ export interface CalendarEventProps {
     end: Date;
     color: string;
     desc: string;
+    onClose?: () => void;
 }

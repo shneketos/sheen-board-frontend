@@ -20,7 +20,7 @@ export const EventCalendar = () => {
             start: new Date(2024, 2, 1),
             end: new Date(2024, 2, 5),
             color: "#6121ab",
-            desc: "123124",
+            desc: "1231ashashashashashashashashashahja24",
         },
         {
             id: 1,
@@ -29,7 +29,16 @@ export const EventCalendar = () => {
             start: new Date(2024, 2, 13, 10, 1, 1),
             end: new Date(2024, 2, 13, 22, 2, 2),
             color: "#61dafb",
-            desc: "123124",
+            desc: "123126123671327yagsa24",
+        },
+        {
+            id: 2,
+            title: "Test",
+            allDay: false,
+            start: new Date(2024, 2, 13, 10, 1, 1),
+            end: new Date(2024, 2, 14, 22, 2, 2),
+            color: "#61bafb",
+            desc: "123721372371371367136yaqghasghas3124",
         },
     ];
     const [opened, setOpened] = React.useState(false);
@@ -72,6 +81,7 @@ export const EventCalendar = () => {
                         end={thisEvent.end}
                         allDay={thisEvent.allDay}
                         color={thisEvent.color}
+                        onClose={onClickCloseModal}
                     />
                 )}
             </CalendarModal>

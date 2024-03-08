@@ -8,10 +8,118 @@
     .title {
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding-bottom: 20px;
+        justify-content: space-between;
+        padding: 20px;
         border-bottom: 1px solid rgba(72, 48, 24, 0.04);
+        .close_btn {
+            width: 20px;
+            height: 20px;
+        }
     }
-    .info {
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    &_item {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        gap: 10px;
     }
+    &_desc {
+        display: flex;
+        gap: 10px;
+    }
+}
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+.color_box {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    &_right {
+        display: flex;
+        gap: 10px;
+    }
+    .btn_delete {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        background: #fdb1b1;
+        border-radius: 7px;
+        height: 38px;
+    }
+
+    .btn_cancel {
+        padding: 6px;
+        width: 65px;
+        height: 38px;
+        background: #f7f8f9;
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+    }
+
+    .btn_save {
+        width: 65px;
+        height: 38px;
+        padding: 6px;
+        color: #fff;
+        background: #1677ff;
+        box-shadow: 0 2px 0 rgb(229 244 255 / 93%);
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+    }
+
+    .btn_edit {
+        width: 65px;
+        height: 38px;
+        padding: 6px;
+        color: #fff;
+        background: #1677ff;
+        box-shadow: 0 2px 0 rgb(229 244 255 / 93%);
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+    }
+}
+.edit {
+    &_title {
+        border-radius: 7px;
+        border: 1px solid #d9d9d9;
+        padding: 2px 2px 2px 8px;
+
+        &:focus {
+            outline: none;
+            border-color: var(--link-color);
+            box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
+        }
+    }
+    &_desc {
+        width: 100%;
+        textarea {
+            resize: none;
+            padding: 5px;
+            border-radius: 7px;
+            border: 1px solid #d9d9d9;
+            width: 100%;
+            height: 450px;
+            &:focus {
+                outline: none;
+                border-color: var(--link-color);
+                box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
+            }
+        }
+    }
+}
+.picker {
+    top: -87px;
 }
