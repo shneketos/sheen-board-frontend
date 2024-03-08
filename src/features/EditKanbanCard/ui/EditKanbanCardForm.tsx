@@ -198,7 +198,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                         className={styles.btn_delete}
                         onClick={onClickDeleted}
                     >
-                        <TrashcanIcon width={20} height={20} fill="red" />
+                        <TrashcanIcon width={20} height={20} />
                         <span>Delete card</span>
                     </Button>
                 </div>

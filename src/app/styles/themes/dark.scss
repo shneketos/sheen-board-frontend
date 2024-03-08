@@ -15,22 +15,37 @@
     --header-btn-inverted-bg-color: white;
     --header-btn-inverted-border-color: rgb(59 57 57);
 
-    // header modal
-    --header-modal-bg-color: rgb(172 172 172);
-    --header-modal-settings-color: white;
-    --header-modal-btn-hover-settings-color: rgb(255 255 255 / 4.8%);
-    --header-modal-btn-hover-logout-color: rgb(255 0 0 / 4.8%);
-
     // sidebar
     --sidebar-bg-color: #222;
     --sidebar-bottom-color: #121212;
     --auth-bg-color: rgb(26 26 26);
     --sidebar-active-bg-color: #3b3b3b;
     --sidebar-active-color: #fff;
+    --sidebar-hover-color: #3b3b3b;
+    --sidebar-logout-hover-color: rgba(255, 0, 0, 0.514);
 
     // overview
     --overview-stats-item-bg-color: white;
 
     // modal
     --modal-bg-color: #3b3b3b;
+    //svg fill {
+    --svg-fill-color: white;
+    //kanban
+    --kanban-card-bg-color: #222;
+    --kanban-card-border-color: #3b3b3b;
+    --kanban-row-border-color: #3b3b3b;
+    --kanban-row-info-bg-color: black;
+    --kanban-row-info-bg-hover-color: #222;
+    --kanban-new-card-bg: #222;
+    --kanban-new-card-border-color: #222;
+    --kanban-new-card-btn-bg: #3b3b3b;
+    --kanban-new-card-btn-box-shadow: #22222218;
+    //kanban-card-edit
+    --item-info-color: #cecdcd;
+    --item-desc-bg: #3b3b3b;
+    --title-bg-color: red;
+    --desc-bg-color: green;
+    --card-modal-bg-color: yellow;
+    --stage-hover-color: blue;
 }

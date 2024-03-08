@@ -25,10 +25,12 @@
     }
 
     &_settings {
-        fill: var(--primary-color);
+        svg {
+            fill: var(--svg-fill-color);
+        }
 
         &:hover {
-            background-color: var(--header-modal-btn-hover-settings-color);
+            background-color: var(--sidebar-hover-color);
         }
 
         span {
@@ -39,7 +41,7 @@
 
     &_logout {
         &:hover {
-            background-color: var(--header-modal-btn-hover-logout-color);
+            background-color: var(--sidebar-logout-hover-color);
         }
 
         span {

@@ -12,7 +12,25 @@
 .create_event {
     width: 260px;
     height: 60px;
-    background: rgb(221, 221, 221);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    flex-shrink: 0;
+    border: 1px dotted gray;
+    gap: 10px;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: black;
+    }
+
+    span {
+        font-weight: 500;
+        font-size: 16px;
+    }
 }
 .title {
     background: #fafafa;

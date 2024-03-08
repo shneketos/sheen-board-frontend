@@ -5,7 +5,6 @@ import { KanbanPage } from "pages/KanbanPage";
 import { MainPage } from "pages/MainPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { OverviewPage } from "pages/OverviewPage";
-import { RoadmapPage } from "pages/RoadmapPage";
 import { SettingsPage } from "pages/SettingsPage";
 import { SigninPage } from "pages/SigninPage";
 import { SignupPage } from "pages/SignupPage";
@@ -25,7 +24,6 @@ export enum AppRoutes {
     OVERVIEW = "overview",
     KANBAN = "kanban",
     BACKLOG = "backlog",
-    ROADMAP = "roadmap",
     CALENDAR = "calendar",
     SETTINGS = "settings",
 }
@@ -38,7 +36,6 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.OVERVIEW]: "/dashboard/:id/overview",
     [AppRoutes.KANBAN]: "/dashboard/:id/kanban",
     [AppRoutes.BACKLOG]: "/dashboard/:id/backlog",
-    [AppRoutes.ROADMAP]: "/dashboard/:id/roadmap",
     [AppRoutes.CALENDAR]: "/dashboard/:id/calendar",
     [AppRoutes.SETTINGS]: "/settings",
     ///
@@ -81,11 +78,6 @@ export const RoutesConfig: Record<AppRoutes, AppRouterProps> = {
     [AppRoutes.BACKLOG]: {
         path: RouterPath.backlog,
         element: <BacklogPage />,
-        authOnly: true,
-    },
-    [AppRoutes.ROADMAP]: {
-        path: RouterPath.roadmap,
-        element: <RoadmapPage />,
         authOnly: true,
     },
     [AppRoutes.CALENDAR]: {

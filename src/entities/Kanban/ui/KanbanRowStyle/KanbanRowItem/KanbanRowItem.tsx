@@ -62,11 +62,7 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
                                         styles.row_item_modal_wrapper_delete
                                     }
                                 >
-                                    <TrashcanIcon
-                                        width={15}
-                                        height={15}
-                                        fill="red"
-                                    />
+                                    <TrashcanIcon width={15} height={15} />
                                     <span>Delete card</span>
                                 </Button>
                             </div>

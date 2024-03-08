@@ -1,7 +1,7 @@
 .info {
     position: absolute;
     z-index: var(--siderbar-info-z-index);
-    background: var(--invert-primary-color);
+    background: var(--kanban-row-info-bg-color);
 }
 
 .info_wrapper {

@@ -7,7 +7,7 @@
     position: relative;
 
     &:hover {
-        background-color: var(--header-modal-btn-hover-settings-color);
+        background-color: var(--sidebar-hover-color);
     }
 
     a {
@@ -42,12 +42,11 @@
     justify-content: center;
     border-radius: 7px;
     box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
-
     &::after {
         content: "";
         position: absolute;
         border: 10px solid transparent;
-        border-right: 10px solid var(--invert-primary-color);
+        border-right: 10px solid var(--kanban-row-info-bg-color);
         left: -19px;
         top: 10px;
     }
