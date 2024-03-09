@@ -1,7 +1,7 @@
 import { EventCalendar } from "../EventCalendar/EventCalendar";
-import styles from "./CalendarContent.module.scss";
+import styles from "./Calendar.module.scss";
 import { UpcomingEvents } from "../UpcomingEvents/UpcomingEvents";
-export const CalendarContent = () => {
+export const Calendar = () => {
     return (
         <div className={styles.calendar}>
             <UpcomingEvents />

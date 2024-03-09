@@ -1,7 +1,7 @@
-import styles from "./DashboardContent.module.scss";
+import styles from "./Dashboard.module.scss";
 import { DashboardCard } from "../DashboardCard/DashboardCard";
 import { DashboardCreateCard } from "../DashboardCreateCard/DashboardCreateCard";
-export const DashboardContent = () => {
+export const Dashboard = () => {
     const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
 
     return (

@@ -3,8 +3,8 @@ import styles from "./KanbanRowAddItem.module.scss";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
-import { type KanbanRowProps } from "entities/Kanban/model/types/KanbanTypes";
 import { AddKanbanCard } from "features/AddKanbanCard";
+import { KanbanRowProps } from "entities/KanbanBoard";
 export const KanbanRowAddItem = (props: KanbanRowProps) => {
     const { id, title } = props;
     const [openAdd, setOpenAdd] = React.useState(false);

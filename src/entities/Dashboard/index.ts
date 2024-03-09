@@ -1,2 +1,3 @@
-import { DashboardContent } from "./ui/DashboardContent/DashboardContent";
-export { DashboardContent };
+import { Dashboard } from "./ui/Dashboard/Dashboard";
+
+export { Dashboard };

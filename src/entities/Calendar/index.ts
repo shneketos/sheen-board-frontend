@@ -1,3 +1,3 @@
-import { CalendarContent } from "./ui/CalendarContent/CalendarContent";
+import { Calendar } from "./ui/Calendar/Calendar";
 
-export { CalendarContent };
+export { Calendar };

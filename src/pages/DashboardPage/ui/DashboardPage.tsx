@@ -1,9 +1,9 @@
-import { DashboardContent } from "entities/Dashboard";
+import { Dashboard } from "entities/Dashboard";
 
 export const DashboardPage = () => {
     return (
         <>
-            <DashboardContent />
+            <Dashboard />
         </>
     );
 };

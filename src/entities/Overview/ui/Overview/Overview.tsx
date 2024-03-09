@@ -1,5 +1,5 @@
 import styles from "./Overview.module.scss";
-export const OverviewContent = () => {
+export const Overview = () => {
     const kanban = {
         total: 17,
         done: 10,

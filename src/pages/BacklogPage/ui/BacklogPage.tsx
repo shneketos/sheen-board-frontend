@@ -1,4 +1,4 @@
-import { BacklogContent } from "entities/Backlog";
+import { Backlog } from "entities/Backlog";
 import { useParams } from "react-router-dom";
 
 export const BacklogPage = () => {
@@ -6,7 +6,7 @@ export const BacklogPage = () => {
     console.log(id);
     return (
         <>
-            <BacklogContent />
+            <Backlog />
         </>
     );
 };

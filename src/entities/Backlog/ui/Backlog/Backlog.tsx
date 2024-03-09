@@ -1,7 +1,7 @@
-import styles from "./BacklogContent.module.scss";
+import styles from "./Backlog.module.scss";
 import { BacklogList } from "../BacklogList/BacklogList";
 import { BacklogAddSprint } from "../BacklogAddSprint/BacklogAddSprint";
-export const BacklogContent = () => {
+export const Backlog = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const sprintsData = [
         {

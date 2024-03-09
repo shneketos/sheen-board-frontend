@@ -1,3 +1,3 @@
-import { BacklogContent } from "./ui/BacklogContent/BacklogContent";
+import { Backlog } from "./ui/Backlog/Backlog";
 
-export { BacklogContent };
+export { Backlog };

@@ -8,7 +8,7 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanCardForm } from "features/EditKanbanCard";
-import { type KanbanCardProps } from "entities/Kanban/model/types/KanbanTypes";
+import { KanbanCardProps } from "entities/KanbanBoard";
 
 export const KanbanRowItem = (props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;

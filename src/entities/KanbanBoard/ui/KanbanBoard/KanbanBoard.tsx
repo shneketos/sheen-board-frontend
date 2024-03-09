@@ -1,9 +1,9 @@
-import styles from "./KanbanContent.module.scss";
-import { KanbanRowAddRow } from "../KanbanRowStyle/KanbanRowAddRow/KanbanRowAddRow";
-import { KanbanRow } from "../KanbanRowStyle/KanbanRow/KanbanRow";
+import styles from "./KanbanBoard.module.scss";
+import { KanbanRowAddRow } from "../KanbanRowAddRow/KanbanRowAddRow";
+import { KanbanRow } from "../KanbanRow/KanbanRow";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
 
-export const KanbanContent = () => {
+export const KanbanBoard = () => {
     const kanbanData = [
         {
             id: 1,

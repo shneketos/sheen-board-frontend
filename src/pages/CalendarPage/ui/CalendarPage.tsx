@@ -1,4 +1,4 @@
-import { CalendarContent } from "entities/Calendar";
+import { Calendar } from "entities/Calendar";
 import { useParams } from "react-router-dom";
 
 export const CalendarPage = () => {
@@ -6,7 +6,7 @@ export const CalendarPage = () => {
     console.log(id);
     return (
         <>
-            <CalendarContent />
+            <Calendar />
         </>
     );
 };

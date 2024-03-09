@@ -1,7 +1,7 @@
-import { KanbanContent } from "./ui/KanbanContent/KanbanContent";
 import type {
     KanbanCardProps,
     KanbanRowProps,
 } from "./model/types/KanbanTypes";
-export { KanbanContent };
+import { KanbanBoard } from "./ui/KanbanBoard/KanbanBoard";
 export type { KanbanCardProps, KanbanRowProps };
+export { KanbanBoard };

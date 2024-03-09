@@ -1,3 +1,4 @@
+import { Overview } from "./ui/Overview/Overview";
 import { OverviewHeader } from "./ui/OverviewHeader/OverviewHeader";
-import { OverviewContent } from "./ui/OverviewContent/OverviewContent";
-export { OverviewHeader, OverviewContent };
+
+export { OverviewHeader, Overview };

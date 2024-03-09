@@ -1,4 +1,4 @@
-import { OverviewContent, OverviewHeader } from "entities/Overview";
+import { Overview, OverviewHeader } from "entities/Overview";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Modal } from "shared/ui/modal/Modal";
@@ -11,7 +11,7 @@ export const OverviewPage = () => {
         <>
             <button onClick={() => setIsOpen(true)}>toggle</button>
             <OverviewHeader />
-            <OverviewContent />
+            <Overview />
             <ThemeSwitcher />
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
