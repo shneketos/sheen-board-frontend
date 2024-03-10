@@ -3,11 +3,11 @@
 
 .rbc-calendar {
     box-sizing: border-box;
+    height: 600px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    height: 500px;
-    width: 100%;
 }
 
 .rbc-calendar *,

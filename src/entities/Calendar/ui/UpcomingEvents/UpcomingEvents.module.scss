@@ -6,7 +6,7 @@
 .upcoming_events {
     width: 260px;
     height: 300px;
-    background: white;
+    background: var(--calendar-bg-color);
     border-radius: 10px;
 }
 .create_event {
@@ -24,7 +24,7 @@
     svg {
         width: 20px;
         height: 20px;
-        fill: black;
+        fill: var(--svg-fill-color);
     }
 
     span {
@@ -33,7 +33,7 @@
     }
 }
 .title {
-    background: #fafafa;
+    background: var(--upcoming-bg-color);
     width: 100%;
     height: 60px;
     display: flex;
