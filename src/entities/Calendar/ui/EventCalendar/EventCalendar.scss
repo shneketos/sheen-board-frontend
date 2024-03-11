@@ -8,7 +8,7 @@
 @import "./styles/toolbar.scss";
 @import "./styles/variables.scss";
 .calendar_wrapper {
-    background: white;
+    background: var(--secondary-color);
     width: 750px;
     height: 560px;
     display: flex;

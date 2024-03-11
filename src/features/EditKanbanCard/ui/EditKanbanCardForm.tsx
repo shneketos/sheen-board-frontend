@@ -4,8 +4,10 @@ import CloseIcon from "shared/assets/icons/close.svg?react";
 import InfoIcon from "shared/assets/icons/info.svg?react";
 import PriorityIcon from "shared/assets/icons/priority.svg?react";
 import ClockIcon from "shared/assets/icons/clock.svg?react";
-import FlagIcon from "shared/assets/icons/flag.svg?react";
+import ListIcon from "shared/assets/icons/list.svg?react";
 import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
+import TitleIcon from "shared/assets/icons/title.svg?react";
+
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
 import { TextArea } from "shared/ui/TextArea/TextArea";
@@ -49,15 +51,18 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
             <div className={styles.form_top}>
                 <div className={styles.form_top_left}>
                     <span className={styles.form_info}>Title</span>
-                    {isEditing ? (
-                        <Input
-                            className={styles.edit_title}
-                            value={newTitle}
-                            onChange={(val) => setNewTitle(val)}
-                        />
-                    ) : (
-                        <p className={styles.title}>{title}</p>
-                    )}
+                    <div className={styles.titleBlock}>
+                        <TitleIcon width={22} height={22} />
+                        {isEditing ? (
+                            <Input
+                                className={styles.edit_title}
+                                value={newTitle}
+                                onChange={(val) => setNewTitle(val)}
+                            />
+                        ) : (
+                            <p className={styles.title}>{title}</p>
+                        )}
+                    </div>
                 </div>
                 <div className={styles.form_top_right}>
                     <Button onClick={onClose} theme={ButtonTheme.CLEAR}>
@@ -69,7 +74,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                 <div className={styles.form_center_stage}>
                     <span className={styles.form_info}>Stage</span>
                     <div className={styles.stageBlock}>
-                        <FlagIcon width={22} height={22} />
+                        <ListIcon width={22} height={22} />
                         <Button
                             theme={ButtonTheme.CLEAR}
                             onClick={() => {

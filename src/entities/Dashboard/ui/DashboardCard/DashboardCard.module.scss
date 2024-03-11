@@ -1,13 +1,12 @@
 .dashboard_card {
     width: 280px;
     height: 180px;
-    background: var(--dashboard-card-bg-color);
+    background: var(--secondary-color);
     border-radius: 6px;
-    box-shadow: 0 0 0 rgb(0 0 0 / 0%);
+    box-shadow: 0 0 0 var(--box-shadow-color);
     transition: 0.4s box-shadow ease;
-
     &:hover {
-        box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+        box-shadow: 0 0 10px var(--box-shadow-color);
         transition: 0.4s box-shadow ease;
     }
 }
@@ -27,7 +26,7 @@
 
         &_title {
             font-size: 28px;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             line-height: 1.1;
             word-break: break-all;
             width: 215px;
@@ -44,34 +43,5 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-    }
-}
-
-.dashboard_card_modal {
-    z-index: 10;
-    position: absolute;
-    width: 150px;
-    height: 44px;
-    background: var(--header-modal-bg-color);
-    box-shadow: 0 0 10px rgb(0 0 0 / 40%);
-    border-radius: 7px;
-    right: -120px;
-    display: flex;
-    top: 35px;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-        background: rgb(255 171 171);
-    }
-
-    button {
-        display: flex;
-        align-items: center;
-    }
-
-    span {
-        color: red;
-        font-weight: 600;
     }
 }

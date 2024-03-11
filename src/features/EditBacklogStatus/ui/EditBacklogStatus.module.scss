@@ -1,7 +1,7 @@
 .story {
     position: absolute;
     z-index: var(--modal-z-index);
-    background: var(--edit-task-bg);
+    background: var(--secondary-color);
     width: 100px;
     height: 117px;
     left: -100px;
@@ -30,14 +30,14 @@
     justify-content: center;
     cursor: pointer;
     &:hover {
-        background: var(--modal-task-hover);
+        background: var(--third-color);
     }
 }
 
 .active {
-    background: var(--edit-modal-hover-color);
+    background: var(--third-color);
 
     &:hover {
-        background: var(--edit-modal-hover-color);
+        background: var(--third-color);
     }
 }

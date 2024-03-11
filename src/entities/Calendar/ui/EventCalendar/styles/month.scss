@@ -95,7 +95,7 @@
 
 .rbc-day-bg {
     flex: 1 0 0%;
-
+    background: var(--secondary-color);
     & + & {
         border-left: 1px solid $cell-border;
     }

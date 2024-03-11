@@ -2,24 +2,23 @@
     --bg-color: #f0f2f5;
     --primary-color: rgb(0 0 0);
     --secondary-color: #fff;
-    --third-color: #d9d9d9; //    --sidebar-active-bg-color,--sidebar-hover-color
+    --third-color: #d9d9d9; //
     --fourth-color: #cecdcd;
     --border-color: #2bff00;
-    --delete-color: red;
+    --delete-color: rgb(248, 147, 147);
     --link-color: #5570f1;
     --box-shadow-color: #22222218;
     --low-priority-color: #5fff81;
     --medium-priority-color: #fdfb60;
     --high-priority-color: #fd6060;
+    --scroll-track-color: #fff;
+    --scroll-thumb-color: #1e65fe;
 
     // header
     --header-bg-color: rgb(255 255 255);
     --header-btn-color: white;
     --header-btn-bg-color: #5570f1;
     --header-btn-border-color: #5570f1;
-    --header-btn-inverted-color: #5570f1;
-    --header-btn-inverted-bg-color: white;
-    --header-btn-inverted-border-color: #5570f1;
 
     // sidebar
     --sidebar-bg-color: #f7f8f9;
@@ -39,36 +38,12 @@
 
     // modal
     --modal-bg-color: white;
+
     //svg fill {
     --svg-fill-color: black;
-    //kanban
-    --kanban-card-bg-color: white;
-    --kanban-card-border-color: #f0f0f0;
-    --kanban-row-border-color: rgb(0 0 0 / 15%);
-    --kanban-row-info-bg-color: rgb(255 255 255);
-    --kanban-row-info-bg-hover-color: rgb(197 197 197);
-    --kanban-new-card-border-color: #d9d9d9;
-    --kanban-new-card-btn-bg: #f7f8f9;
-    --kanban-new-card-btn-box-shadow: rgb(229 244 255 / 93%);
-    //kanban-card
-    --item-info-color: gray;
-    --item-desc-bg: #3b3b3b;
-    --title-bg-color: rgb(255, 255, 255);
-    --desc-bg-color: rgb(255, 255, 255);
-    --card-modal-bg-color: rgb(255, 255, 255);
-    --stage-hover-color: rgb(231, 231, 231);
-    --cancel-bg-color: #eeecec;
-    --cancel-border-color: rgb(224, 224, 224);
-    --delete-btn-color: black;
-    --datepicker-bg-color: white;
-    --datepicker-border-color: #3b3b3b;
-    //backlog
-    --task-bg-color: #ffffff;
-    --edit-task-border: rgb(0, 0, 0);
-    --edit-task-bg: #ffffff;
-    --scroll-track-color: #fff;
-    --scroll-thumb-color: #1e65fe;
-    --modal-task-hover: rgb(224, 224, 224);
-    --edit-modal-hover-color: #1e65fe;
-    --edit-modal-box-shadow-color: rgb(0 0 0 / 41.8%);
+
+    //calendar
+    --calendar-active-border-color: green;
+    --calendar-active-bg-color: blue;
+    --calendar-today-color: #33f10c;
 }

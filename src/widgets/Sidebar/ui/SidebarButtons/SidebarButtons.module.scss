@@ -40,6 +40,9 @@
     }
 
     &_logout {
+        svg {
+            fill: red !important;
+        }
         &:hover {
             background-color: var(--sidebar-logout-hover-color);
         }

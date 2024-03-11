@@ -5,56 +5,37 @@
     --third-color: #3b3b3b; //    --sidebar-active-bg-color,--sidebar-hover-color
     --fourth-color: #cecdcd;
     --border-color: #ff0000;
-    --delete-color: red;
+    --delete-color: rgb(248, 147, 147);
     --link-color: #5570f1;
     --box-shadow-color: #22222218;
     --low-priority-color: #5fff81;
     --medium-priority-color: #fdfb60;
     --high-priority-color: #fd6060;
+    --scroll-track-color: #3b3b3b;
+    --scroll-thumb-color: white;
     // header
     --header-bg-color: #121212;
     --header-btn-color: white;
     --header-btn-bg-color: #5570f1;
     --header-btn-border-color: #5570f1;
-    --header-btn-inverted-color: rgb(59 57 57);
-    --header-btn-inverted-bg-color: white;
-    --header-btn-inverted-border-color: rgb(59 57 57);
+
     // sidebar
     --sidebar-bg-color: #222;
     --sidebar-bottom-color: #121212;
     --auth-bg-color: rgb(26 26 26);
     --sidebar-active-color: #fff;
     --sidebar-logout-hover-color: rgba(255, 0, 0, 0.514);
+
     // overview
     --overview-stats-item-bg-color: white;
+
     // modal
     --modal-bg-color: #3b3b3b;
+
     //svg fill {
     --svg-fill-color: white;
-    //kanban-card
-    --item-info-color: #cecdcd;
-    --item-desc-bg: #3b3b3b;
-    --title-bg-color: #222;
-    --desc-bg-color: #222;
-    --card-modal-bg-color: #222;
-    --stage-hover-color: #3b3b3b;
-    --cancel-bg-color: #272727;
-    --cancel-border-color: #222;
-    --delete-btn-color: black;
-    --datepicker-bg-color: #3b3b3b;
-    --datepicker-border-color: #ffffff;
-    //backlog
-    --task-bg-color: #222;
-    --edit-task-border: white;
-    --edit-task-bg: #3b3b3b;
-    --scroll-track-color: #3b3b3b;
-    --scroll-thumb-color: white;
-    --modal-task-hover: #222;
-    --edit-modal-hover-color: #1e65fe;
-    --edit-modal-box-shadow-color: rgba(122, 122, 122, 0.144);
+
     //calendar
-    --calendar-bg-color: #3b3b3b;
-    --calendar-border-color: red;
     --calendar-active-border-color: green;
     --calendar-active-bg-color: blue;
     --calendar-today-color: #33f10c;

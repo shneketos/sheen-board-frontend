@@ -5,9 +5,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    svg {
-        fill: var(--svg-fill-color);
-    }
 }
 
 .form_info {
@@ -19,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
     height: 55px;
     padding: 0 0 15px;
 
@@ -27,6 +24,11 @@
         display: flex;
         flex-direction: column;
         height: 55px;
+        .titleBlock {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     }
 
     &_right {
@@ -50,7 +52,7 @@
         padding: 0 0 15px;
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--border-color);
 
         .stageBlock {
             display: flex;
@@ -79,7 +81,7 @@
         padding: 0 0 15px;
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--border-color);
 
         .descBlock {
             display: flex;
@@ -98,7 +100,7 @@
         display: flex;
         flex-direction: column;
         padding: 0 0 15px;
-        border-bottom: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--border-color);
         position: relative;
 
         .priority {
@@ -135,7 +137,7 @@
     &_due {
         display: flex;
         padding: 0 0 15px;
-        border-bottom: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--border-color);
         flex-direction: column;
     }
 
@@ -159,13 +161,10 @@
         display: flex;
         align-items: center;
         padding: 5px;
-        background: #fdb1b1;
+        background: var(--delete-color);
         border-radius: 7px;
         height: 38px;
-        color: var(--delete-color);
-        svg {
-            fill: red !important;
-        }
+        color: var(--primary-color);
     }
 
     .btn_cancel {
@@ -173,7 +172,7 @@
         width: 65px;
         height: 38px;
         background: var(--secondary-color);
-        border: 1px solid var(--secondary-color);
+        border: 1px solid var(--border-color);
         border-radius: 7px;
     }
 
@@ -183,7 +182,7 @@
         padding: 6px;
         color: var(--primary-color);
         background: #1677ff;
-        border: 1px solid var(--secondary-color);
+        border: 1px solid var(--border-color);
         border-radius: 7px;
     }
 
@@ -193,21 +192,21 @@
         padding: 6px;
         color: var(--primary-color);
         background: #1677ff;
-        border: 1px solid var(--secondary-color);
+        border: 1px solid var(--border-color);
         border-radius: 7px;
     }
 }
 
 .edit_title {
     border-radius: 7px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--border-color);
     padding: 2px 2px 2px 8px;
     background: var(--secondary-color);
     color: var(--primary-color);
 
     &:focus {
         outline: none;
-        border-color: var(--secondary-color);
+        border-color: var(--border-color);
         box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
     }
 }
@@ -221,12 +220,12 @@
         border-radius: 7px;
         background: var(--secondary-color);
         color: var(--primary-color);
-        border: 1px solid var(--secondary-color);
+        border: 1px solid var(--border-color);
     }
 
     &:focus {
         outline: none;
-        border-color: var(--secondary-color);
+        border-color: var(--border-color);
         box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
     }
 }

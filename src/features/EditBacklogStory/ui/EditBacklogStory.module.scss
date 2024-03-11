@@ -1,13 +1,13 @@
 .story {
     position: absolute;
     z-index: var(--modal-z-index);
-    background: var(--edit-task-bg);
+    background: var(--secondary-color);
     width: 100px;
     height: 117px;
     left: -100px;
     top: -27px;
     border-radius: 6px;
-    box-shadow: 0 0 10px var(--edit-modal-box-shadow-color);
+    box-shadow: 0 0 10px var(--box-shadow-color);
 }
 
 .variables_list {
@@ -19,7 +19,7 @@
     align-items: center;
     gap: 5px;
     margin: 10px 0;
-    background: var(--edit-task-bg);
+    background: var(--secondary-color);
     &::-webkit-scrollbar {
         width: 5px;
     }
@@ -45,13 +45,13 @@
     justify-content: center;
     cursor: pointer;
     &:hover {
-        background: var(--modal-task-hover);
+        background: var(--third-color);
     }
 }
 
 .active {
-    background: var(--edit-modal-hover-color);
+    background: var(--third-color);
     &:hover {
-        background: var(--edit-modal-hover-color);
+        background: var(--third-color);
     }
 }

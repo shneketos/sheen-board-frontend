@@ -1,13 +1,13 @@
 .story {
     position: absolute;
     z-index: var(--modal-z-index);
-    background: var(--edit-task-bg);
+    background: var(--secondary-color);
     width: 100px;
     height: 117px;
     left: -100px;
     top: -27px;
     border-radius: 6px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
+    box-shadow: 0 0 10px var(--box-shadow-color);
 }
 
 .variables_list {
@@ -31,32 +31,30 @@
     cursor: pointer;
 }
 
-.Low:hover {
-    background: #5fff81;
-    color: black;
+.Low {
+    &_active {
+        background: var(--low-priority-color);
+    }
+    &:hover {
+        background: var(--low-priority-color);
+        color: black;
+    }
 }
-
-.Medium:hover {
-    background: #fdfb60;
-    color: black;
+.Medium {
+    &_active {
+        background: var(--medium-priority-color);
+    }
+    &:hover {
+        background: var(--medium-priority-color);
+        color: black;
+    }
 }
-
-.High:hover {
-    background: #fd6060;
-    color: black;
-}
-
-.Low_active {
-    background: #5fff81;
-    color: black;
-}
-
-.Medium_active {
-    background: #fdfb60;
-    color: black;
-}
-
-.High_active {
-    background: #fd6060;
-    color: black;
+.High {
+    &_active {
+        background: var(--high-priority-color);
+    }
+    &:hover {
+        background: var(--high-priority-color);
+        color: black;
+    }
 }

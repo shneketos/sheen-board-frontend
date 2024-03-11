@@ -10,7 +10,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        border-bottom: 1px solid rgba(72, 48, 24, 0.04);
+        border-bottom: 1px solid var(--border-color);
         .close_btn {
             width: 20px;
             height: 20px;
@@ -55,7 +55,7 @@
         display: flex;
         align-items: center;
         padding: 5px;
-        background: #fdb1b1;
+        background: var(--delete-color);
         border-radius: 7px;
         height: 38px;
     }
@@ -64,8 +64,8 @@
         padding: 6px;
         width: 65px;
         height: 38px;
-        background: #f7f8f9;
-        border: 1px solid #d9d9d9;
+        background: var(--secondary-color);
+        border: 1px solid var(--border-color);
         border-radius: 7px;
     }
 
@@ -75,8 +75,8 @@
         padding: 6px;
         color: #fff;
         background: #1677ff;
-        box-shadow: 0 2px 0 rgb(229 244 255 / 93%);
-        border: 1px solid #d9d9d9;
+        box-shadow: 0 2px 0 var(--box-shadow-color);
+        border: 1px solid var(--border-color);
         border-radius: 7px;
     }
 
@@ -86,35 +86,38 @@
         padding: 6px;
         color: #fff;
         background: #1677ff;
-        box-shadow: 0 2px 0 rgb(229 244 255 / 93%);
-        border: 1px solid #d9d9d9;
+        box-shadow: 0 2px 0 var(--box-shadow-color);
+        border: 1px solid var(--border-color);
         border-radius: 7px;
     }
 }
 .edit {
     &_title {
         border-radius: 7px;
-        border: 1px solid #d9d9d9;
+        border: 1px solid var(--border-color);
         padding: 2px 2px 2px 8px;
-
+        background: var(--secondary-color);
+        color: var(--primary-color);
         &:focus {
             outline: none;
-            border-color: var(--link-color);
-            box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
+            border-color: var(--border-color);
+            box-shadow: 0 0 5px var(--box-shadow-color);
         }
     }
     &_desc {
         width: 100%;
         textarea {
+            background: var(--secondary-color);
             resize: none;
             padding: 5px;
             border-radius: 7px;
-            border: 1px solid #d9d9d9;
+            border: 1px solid var(--border-color);
             width: 100%;
             height: 450px;
+            color: var(--primary-color);
             &:focus {
                 outline: none;
-                border-color: var(--link-color);
+                border-color: var(--border-color);
                 box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
             }
         }

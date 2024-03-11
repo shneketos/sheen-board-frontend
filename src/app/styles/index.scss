@@ -6,6 +6,9 @@
 body {
     font: var(--font-m);
     color: var(--primary-color);
+    svg {
+        fill: var(--svg-fill-color);
+    }
 }
 
 .app {
