@@ -12,14 +12,14 @@
 
 .form_info {
     font-size: 12px;
-    color: var(--item-info-color);
+    color: var(--fourth-color);
 }
 
 .form_top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--kanban-card-border-color);
+    border-bottom: 1px solid var(--secondary-color);
     height: 55px;
     padding: 0 0 15px;
 
@@ -50,7 +50,7 @@
         padding: 0 0 15px;
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid var(--kanban-card-border-color);
+        border-bottom: 1px solid var(--secondary-color);
 
         .stageBlock {
             display: flex;
@@ -79,7 +79,7 @@
         padding: 0 0 15px;
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid var(--kanban-card-border-color);
+        border-bottom: 1px solid var(--secondary-color);
 
         .descBlock {
             display: flex;
@@ -98,7 +98,7 @@
         display: flex;
         flex-direction: column;
         padding: 0 0 15px;
-        border-bottom: 1px solid var(--kanban-card-border-color);
+        border-bottom: 1px solid var(--secondary-color);
         position: relative;
 
         .priority {
@@ -135,7 +135,7 @@
     &_due {
         display: flex;
         padding: 0 0 15px;
-        border-bottom: 1px solid var(--kanban-card-border-color);
+        border-bottom: 1px solid var(--secondary-color);
         flex-direction: column;
     }
 
@@ -162,7 +162,7 @@
         background: #fdb1b1;
         border-radius: 7px;
         height: 38px;
-        color: var(--delete-btn-color);
+        color: var(--delete-color);
         svg {
             fill: red !important;
         }
@@ -172,8 +172,8 @@
         padding: 6px;
         width: 65px;
         height: 38px;
-        background: var(--cancel-bg-color);
-        border: 1px solid var(--cancel-border-color);
+        background: var(--secondary-color);
+        border: 1px solid var(--secondary-color);
         border-radius: 7px;
     }
 
@@ -181,9 +181,9 @@
         width: 65px;
         height: 38px;
         padding: 6px;
-        color: #fff;
+        color: var(--primary-color);
         background: #1677ff;
-        border: 1px solid var(--kanban-card-border-color);
+        border: 1px solid var(--secondary-color);
         border-radius: 7px;
     }
 
@@ -191,23 +191,23 @@
         width: 65px;
         height: 38px;
         padding: 6px;
-        color: #fff;
+        color: var(--primary-color);
         background: #1677ff;
-        border: 1px solid var(--kanban-card-border-color);
+        border: 1px solid var(--secondary-color);
         border-radius: 7px;
     }
 }
 
 .edit_title {
     border-radius: 7px;
-    border: 1px solid var(--kanban-card-border-color);
+    border: 1px solid var(--secondary-color);
     padding: 2px 2px 2px 8px;
-    background: var(--title-bg-color);
+    background: var(--secondary-color);
     color: var(--primary-color);
 
     &:focus {
         outline: none;
-        border-color: var(--kanban-card-border-color);
+        border-color: var(--secondary-color);
         box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
     }
 }
@@ -219,14 +219,14 @@
         resize: none;
         padding: 5px;
         border-radius: 7px;
-        background: var(--desc-bg-color);
+        background: var(--secondary-color);
         color: var(--primary-color);
-        border: 1px solid var(--kanban-card-border-color);
+        border: 1px solid var(--secondary-color);
     }
 
     &:focus {
         outline: none;
-        border-color: var(--kanban-card-border-color);
+        border-color: var(--secondary-color);
         box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
     }
 }
@@ -244,7 +244,7 @@
     ul {
         width: 100%;
         padding: 5px 0;
-        background: var(--card-modal-bg-color);
+        background: var(--secondary-color);
     }
 
     li {
@@ -255,7 +255,7 @@
         cursor: pointer;
 
         &:hover {
-            background: var(--stage-hover-color);
+            background: var(--third-color);
         }
     }
 }
@@ -268,7 +268,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
+    box-shadow: 0 0 10px var(--box-shadow-color);
 
     &_wrapper {
         display: flex;
@@ -277,18 +277,17 @@
         justify-content: center;
         gap: 6px;
         width: 100%;
-        background: var(--card-modal-bg-color);
-
+        background: var(--secondary-color);
         &_low:hover {
-            background: #5fff81;
+            background: var(--low-priority-color);
         }
 
         &_medium:hover {
-            background: #fdfb60;
+            background: var(--medium-priority-color);
         }
 
         &_high:hover {
-            background: #fd6060;
+            background: var(--high-priority-color);
         }
     }
 

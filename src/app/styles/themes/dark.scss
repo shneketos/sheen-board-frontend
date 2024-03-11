@@ -1,11 +1,16 @@
 .app_dark_theme {
     --bg-color: #181818;
     --primary-color: rgb(255 255 255);
-    --secondary-color: hsl(0deg 0% 100% / 50%);
+    --secondary-color: #222;
+    --third-color: #3b3b3b; //    --sidebar-active-bg-color,--sidebar-hover-color
+    --fourth-color: #cecdcd;
+    --border-color: #ff0000;
+    --delete-color: red;
     --link-color: #5570f1;
-    --invert-primary-color: rgb(0 0 0);
-    --invert-secondary-color: rgb(218 235 68);
-
+    --box-shadow-color: #22222218;
+    --low-priority-color: #5fff81;
+    --medium-priority-color: #fdfb60;
+    --high-priority-color: #fd6060;
     // header
     --header-bg-color: #121212;
     --header-btn-color: white;
@@ -14,33 +19,18 @@
     --header-btn-inverted-color: rgb(59 57 57);
     --header-btn-inverted-bg-color: white;
     --header-btn-inverted-border-color: rgb(59 57 57);
-
     // sidebar
     --sidebar-bg-color: #222;
     --sidebar-bottom-color: #121212;
     --auth-bg-color: rgb(26 26 26);
-    --sidebar-active-bg-color: #3b3b3b;
     --sidebar-active-color: #fff;
-    --sidebar-hover-color: #3b3b3b;
     --sidebar-logout-hover-color: rgba(255, 0, 0, 0.514);
-
     // overview
     --overview-stats-item-bg-color: white;
-
     // modal
     --modal-bg-color: #3b3b3b;
     //svg fill {
     --svg-fill-color: white;
-    //kanban
-    --kanban-card-bg-color: #222;
-    --kanban-card-border-color: #3b3b3b;
-    --kanban-row-border-color: #3b3b3b;
-    --kanban-row-info-bg-color: black;
-    --kanban-row-info-bg-hover-color: #222;
-    --kanban-new-card-bg: #222;
-    --kanban-new-card-border-color: #222;
-    --kanban-new-card-btn-bg: #3b3b3b;
-    --kanban-new-card-btn-box-shadow: #22222218;
     //kanban-card
     --item-info-color: #cecdcd;
     --item-desc-bg: #3b3b3b;

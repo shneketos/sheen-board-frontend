@@ -1,10 +1,10 @@
 .row_item_wrapper {
-    background: var(--kanban-card-bg-color);
+    background: var(--secondary-color);
     height: 100px;
     width: 260px;
     position: relative;
     border-radius: 7px;
-    border: 1px solid var(--kanban-card-border-color);
+    border: 1px solid var(--border-color);
 }
 
 .row_item {
@@ -26,13 +26,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 41.8%);
+    box-shadow: 0 0 10px var(--box-shadow-color);
 
     &::after {
         content: "";
         position: absolute;
         border: 10px solid transparent;
-        border-bottom: 10px solid var(--kanban-row-info-bg-color);
+        border-bottom: 10px solid var(--secondary-color);
         left: 64px;
         top: -16px;
     }
@@ -61,7 +61,7 @@
 
     &_view {
         &:hover {
-            background: var(--kanban-row-info-bg-hover-color);
+            background: var(--third-color);
         }
     }
 
@@ -83,7 +83,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid var(--kanban-card-border-color);
+    border-bottom: 1px solid var(--border-color);
 
     &_title {
         font-size: 15px;
@@ -130,16 +130,16 @@
 }
 
 .Low {
-    background: #5fff81;
+    background: var(--low-priority-color);
     color: black;
 }
 
 .Medium {
-    background: #fdfb60;
+    background: var(--medium-priority-color);
     color: black;
 }
 
 .High {
-    background: #fd6060;
+    background: var(--high-priority-color);
     color: black;
 }

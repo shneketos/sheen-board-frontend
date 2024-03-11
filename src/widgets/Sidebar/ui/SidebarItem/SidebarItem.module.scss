@@ -7,7 +7,7 @@
     position: relative;
 
     &:hover {
-        background-color: var(--sidebar-hover-color);
+        background-color: var(--third-color);
     }
 
     a {
@@ -46,7 +46,7 @@
         content: "";
         position: absolute;
         border: 10px solid transparent;
-        border-right: 10px solid var(--kanban-row-info-bg-color);
+        border-right: 10px solid var(--kanban-primary-color);
         left: -19px;
         top: 10px;
     }
@@ -59,10 +59,10 @@
 }
 
 .active {
-    background-color: var(--sidebar-active-bg-color);
+    background-color: var(--third-color);
 
     &:hover {
-        background-color: var(--sidebar-active-bg-color);
+        background-color: var(--third-color);
     }
 
     a {

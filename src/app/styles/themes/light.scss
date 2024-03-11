@@ -1,10 +1,16 @@
 .app_light_theme {
     --bg-color: #f0f2f5;
     --primary-color: rgb(0 0 0);
-    --secondary-color: #222;
+    --secondary-color: #fff;
+    --third-color: #d9d9d9; //    --sidebar-active-bg-color,--sidebar-hover-color
+    --fourth-color: #cecdcd;
+    --border-color: #2bff00;
+    --delete-color: red;
     --link-color: #5570f1;
-    --invert-primary-color: rgb(255 255 255);
-    --invert-secondary-color: rgb(81 199 219);
+    --box-shadow-color: #22222218;
+    --low-priority-color: #5fff81;
+    --medium-priority-color: #fdfb60;
+    --high-priority-color: #fd6060;
 
     // header
     --header-bg-color: rgb(255 255 255);

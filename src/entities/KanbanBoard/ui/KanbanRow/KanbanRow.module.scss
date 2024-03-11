@@ -10,7 +10,7 @@
 
 .row_top {
     background: transparent;
-    border-bottom: 1px solid var(--kanban-row-border-color);
+    border-bottom: 1px solid var(--border-color);
     width: 268px;
 
     svg {
@@ -73,7 +73,7 @@
         content: "";
         position: absolute;
         border: 10px solid transparent;
-        border-bottom: 10px solid var(--kanban-row-info-bg-color);
+        border-bottom: 10px solid var(--secondary-color);
         left: 74px;
         top: -16px;
     }
@@ -102,7 +102,7 @@
 
     &_edit {
         &:hover {
-            background: var(--kanban-row-info-bg-hover-color);
+            background: var(--third-color);
         }
     }
 
