@@ -7,22 +7,28 @@ import Email from "shared/assets/icons/email.svg?react";
 import Pass from "shared/assets/icons/password.svg?react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { onClickSignUpByEmail } from "../model/services/SignUpByEmail";
 export const SignupForm = () => {
     const [loginValue, setLoginValue] = React.useState("");
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
+
     const onChangeName = (val: string) => {
         setLoginValue(val);
     };
-
     const onChangePassword = (val: string) => {
         setPassValue(val);
     };
-
     const onChangeEmail = (val: string) => {
         setEmailValue(val);
     };
-
+    const onClickRegister = () => {
+        onClickSignUpByEmail({
+            name: loginValue,
+            email: emailValue,
+            password: passValue,
+        });
+    };
     return (
         <>
             <div className={styles.signupForm}>
@@ -65,7 +71,12 @@ export const SignupForm = () => {
                             <span>Already have an account?</span>
                             <AppLink to={"/signin"}>Login</AppLink>
                         </div>
-                        <Button theme={ButtonTheme.REGISTER}>Sign Up</Button>
+                        <Button
+                            theme={ButtonTheme.REGISTER}
+                            onClick={onClickRegister}
+                        >
+                            Sign Up
+                        </Button>
                     </div>
                 </div>
             </div>

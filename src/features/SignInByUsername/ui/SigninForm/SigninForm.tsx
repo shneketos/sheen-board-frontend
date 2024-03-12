@@ -6,18 +6,21 @@ import Email from "shared/assets/icons/email.svg?react";
 import Pass from "shared/assets/icons/password.svg?react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { onClickSignInByUsername } from "features/SignInByUsername/model/service/SignInByUsername";
 export const SigninForm = () => {
-    const [loginValue, setLoginValue] = React.useState("");
+    const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
 
-    const onChangeName = (val: string) => {
-        setLoginValue(val);
+    const onChangeEmail = (val: string) => {
+        setEmailValue(val);
     };
 
     const onChangePassword = (val: string) => {
         setPassValue(val);
     };
-
+    const onClickLogin = () => {
+        onClickSignInByUsername({ email: emailValue, password: passValue });
+    };
     return (
         <>
             <div className={styles.signinForm}>
@@ -29,9 +32,9 @@ export const SigninForm = () => {
                     </div>
                     <div className={styles.signinForm_fields}>
                         <Input
-                            onChange={onChangeName}
+                            onChange={onChangeEmail}
                             type="email"
-                            value={loginValue}
+                            value={emailValue}
                             theme={InputTheme.AUTH}
                             placeholder="Enter Your Email"
                         >
@@ -52,7 +55,12 @@ export const SigninForm = () => {
                             <span>Don’t have an account?</span>
                             <AppLink to="/signup">Sign Up</AppLink>
                         </div>
-                        <Button theme={ButtonTheme.REGISTER}>Sign In</Button>
+                        <Button
+                            theme={ButtonTheme.REGISTER}
+                            onClick={onClickLogin}
+                        >
+                            Sign In
+                        </Button>
                     </div>
                 </div>
             </div>
