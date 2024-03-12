@@ -4,6 +4,7 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import SettingsIcon from "shared/assets/icons/settings.svg?react";
 import LogoutIcon from "shared/assets/icons/logout.svg?react";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
+import { Logout } from "entities/User";
 interface sidebarListProps {
     collapsed: boolean;
 }
@@ -38,6 +39,7 @@ export const SidebarButtons = (props: sidebarListProps) => {
                 className={styles.sidebar_buttons_logout}
                 onMouseEnter={() => setShowLogout(true)}
                 onMouseLeave={() => setShowLogout(false)}
+                onClick={Logout}
             >
                 <LogoutIcon width={20} height={20} />
                 <span>Logout</span>
