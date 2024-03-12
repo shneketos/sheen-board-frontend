@@ -1,5 +1,5 @@
-import { type KanbanRowProps } from "entities/Kanban";
 import React from "react";
+import { KanbanRowProps } from "entities/KanbanBoard";
 import styles from "./EditKanbanRowTitleForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import Input from "shared/ui/Input/Input";

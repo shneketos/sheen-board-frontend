@@ -3,7 +3,7 @@ import styles from "./BacklogAddSprint.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
-import { AddBacklogSprint } from "features/AddBacklogSprint/ui/AddBacklogSprint";
+import { AddBacklogSprint } from "features/AddBacklogSprint";
 export const BacklogAddSprint = () => {
     const [openAdd, setOpenAdd] = React.useState(false);
 

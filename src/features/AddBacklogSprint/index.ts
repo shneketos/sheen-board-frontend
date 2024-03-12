@@ -1,5 +1,3 @@
 import { AddBacklogSprint } from "./ui/AddBacklogSprint";
 
-{
-    AddBacklogSprint;
-}
+export { AddBacklogSprint };
