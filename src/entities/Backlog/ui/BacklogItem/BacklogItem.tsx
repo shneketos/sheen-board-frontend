@@ -46,18 +46,18 @@ export const BacklogItem = (props: BacklogTaskI) => {
             </div>
             <div className={`${styles.item_block} ${styles.story}`}>
                 <span className={styles.item_block_info}>Story</span>
-
-                <p
-                    className={styles.item_block_content}
-                    onClick={() => setStoryEditing(!storyEditing)}
-                >
-                    {storypoints}
-                </p>
-                {storyEditing && (
+                {storyEditing ? (
                     <EditBacklogStory
                         onStoryEditingChange={handleStoryEditingChange}
                         storypoints={storypoints}
                     />
+                ) : (
+                    <p
+                        className={styles.item_block_content}
+                        onClick={() => setStoryEditing(!storyEditing)}
+                    >
+                        {storypoints}
+                    </p>
                 )}
             </div>
             <div className={`${styles.item_block} ${styles.priority}`}>

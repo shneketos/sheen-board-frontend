@@ -19,7 +19,7 @@ export const BacklogAddTask = () => {
             </Button>
             {openAdd && (
                 <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
-                    <AddBacklogTask />
+                    <AddBacklogTask onClose={() => setOpenAdd(false)} />
                 </Modal>
             )}
         </div>

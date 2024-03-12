@@ -1,4 +1,4 @@
-import { type KanbanRowProps } from "entities/Kanban";
+import { type KanbanRowProps } from "entities/KanbanBoard";
 import React from "react";
 import styles from "./AddKanbanCard.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";

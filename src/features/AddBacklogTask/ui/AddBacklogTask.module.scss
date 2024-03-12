@@ -1,0 +1,69 @@
+.form {
+    width: 500px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+
+    .btn_close {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.form_center {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 60px;
+    border-bottom: 1px solid var(--border-color);
+    gap: 25px;
+
+    .input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        color: var(--primary-color);
+        background: var(--secondary-color);
+        &:focus {
+            outline: none;
+            border-color: var(--border-color);
+            box-shadow: 0 0 5px var(--box-shadow-color);
+        }
+    }
+}
+
+.form_bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 20px;
+    height: 100%;
+
+    .btn_cancel {
+        padding: 6px;
+        width: 65px;
+        background: var(--secondary-color);
+        border: 1px solid var(--border-color);
+        border-radius: 7px;
+        color: var(--primary-color);
+    }
+
+    .btn_save {
+        width: 65px;
+        padding: 6px;
+        color: var(--primary-color);
+        background: #1677ff;
+        box-shadow: 0 2px 0 var(--box-shadow-color);
+        border: 1px solid var(--border-color);
+        border-radius: 7px;
+    }
+}

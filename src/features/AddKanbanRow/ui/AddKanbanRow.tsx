@@ -18,6 +18,7 @@ export const AddKanbanRow = (props: addKanbanRowProps) => {
     };
     const onClickCreate = () => {
         console.log(`created row ${titleValue}`);
+        onClose();
     };
 
     return (

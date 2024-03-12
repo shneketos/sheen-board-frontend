@@ -1,57 +1,46 @@
-.story {
-    position: absolute;
-    z-index: var(--modal-z-index);
-    background: var(--secondary-color);
-    width: 100px;
-    height: 117px;
-    left: -100px;
-    top: -27px;
-    border-radius: 6px;
-    box-shadow: 0 0 10px var(--box-shadow-color);
-}
-
-.variables_list {
-    list-style: none;
-    overflow: auto;
-    height: 100px;
+.editBlock {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 5px;
-    margin: 10px 0;
+}
+
+.input_edit {
+    border: 1px solid var(--border-color);
+    border-radius: 6px 0 0 6px;
+    border-right: none;
     background: var(--secondary-color);
-    &::-webkit-scrollbar {
-        width: 5px;
+    height: 22px;
+    width: 40px;
+    color: var(--primary-color);
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    &:focus {
+        outline: none;
     }
 
-    &::-webkit-scrollbar-track {
-        background: var(--scroll-track-color);
-        border-radius: 15px;
-    }
+    padding-left: 5px;
 
-    &::-webkit-scrollbar-thumb {
-        height: 20px;
-        border-radius: 15px;
-        background-color: var(--scroll-thumb-color);
+    &[type="text"] {
+        padding-left: 8px;
     }
 }
 
-.variable {
-    height: 40px;
-    width: 100%;
-    border-radius: 6px;
+.icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--svg-fill-color);
+}
+
+.btn {
+    height: 22px;
+    width: 30px;
     display: flex;
+    padding-right: 5px;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    &:hover {
-        background: var(--third-color);
-    }
-}
-
-.active {
-    background: var(--third-color);
-    &:hover {
-        background: var(--third-color);
-    }
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-radius: 0 6px 6px 0;
+    border-left: none;
 }
