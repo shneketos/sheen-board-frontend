@@ -10,7 +10,7 @@ import { SigninPage } from "pages/SigninPage";
 import { SignupPage } from "pages/SignupPage";
 import { type RouteProps } from "react-router-dom";
 
-type AppRouterProps = RouteProps & {
+export type AppRouterProps = RouteProps & {
     authOnly?: boolean;
     sidebar_off?: boolean;
 };
@@ -51,13 +51,11 @@ export const RoutesConfig: Record<AppRoutes, AppRouterProps> = {
     [AppRoutes.SIGNIN]: {
         path: RouterPath.signin,
         element: <SigninPage />,
-        authOnly: true,
         sidebar_off: true,
     },
     [AppRoutes.SIGNUP]: {
         path: RouterPath.signup,
         element: <SignupPage />,
-        authOnly: true,
         sidebar_off: true,
     },
     [AppRoutes.DASHBOARD]: {

@@ -1,6 +1,6 @@
 import { $api } from "shared/api/api";
 import { SignUpByEmailType } from "../types/SignUpByEmailType";
-import { setCookie } from "nookies";
+import { LOCALSTORAGE_TOKEN_KEY } from "shared/const/localstorage";
 
 export const onClickSignUpByEmail = async (props: SignUpByEmailType) => {
     const { name, email, password } = props;
@@ -14,9 +14,7 @@ export const onClickSignUpByEmail = async (props: SignUpByEmailType) => {
     try {
         const response = await $api.post("/auth/register", params);
         const token = response.data.token;
-        setCookie(null, "_token", token, {
-            path: "/",
-        });
+        window.localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, token);
     } catch (err) {
         err;
     }

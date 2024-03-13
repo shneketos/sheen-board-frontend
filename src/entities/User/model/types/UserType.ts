@@ -19,4 +19,5 @@ export interface userState {
         workspaces: string[]
     ) => void;
     fetchUser: () => Promise<void>;
+    logoutUser: () => void;
 }

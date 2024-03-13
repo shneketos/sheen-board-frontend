@@ -1,14 +1,13 @@
 import axios from "axios";
-import { parseCookies } from "nookies";
+import { LOCALSTORAGE_TOKEN_KEY } from "shared/const/localstorage";
 export const $api = axios.create({
     baseURL: "http://localhost:7777",
 });
 
 $api.interceptors.request.use((config) => {
     if (typeof window !== "undefined") {
-        const { _token } = parseCookies();
-
-        config.headers.Authorization = "Bearer " + _token;
+        const token = localStorage.getItem(LOCALSTORAGE_TOKEN_KEY) || "";
+        config.headers.Authorization = "Bearer " + token;
     }
     return config;
 });

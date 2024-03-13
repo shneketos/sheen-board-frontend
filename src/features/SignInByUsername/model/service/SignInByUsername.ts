@@ -1,7 +1,8 @@
 import { $api } from "shared/api/api";
 import { SigninByUsernameType } from "../types/SignInByUsernameType";
-import { setCookie } from "nookies";
-export const onClickSignInByUsername = async (props: SigninByUsernameType) => {
+import { LOCALSTORAGE_TOKEN_KEY } from "shared/const/localstorage";
+
+export const SignInByUsername = async (props: SigninByUsernameType) => {
     const { email, password } = props;
     const params = {
         email: email,
@@ -10,9 +11,8 @@ export const onClickSignInByUsername = async (props: SigninByUsernameType) => {
     try {
         const response = await $api.post("/auth/login", params);
         const token = response.data.token;
-        setCookie(null, "_token", token, {
-            path: "/",
-        });
+        window.localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, token);
+        window.location.href = "/dashboard";
     } catch (err) {
         err;
     }

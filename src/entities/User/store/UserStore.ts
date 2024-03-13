@@ -3,7 +3,7 @@ import { userState } from "../model/types/UserType";
 import { $api } from "shared/api/api";
 
 export const useUserStore = create<userState>((set) => ({
-    user: [],
+    user: null,
     currentUser: null,
     settings: {},
     isLoading: true,
@@ -30,8 +30,14 @@ export const useUserStore = create<userState>((set) => ({
             ],
         })),
     fetchUser: async () => {
-        const { data } = await $api.get("/users/me");
-        set({ user: data });
-        set({ isLoading: false });
+        try {
+            const { data } = await $api.get("/users/me");
+            set({ user: data });
+            set({ isLoading: false });
+        } catch (err) {
+            set({ user: null });
+            set({ isLoading: false });
+        }
     },
+    logoutUser: () => set({ user: null }),
 }));

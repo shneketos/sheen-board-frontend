@@ -6,20 +6,21 @@ import Email from "shared/assets/icons/email.svg?react";
 import Pass from "shared/assets/icons/password.svg?react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { onClickSignInByUsername } from "features/SignInByUsername/model/service/SignInByUsername";
+import { SignInByUsername } from "features/SignInByUsername/model/service/SignInByUsername";
 export const SigninForm = () => {
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
-
     const onChangeEmail = (val: string) => {
         setEmailValue(val);
     };
-
     const onChangePassword = (val: string) => {
         setPassValue(val);
     };
-    const onClickLogin = () => {
-        onClickSignInByUsername({ email: emailValue, password: passValue });
+    const onClickLogin = async () => {
+        SignInByUsername({
+            email: emailValue,
+            password: passValue,
+        });
     };
     return (
         <>

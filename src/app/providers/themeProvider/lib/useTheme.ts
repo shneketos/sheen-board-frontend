@@ -1,4 +1,5 @@
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
+import { LOCALSTORAGE_THEME_KEY } from "shared/const/localstorage";
+import { Theme, ThemeContext } from "./ThemeContext";
 import React, { useContext } from "react";
 
 export const useThemes = () => {
@@ -12,7 +13,7 @@ export const useThemes = () => {
         setTheme(newTheme);
     };
     React.useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+        localStorage.setItem(LOCALSTORAGE_THEME_KEY, theme);
         document.body.className = theme;
     }, [theme]);
     return {
