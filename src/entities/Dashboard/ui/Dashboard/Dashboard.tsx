@@ -3,7 +3,7 @@ import { DashboardCard } from "../DashboardCard/DashboardCard";
 import { DashboardCreateCard } from "../DashboardCreateCard/DashboardCreateCard";
 export const Dashboard = () => {
     const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
-
+    const count = 5;
     return (
         <div className={styles.dashboard}>
             <div className={styles.dashboard_meet}>
@@ -18,7 +18,7 @@ export const Dashboard = () => {
                         key={card.id}
                     />
                 ))}
-                <DashboardCreateCard />
+                {count <= 5 && <DashboardCreateCard />}
             </div>
         </div>
     );
