@@ -57,6 +57,7 @@ export const Backlog = () => {
         <div className={styles.backlog_content}>
             {sprintsData.map((sprint) => (
                 <BacklogList
+                    key={sprint.id}
                     id={sprint.id}
                     title={sprint.title}
                     tasks={sprint.tasks}

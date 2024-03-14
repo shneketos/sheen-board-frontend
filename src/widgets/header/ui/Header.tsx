@@ -2,24 +2,21 @@ import styles from "./Header.module.scss";
 import Slogo from "shared/assets/icons/Slogo.png";
 import React from "react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import useAuthSelector from "entities/User/model/selector/useAuthSelector";
 
-export const Header = ({ authed }: { authed: boolean }) => {
+export const Header = () => {
+    const auth = useAuthSelector();
     const userName = "Sheeeen";
     const initials = userName.split(" ");
-    const [open, setOpen] = React.useState(false);
     return (
         <header className={styles.header} data-testid="header">
             <div className={styles.header_left}>
                 <img src={Slogo} />
             </div>
-            {authed ? (
+            {auth ? (
                 <div className={styles.header_right_Authed}>
                     <span className={styles.header_username}>{userName}</span>
                     <div
-                        data-testid="header_toggle_btn"
-                        onClick={() => {
-                            setOpen(!open);
-                        }}
                         className={styles.header_right_Authed_photo}
                     >{`${initials[0][0]}`}</div>
                 </div>

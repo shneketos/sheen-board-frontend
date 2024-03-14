@@ -14,7 +14,6 @@ export const Sidebar = () => {
     const { id } = useParams();
     const location = useLocation();
     const isWorkSpace = location.pathname.includes(`/dashboard/${id}/`);
-    console.log(location.pathname, isWorkSpace);
     return (
         <div
             data-testid="sidebar"

@@ -34,6 +34,7 @@ export const BacklogList = (props: BacklogSprintI) => {
             <div className={styles.backlog_list}>
                 {tasks.map((task) => (
                     <BacklogItem
+                        key={task.taskId}
                         taskId={task.taskId}
                         title={task.title}
                         status={task.status}

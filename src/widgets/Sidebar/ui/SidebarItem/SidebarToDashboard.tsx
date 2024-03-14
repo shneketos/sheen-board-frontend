@@ -1,35 +1,31 @@
 import React from "react";
 import styles from "./SidebarItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
-import { useLocation } from "react-router-dom";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
+import DashboardIcon from "shared/assets/icons/workspace.svg?react";
 interface sidebarListProps {
-    id: string;
-    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
-    name: string;
-    to: string;
     collapsed: boolean;
 }
-export const SidebarItem = (props: sidebarListProps) => {
-    const { id, Icon, name, to, collapsed } = props;
+export const SidebarToDashboard = (props: sidebarListProps) => {
+    const { collapsed } = props;
     const [showInfo, setShowInfo] = React.useState(false);
-    const location = useLocation();
     return (
         <li
             className={`${styles.sidebar_list_item} ${
                 collapsed ? styles.collapsed : ""
-            } ${location.pathname.includes(`/${to}`) ? styles.active : ""}`}
+            } `}
         >
             <AppLink
-                to={`/dashboard/${id}/${to}`}
+                to={`/dashboard`}
+                className={styles.dashboard}
                 onMouseEnter={() => setShowInfo(true)}
                 onMouseLeave={() => setShowInfo(false)}
             >
-                <Icon width={20} height={20} />
-                <span>{name}</span>
+                <DashboardIcon width={20} height={20} />
+                <span>Dashboard</span>
                 {collapsed && showInfo && (
                     <InfoModal className={styles.sidebar_list_item_modal}>
-                        {name}
+                        Dashboard
                     </InfoModal>
                 )}
             </AppLink>

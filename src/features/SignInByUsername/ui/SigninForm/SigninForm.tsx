@@ -10,18 +10,14 @@ import { SignInByUsername } from "features/SignInByUsername/model/service/SignIn
 export const SigninForm = () => {
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
+    const [auth, setAuth] = React.useState(false);
     const onChangeEmail = (val: string) => {
         setEmailValue(val);
     };
     const onChangePassword = (val: string) => {
         setPassValue(val);
     };
-    const onClickLogin = async () => {
-        SignInByUsername({
-            email: emailValue,
-            password: passValue,
-        });
-    };
+
     return (
         <>
             <div className={styles.signinForm}>
@@ -58,13 +54,16 @@ export const SigninForm = () => {
                         </div>
                         <Button
                             theme={ButtonTheme.REGISTER}
-                            onClick={onClickLogin}
+                            onClick={() => setAuth(true)}
                         >
                             Sign In
                         </Button>
                     </div>
                 </div>
             </div>
+            {auth && (
+                <SignInByUsername email={emailValue} password={passValue} />
+            )}
         </>
     );
 };

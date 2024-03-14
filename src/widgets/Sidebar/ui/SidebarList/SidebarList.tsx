@@ -4,6 +4,7 @@ import BoardIcon from "shared/assets/icons/kanban.svg?react";
 import BacklogIcon from "shared/assets/icons/backlog.svg?react";
 import CalendarIcon from "shared/assets/icons/calendar.svg?react";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { SidebarToDashboard } from "../SidebarItem/SidebarToDashboard";
 
 interface sidebarListProps {
     id: string;
@@ -12,8 +13,6 @@ interface sidebarListProps {
 
 export const SidebarList = (props: sidebarListProps) => {
     const { id, collapsed } = props;
-    console.log(id);
-
     const SidebarRoutes = [
         { name: "Overview", to: "overview", icon: OverviewIcon },
         { name: "Kanban", to: "kanban", icon: BoardIcon },
@@ -23,16 +22,19 @@ export const SidebarList = (props: sidebarListProps) => {
 
     return (
         <ul className={styles.sidebar_list}>
-            {SidebarRoutes.map((item) => (
-                <SidebarItem
-                    id={id}
-                    Icon={item.icon}
-                    name={item.name}
-                    key={item.name}
-                    to={item.to}
-                    collapsed={collapsed}
-                />
-            ))}
+            <SidebarToDashboard collapsed={collapsed} />
+            <div className={styles.list}>
+                {SidebarRoutes.map((item) => (
+                    <SidebarItem
+                        id={id}
+                        Icon={item.icon}
+                        name={item.name}
+                        key={item.name}
+                        to={item.to}
+                        collapsed={collapsed}
+                    />
+                ))}
+            </div>
         </ul>
     );
 };

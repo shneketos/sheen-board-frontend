@@ -15,7 +15,7 @@ export const App = () => {
     if (!isLoading) {
         return (
             <div className="app">
-                <Header authed={true} />
+                <Header />
                 <main className="content">
                     <AppRouter />
                 </main>

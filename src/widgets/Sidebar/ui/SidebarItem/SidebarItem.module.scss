@@ -46,12 +46,14 @@
         content: "";
         position: absolute;
         border: 10px solid transparent;
-        border-right: 10px solid var(--kanban-primary-color);
+        border-right: 10px solid var(--secondary-color);
         left: -19px;
         top: 10px;
     }
 }
-
+.dashboard {
+    border-bottom: 1px solid var(--border-color);
+}
 .collapsed {
     a {
         padding: 0 25px 0 18px;
