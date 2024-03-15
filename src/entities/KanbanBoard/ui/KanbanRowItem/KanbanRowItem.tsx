@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import styles from "./KanbanRowItem.module.scss";
 import MoreIcon from "shared/assets/icons/more.svg?react";
 import ClockIcon from "shared/assets/icons/clock.svg?react";
@@ -10,17 +10,17 @@ import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanCardForm } from "features/EditKanbanCard";
 import { KanbanCardProps } from "entities/KanbanBoard";
 
-export const KanbanRowItem = (props: KanbanCardProps) => {
+export const KanbanRowItem = memo((props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
 
-    const onClickDeleteCard = () => {
+    const onClickDeleteCard = useCallback(() => {
         console.log(
             `card ${title} id ${id} in row ${rowTitle} id ${rowId} deleted`
         );
         setRowModalOpened(false);
-    };
+    }, [id, title, rowId, rowTitle]);
 
     return (
         <div className={styles.row_item_wrapper}>
@@ -103,4 +103,4 @@ export const KanbanRowItem = (props: KanbanCardProps) => {
             )}
         </div>
     );
-};
+});

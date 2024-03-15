@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./EditBacklogSprintTitle.module.scss";
 import Input, { InputTheme } from "shared/ui/Input/Input";
 import CheckIcon from "shared/assets/icons/check.svg?react";
@@ -10,9 +10,9 @@ export const EditBacklogSprintTitle = (props: EditBacklogSprintTitleProps) => {
 
     const [NewTitle, setNewTitle] = React.useState(title);
 
-    const handleButtonClick = () => {
+    const handleButtonClick = useCallback(() => {
         onTitleEditingChange(false);
-    };
+    }, [onTitleEditingChange]);
     return (
         <div className={styles.editBlock}>
             <Input

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { KanbanRowProps } from "entities/KanbanBoard";
 import styles from "./EditKanbanRowTitleForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
@@ -10,9 +10,9 @@ export const EditKanbanRowTitleForm = (props: KanbanRowProps) => {
     console.log(id);
     const [titleValue, setTitleValue] = React.useState(title);
 
-    const onChangeTitle = (val: string) => {
-        setTitleValue(val);
-    };
+    const onConfirm = useCallback(() => {
+        onClose();
+    }, [onClose]);
 
     return (
         <div className={styles.form}>
@@ -31,7 +31,7 @@ export const EditKanbanRowTitleForm = (props: KanbanRowProps) => {
                 <Input
                     className={styles.input}
                     value={titleValue}
-                    onChange={onChangeTitle}
+                    onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"
                 />
             </div>
@@ -43,7 +43,11 @@ export const EditKanbanRowTitleForm = (props: KanbanRowProps) => {
                 >
                     Cancel
                 </Button>
-                <Button className={styles.btn_save} theme={ButtonTheme.CLEAR}>
+                <Button
+                    className={styles.btn_save}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onConfirm}
+                >
                     Save
                 </Button>
             </div>

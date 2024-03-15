@@ -45,7 +45,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     };
 
     console.log(newDate);
-    const ArrayTitles = ["TO do", "in progres", "done", "active", "active"];
+    const ArrayTitles = ["TO do", "in progres", "done", "active"];
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>

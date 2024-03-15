@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./BacklogAddTask.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
 import { AddBacklogTask } from "features/AddBacklogTask";
 
-export const BacklogAddTask = () => {
+export const BacklogAddTask = memo(() => {
     const [openAdd, setOpenAdd] = React.useState(false);
     return (
         <div className={styles.addTask}>
@@ -24,4 +24,4 @@ export const BacklogAddTask = () => {
             )}
         </div>
     );
-};
+});

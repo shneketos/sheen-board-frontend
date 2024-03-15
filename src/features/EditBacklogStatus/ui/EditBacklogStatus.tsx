@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./EditBacklogStatus.module.scss";
 import { type EditBacklogStatusProps } from "../model/types/EditBacklogStatusType";
 
@@ -7,9 +7,9 @@ export const EditBacklogStatus = (props: EditBacklogStatusProps) => {
     const StatusVariables = ["Not Started", "In Progress", "Completed"];
     const [newStatusValue, setNewStatusValue] = React.useState(status);
 
-    const handleButtonClick = () => {
+    const handleButtonClick = useCallback(() => {
         onStatusEditingChange(false);
-    };
+    }, [onStatusEditingChange]);
 
     return (
         <div className={styles.story} onMouseLeave={handleButtonClick}>

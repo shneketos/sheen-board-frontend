@@ -1,5 +1,6 @@
+import { memo } from "react";
 import styles from "./UpcomingEventItem.module.scss";
-export const UpcomingEventItem = () => {
+export const UpcomingEventItem = memo(() => {
     return (
         <div className={styles.eventItem}>
             <p className={styles.eventItem_date}>Today,All day</p>
@@ -8,4 +9,4 @@ export const UpcomingEventItem = () => {
             </span>
         </div>
     );
-};
+});

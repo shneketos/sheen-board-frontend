@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./SidebarItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
@@ -6,7 +6,7 @@ import DashboardIcon from "shared/assets/icons/workspace.svg?react";
 interface sidebarListProps {
     collapsed: boolean;
 }
-export const SidebarToDashboard = (props: sidebarListProps) => {
+export const SidebarToDashboard = memo((props: sidebarListProps) => {
     const { collapsed } = props;
     const [showInfo, setShowInfo] = React.useState(false);
     return (
@@ -31,4 +31,4 @@ export const SidebarToDashboard = (props: sidebarListProps) => {
             </AppLink>
         </li>
     );
-};
+});

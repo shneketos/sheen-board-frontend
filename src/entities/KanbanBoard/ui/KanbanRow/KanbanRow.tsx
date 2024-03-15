@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./KanbanRow.module.scss";
 
 import MoreIcon from "shared/assets/icons/more.svg?react";
@@ -13,7 +13,7 @@ import { EditKanbanRowTitleForm } from "features/EditKanbanRowTitle";
 import { KanbanRowItem } from "../KanbanRowItem/KanbanRowItem";
 import { KanbanRowProps } from "entities/KanbanBoard";
 
-export const KanbanRow = (props: KanbanRowProps) => {
+export const KanbanRow = memo((props: KanbanRowProps) => {
     const { id, title, cards } = props;
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     const [editTitle, setEditTitle] = React.useState(false);
@@ -108,4 +108,4 @@ export const KanbanRow = (props: KanbanRowProps) => {
             </div>
         </div>
     );
-};
+});

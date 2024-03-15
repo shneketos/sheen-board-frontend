@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import styles from "./BacklogItem.module.scss";
 import { DeleteBacklogTask } from "features/DeleteBacklogTask";
 import { EditBacklogTaskTitle } from "features/EditBacklogTaskTitle";
@@ -6,26 +6,37 @@ import { EditBacklogStory } from "features/EditBacklogStory";
 import { EditBacklogPriority } from "features/EditBacklogPriority";
 import { EditBacklogStatus } from "features/EditBacklogStatus/ui/EditBacklogStatus";
 import { BacklogTaskI } from "entities/Backlog/types/BacklogTypes";
-export const BacklogItem = (props: BacklogTaskI) => {
+export const BacklogItem = memo((props: BacklogTaskI) => {
     const { taskId, title, storypoints, status, priority } = props;
     console.log(taskId);
-
     const [titleEditing, setTitleEditing] = React.useState(false);
     const [storyEditing, setStoryEditing] = React.useState(false);
     const [priorityEditing, setPriorityEditing] = React.useState(false);
     const [statusEditing, setStatusEditing] = React.useState(false);
-    const handleTitleEditingChange = (newTitleEditingValue: boolean) => {
-        setTitleEditing(newTitleEditingValue);
-    };
-    const handleStoryEditingChange = (newStoryEditingValue: boolean) => {
-        setStoryEditing(newStoryEditingValue);
-    };
-    const handlePriorityEditingChange = (newPriorityEditingValue: boolean) => {
-        setPriorityEditing(newPriorityEditingValue);
-    };
-    const handleStatusEditingChange = (newStatusEditingValue: boolean) => {
-        setStatusEditing(newStatusEditingValue);
-    };
+    const handleTitleEditingChange = useCallback(
+        (newTitleEditingValue: boolean) => {
+            setTitleEditing(newTitleEditingValue);
+        },
+        []
+    );
+    const handleStoryEditingChange = useCallback(
+        (newStoryEditingValue: boolean) => {
+            setStoryEditing(newStoryEditingValue);
+        },
+        []
+    );
+    const handlePriorityEditingChange = useCallback(
+        (newPriorityEditingValue: boolean) => {
+            setPriorityEditing(newPriorityEditingValue);
+        },
+        []
+    );
+    const handleStatusEditingChange = useCallback(
+        (newStatusEditingValue: boolean) => {
+            setStatusEditing(newStatusEditingValue);
+        },
+        []
+    );
     return (
         <div className={styles.backlog_item}>
             <div className={`${styles.item_block} ${styles.title}`}>
@@ -93,4 +104,4 @@ export const BacklogItem = (props: BacklogTaskI) => {
             <DeleteBacklogTask />
         </div>
     );
-};
+});

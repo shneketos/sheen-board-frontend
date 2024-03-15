@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./BacklogList.module.scss";
 import { BacklogItem } from "../BacklogItem/BacklogItem";
 import { DeleteBacklogSprint } from "features/DeleteBacklogSprint";
@@ -10,9 +10,12 @@ export const BacklogList = (props: BacklogSprintI) => {
     const { id, title, tasks } = props;
     console.log(id);
     const [titleEditing, setTitleEditing] = React.useState(false);
-    const handleTitleEditingChange = (newTitleEditingValue: boolean) => {
-        setTitleEditing(newTitleEditingValue);
-    };
+    const handleTitleEditingChange = useCallback(
+        (newTitleEditingValue: boolean) => {
+            setTitleEditing(newTitleEditingValue);
+        },
+        []
+    );
     return (
         <>
             <div className={styles.backlog_title}>

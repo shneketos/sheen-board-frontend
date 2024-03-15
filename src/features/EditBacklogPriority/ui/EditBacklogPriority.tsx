@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./EditBacklogPriority.module.scss";
 import { EditBacklogPriorityProps } from "../model/types/EditBacklogPriorityType";
 
@@ -7,9 +7,9 @@ export const EditBacklogPriority = (props: EditBacklogPriorityProps) => {
     const PriorityVariables = ["Low", "Medium", "High"];
     const [newPriorityValue, setNewPriorityValue] = React.useState(priority);
 
-    const handleButtonClick = () => {
+    const handleButtonClick = useCallback(() => {
         onPriorityEditingChange(false);
-    };
+    }, [onPriorityEditingChange]);
 
     return (
         <div className={styles.story} onMouseLeave={handleButtonClick}>

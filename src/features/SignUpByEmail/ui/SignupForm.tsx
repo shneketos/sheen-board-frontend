@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./SignupForm.module.scss";
 import slogo from "shared/assets/icons/Slogo.png";
 import Input, { InputTheme } from "shared/ui/Input/Input";
@@ -13,22 +13,13 @@ export const SignupForm = () => {
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
 
-    const onChangeName = (val: string) => {
-        setLoginValue(val);
-    };
-    const onChangePassword = (val: string) => {
-        setPassValue(val);
-    };
-    const onChangeEmail = (val: string) => {
-        setEmailValue(val);
-    };
-    const onClickRegister = () => {
+    const onClickRegister = useCallback(() => {
         onClickSignUpByEmail({
             name: loginValue,
             email: emailValue,
             password: passValue,
         });
-    };
+    }, [emailValue, loginValue, passValue]);
     return (
         <>
             <div className={styles.signupForm}>
@@ -40,7 +31,7 @@ export const SignupForm = () => {
                     </div>
                     <div className={styles.signupForm_fields}>
                         <Input
-                            onChange={onChangeName}
+                            onChange={(val) => setLoginValue(val)}
                             value={loginValue}
                             theme={InputTheme.AUTH}
                             placeholder="Enter Your Nickname"
@@ -48,7 +39,7 @@ export const SignupForm = () => {
                             <User />
                         </Input>
                         <Input
-                            onChange={onChangeEmail}
+                            onChange={(val) => setEmailValue(val)}
                             value={emailValue}
                             theme={InputTheme.AUTH}
                             placeholder="Enter Your Email"
@@ -57,7 +48,7 @@ export const SignupForm = () => {
                             <Email />
                         </Input>
                         <Input
-                            onChange={onChangePassword}
+                            onChange={(val) => setPassValue(val)}
                             value={passValue}
                             theme={InputTheme.AUTH}
                             placeholder="Enter Your Password"

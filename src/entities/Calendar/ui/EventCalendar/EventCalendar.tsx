@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "./EventCalendar.scss";
@@ -10,7 +10,7 @@ import { CalendarModal } from "shared/ui/CalendarModal/CalendarModal";
 moment.updateLocale("ru", { week: { dow: 1 } });
 const localizer = momentLocalizer(moment);
 
-export const EventCalendar = () => {
+export const EventCalendar = memo(() => {
     const events = [
         // Ваши начальные события
         {
@@ -44,10 +44,10 @@ export const EventCalendar = () => {
     const [opened, setOpened] = React.useState(false);
     const [thisEvent, setThisEvent] = React.useState<CalendarEventProps>(null);
     console.log(thisEvent);
-    const onClickCloseModal = () => {
+    const onClickCloseModal = useCallback(() => {
         setOpened(false);
         setThisEvent(null);
-    };
+    }, []);
     return (
         <div className="calendar_wrapper">
             <Calendar
@@ -87,4 +87,4 @@ export const EventCalendar = () => {
             </CalendarModal>
         </div>
     );
-};
+});

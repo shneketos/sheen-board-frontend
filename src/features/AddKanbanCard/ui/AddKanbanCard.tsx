@@ -10,10 +10,6 @@ export const AddKanbanCard = (props: KanbanRowProps) => {
     console.log(title, id);
     const [titleValue, setTitleValue] = React.useState("");
 
-    const onChangeTitle = (val: string) => {
-        setTitleValue(val);
-    };
-
     const onClickAddCard = () => {
         console.log(`added card ${titleValue}in row ${title},id ${id} `);
         onClose();
@@ -35,7 +31,7 @@ export const AddKanbanCard = (props: KanbanRowProps) => {
                 <Input
                     className={styles.input}
                     value={titleValue}
-                    onChange={onChangeTitle}
+                    onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"
                 />
             </div>

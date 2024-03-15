@@ -2,8 +2,9 @@ import styles from "./KanbanBoard.module.scss";
 import { KanbanRowAddRow } from "../KanbanRowAddRow/KanbanRowAddRow";
 import { KanbanRow } from "../KanbanRow/KanbanRow";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
+import { memo } from "react";
 
-export const KanbanBoard = () => {
+export const KanbanBoard = memo(() => {
     const kanbanData = [
         {
             id: 1,
@@ -100,4 +101,4 @@ export const KanbanBoard = () => {
             <KanbanRowAddRow />
         </div>
     );
-};
+});

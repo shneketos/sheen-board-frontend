@@ -13,9 +13,6 @@ export const AddKanbanRow = (props: addKanbanRowProps) => {
 
     const [titleValue, setTitleValue] = React.useState("");
 
-    const onChangeTitle = (val: string) => {
-        setTitleValue(val);
-    };
     const onClickCreate = () => {
         console.log(`created row ${titleValue}`);
         onClose();
@@ -38,7 +35,7 @@ export const AddKanbanRow = (props: addKanbanRowProps) => {
                 <Input
                     className={styles.input}
                     value={titleValue}
-                    onChange={onChangeTitle}
+                    onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"
                 />
             </div>

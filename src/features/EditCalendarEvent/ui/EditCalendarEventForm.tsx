@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import ReactDatePicker from "react-datepicker";
 
@@ -33,7 +33,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
 
     const dateFormatter = new Intl.DateTimeFormat("en-gb", options);
     const oneDay = dateFormatter.format(start) === dateFormatter.format(end);
-    const onClickDiscard = () => {
+    const onClickDiscard = useCallback(() => {
         setEventEditing(false);
         setColorEditing(false);
         setNewTitle(title);
@@ -42,7 +42,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
         setNewColor(color);
         setNewStartDate(start);
         setNewEndDate(end);
-    };
+    }, [title, desc, allDay, color, start, end]);
     console.log(
         "start date-",
         dateFormatter.format(newStartDate),

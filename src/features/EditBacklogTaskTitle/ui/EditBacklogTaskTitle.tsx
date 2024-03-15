@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./EditBacklogTaskTitle.module.scss";
 import Input, { InputTheme } from "shared/ui/Input/Input";
 import CheckIcon from "shared/assets/icons/check.svg?react";
@@ -8,9 +8,9 @@ import { type EditBacklogTaskTitleProps } from "../model/types/EditBacklogTaskTi
 export const EditBacklogTaskTitle = (props: EditBacklogTaskTitleProps) => {
     const { onTitleEditingChange, title } = props;
     const [NewTitle, setNewTitle] = React.useState(title);
-    const handleButtonClick = () => {
+    const handleButtonClick = useCallback(() => {
         onTitleEditingChange(false);
-    };
+    }, [onTitleEditingChange]);
     return (
         <div className={styles.editBlock}>
             <Input

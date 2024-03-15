@@ -2,8 +2,9 @@ import styles from "./DashboardCard.module.scss";
 import WorkspaceIcon from "shared/assets/icons/workspace.svg?react";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import type { DashboardCardType } from "entities/Dashboard/model/types/DashboardCard";
+import { memo } from "react";
 
-export const DashboardCard = (props: DashboardCardType) => {
+export const DashboardCard = memo((props: DashboardCardType) => {
     const { id, name } = props;
     return (
         <div className={styles.dashboard_card}>
@@ -23,4 +24,4 @@ export const DashboardCard = (props: DashboardCardType) => {
             </div>
         </div>
     );
-};
+});

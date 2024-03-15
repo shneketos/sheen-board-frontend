@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./SidebarItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { useLocation } from "react-router-dom";
@@ -10,7 +10,7 @@ interface sidebarListProps {
     to: string;
     collapsed: boolean;
 }
-export const SidebarItem = (props: sidebarListProps) => {
+export const SidebarItem = memo((props: sidebarListProps) => {
     const { id, Icon, name, to, collapsed } = props;
     const [showInfo, setShowInfo] = React.useState(false);
     const location = useLocation();
@@ -35,4 +35,4 @@ export const SidebarItem = (props: sidebarListProps) => {
             </AppLink>
         </li>
     );
-};
+});

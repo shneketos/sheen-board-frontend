@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./EditBacklogStory.module.scss";
 import { type EditBacklogStoryProps } from "../modal/types/EditBacklogStoryType";
 import Input, { InputTheme } from "shared/ui/Input/Input";
@@ -11,9 +11,9 @@ export const EditBacklogStory = (props: EditBacklogStoryProps) => {
         storypoints.toString()
     );
 
-    const handleButtonClick = () => {
+    const handleButtonClick = useCallback(() => {
         onStoryEditingChange(false);
-    };
+    }, [onStoryEditingChange]);
 
     return (
         <div className={styles.editBlock}>

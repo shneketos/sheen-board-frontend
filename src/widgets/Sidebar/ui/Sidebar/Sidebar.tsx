@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import styles from "./Sidebar.module.scss";
 import Sidebar_arrow from "shared/assets/icons/sidebar_arrow.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
@@ -6,11 +6,11 @@ import { useLocation, useParams } from "react-router-dom";
 import { SidebarButtons } from "../SidebarButtons/SidebarButtons";
 import { SidebarList } from "../SidebarList/SidebarList";
 
-export const Sidebar = () => {
+export const Sidebar = memo(() => {
     const [collapsed, setCollapsed] = React.useState(false);
-    const onClickCollapse = () => {
+    const onClickCollapse = useCallback(() => {
         setCollapsed(!collapsed);
-    };
+    }, [collapsed]);
     const { id } = useParams();
     const location = useLocation();
     const isWorkSpace = location.pathname.includes(`/dashboard/${id}/`);
@@ -43,4 +43,4 @@ export const Sidebar = () => {
             </div>
         </div>
     );
-};
+});

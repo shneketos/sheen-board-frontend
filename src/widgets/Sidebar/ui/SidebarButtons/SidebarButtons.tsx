@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import styles from "./SidebarButtons.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import SettingsIcon from "shared/assets/icons/settings.svg?react";
@@ -10,16 +10,16 @@ import { Logout } from "entities/User";
 interface sidebarListProps {
     collapsed: boolean;
 }
-export const SidebarButtons = (props: sidebarListProps) => {
+export const SidebarButtons = memo((props: sidebarListProps) => {
     const navigate = useNavigate();
     const { collapsed } = props;
     const [showSettings, setShowSettings] = React.useState(false);
     const [showLogout, setShowLogout] = React.useState(false);
     const [logout, setLogout] = React.useState(false);
-    const onClickLogout = () => {
+    const onClickLogout = useCallback(() => {
         setLogout(true);
         logout && navigate(RouterPath.signin);
-    };
+    }, [logout, navigate]);
 
     return (
         <div
@@ -60,4 +60,4 @@ export const SidebarButtons = (props: sidebarListProps) => {
             {logout && <Logout />}
         </div>
     );
-};
+});

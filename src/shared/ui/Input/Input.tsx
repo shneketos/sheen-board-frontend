@@ -1,4 +1,4 @@
-import React, { type FC, type InputHTMLAttributes } from "react";
+import React, { memo, type FC, type InputHTMLAttributes } from "react";
 import styles from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
@@ -17,7 +17,7 @@ type InputProps = {
     theme?: InputTheme;
 } & HTMLInputProps;
 
-export const Input: FC<InputProps> = React.memo((props) => {
+export const Input: FC<InputProps> = memo((props) => {
     const {
         children,
         theme = InputTheme.DEFAULT,

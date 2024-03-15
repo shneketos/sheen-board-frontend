@@ -12,9 +12,6 @@ export const AddBacklogTask = (props: addBacklogTaskProps) => {
 
     const [titleValue, setTitleValue] = React.useState("");
 
-    const onChangeTitle = (val: string) => {
-        setTitleValue(val);
-    };
     const onClickCreate = () => {
         console.log(`created task ${titleValue}`);
         onClose();
@@ -36,7 +33,7 @@ export const AddBacklogTask = (props: addBacklogTaskProps) => {
                 <Input
                     className={styles.input}
                     value={titleValue}
-                    onChange={onChangeTitle}
+                    onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"
                 />
             </div>

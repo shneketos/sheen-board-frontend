@@ -5,13 +5,14 @@ import BacklogIcon from "shared/assets/icons/backlog.svg?react";
 import CalendarIcon from "shared/assets/icons/calendar.svg?react";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { SidebarToDashboard } from "../SidebarItem/SidebarToDashboard";
+import { memo } from "react";
 
 interface sidebarListProps {
     id: string;
     collapsed: boolean;
 }
 
-export const SidebarList = (props: sidebarListProps) => {
+export const SidebarList = memo((props: sidebarListProps) => {
     const { id, collapsed } = props;
     const SidebarRoutes = [
         { name: "Overview", to: "overview", icon: OverviewIcon },
@@ -37,4 +38,4 @@ export const SidebarList = (props: sidebarListProps) => {
             </div>
         </ul>
     );
-};
+});

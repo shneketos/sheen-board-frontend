@@ -1,7 +1,8 @@
 import styles from "./Backlog.module.scss";
 import { BacklogList } from "../BacklogList/BacklogList";
 import { BacklogAddSprint } from "../BacklogAddSprint/BacklogAddSprint";
-export const Backlog = () => {
+import { memo } from "react";
+export const Backlog = memo(() => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const sprintsData = [
         {
@@ -66,4 +67,4 @@ export const Backlog = () => {
             <BacklogAddSprint />
         </div>
     );
-};
+});

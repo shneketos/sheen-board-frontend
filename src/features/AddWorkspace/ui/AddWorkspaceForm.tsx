@@ -9,10 +9,6 @@ import Input from "shared/ui/Input/Input";
 export const AddWorkspaceForm = (props: addWorkspaceProps) => {
     const { onClose } = props;
     const [titleValue, setTitleValue] = React.useState("");
-
-    const onChangeTitle = (val: string) => {
-        setTitleValue(val);
-    };
     const onClickAddCard = () => {
         console.log(`added workspace `);
         onClose();
@@ -34,7 +30,7 @@ export const AddWorkspaceForm = (props: addWorkspaceProps) => {
                 <Input
                     className={styles.input}
                     value={titleValue}
-                    onChange={onChangeTitle}
+                    onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"
                 />
             </div>

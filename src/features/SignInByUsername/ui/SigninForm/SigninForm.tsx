@@ -11,12 +11,6 @@ export const SigninForm = () => {
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
     const [auth, setAuth] = React.useState(false);
-    const onChangeEmail = (val: string) => {
-        setEmailValue(val);
-    };
-    const onChangePassword = (val: string) => {
-        setPassValue(val);
-    };
 
     return (
         <>
@@ -29,7 +23,7 @@ export const SigninForm = () => {
                     </div>
                     <div className={styles.signinForm_fields}>
                         <Input
-                            onChange={onChangeEmail}
+                            onChange={(val) => setEmailValue(val)}
                             type="email"
                             value={emailValue}
                             theme={InputTheme.AUTH}
@@ -38,7 +32,7 @@ export const SigninForm = () => {
                             <Email />
                         </Input>
                         <Input
-                            onChange={onChangePassword}
+                            onChange={(val) => setPassValue(val)}
                             type="password"
                             value={passValue}
                             theme={InputTheme.AUTH}

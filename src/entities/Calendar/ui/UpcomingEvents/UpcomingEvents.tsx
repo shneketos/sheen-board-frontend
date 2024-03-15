@@ -3,7 +3,8 @@ import CalendarIcon from "shared/assets/icons/calendar.svg?react";
 import { UpcomingEventItem } from "../UpcomingEventItem/UpcomingEventItem";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
-export const UpcomingEvents = () => {
+import { memo } from "react";
+export const UpcomingEvents = memo(() => {
     return (
         <div className={styles.upcoming}>
             <div>
@@ -28,4 +29,4 @@ export const UpcomingEvents = () => {
             </div>
         </div>
     );
-};
+});

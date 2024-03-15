@@ -1,4 +1,4 @@
-import React, { type ReactNode } from "react";
+import React, { memo, type ReactNode } from "react";
 
 interface TextAreaProps {
     value: string;
@@ -7,7 +7,7 @@ interface TextAreaProps {
     cname?: string;
 }
 
-export const TextArea = (props: TextAreaProps) => {
+export const TextArea = memo((props: TextAreaProps) => {
     const { children, value, onChange, cname } = props;
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -24,4 +24,4 @@ export const TextArea = (props: TextAreaProps) => {
             />
         </div>
     );
-};
+});
