@@ -5,8 +5,7 @@ import { AppLink } from "shared/ui/AppLink/AppLink";
 import useAuthSelector from "entities/User/model/selector/useAuthSelector";
 
 export const Header = memo(() => {
-    const auth = true;
-    // const auth = useAuthSelector();
+    const auth = useAuthSelector();
     const userName = "Sheeeen";
     const initials = userName.split(" ");
     return (

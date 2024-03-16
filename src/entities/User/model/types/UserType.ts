@@ -7,17 +7,10 @@ export interface User {
     workspaces: string[];
 }
 export interface userState {
-    user: User[];
+    user: User;
     isLoading: boolean;
     errors: string[];
-    addUser: (
-        id: number,
-        name: string,
-        password: string,
-        email: string,
-        avatar: string,
-        workspaces: string[]
-    ) => void;
+
     fetchUser: () => Promise<void>;
     logoutUser: () => void;
 }

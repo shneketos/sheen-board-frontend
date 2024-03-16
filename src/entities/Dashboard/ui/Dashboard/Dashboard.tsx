@@ -1,26 +1,35 @@
 import styles from "./Dashboard.module.scss";
 import { DashboardCard } from "../DashboardCard/DashboardCard";
 import { DashboardCreateCard } from "../DashboardCreateCard/DashboardCreateCard";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
+import { useUserStore } from "entities/User";
 export const Dashboard = memo(() => {
-    const test = [{ id: "123123123", name: "TESTSLUG1123123" }];
+    const user = useUserStore((state) => state.user);
+    const dashboards = useDashboardStore((state) => state.dashboards);
+    const { fetchDashboards, isLoading } = useDashboardStore();
     const count = 5;
+    useEffect(() => {
+        fetchDashboards(user.id);
+    }, [fetchDashboards, user.id]);
     return (
         <div className={styles.dashboard}>
             <div className={styles.dashboard_meet}>
                 <p>Hello,User!</p>
                 <span>Choose workspace</span>
             </div>
-            <div className={styles.dashboard_bottom}>
-                {test.map((card) => (
-                    <DashboardCard
-                        id={card.id}
-                        name={card.name}
-                        key={card.id}
-                    />
-                ))}
-                {count <= 5 && <DashboardCreateCard />}
-            </div>
+            {!isLoading && (
+                <div className={styles.dashboard_bottom}>
+                    {dashboards.map((card) => (
+                        <DashboardCard
+                            id={card.id}
+                            title={card.title}
+                            key={card.id}
+                        />
+                    ))}
+                    {count <= 5 && <DashboardCreateCard />}
+                </div>
+            )}
         </div>
     );
 });

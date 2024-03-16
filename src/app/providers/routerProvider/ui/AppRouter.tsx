@@ -4,7 +4,7 @@ import {
     AppRouterProps,
     RoutesConfig,
 } from "shared/config/routerConfig/routerConfig";
-import { Layout } from "shared/ui/Layout/Layout";
+import { Layout } from "shared/layouts/Layout/Layout";
 import { PageLoader } from "widgets/PageLoader/PageLoader";
 import { RequireAuth } from "./RequireAuth";
 import { AuthedRedirect } from "./AuthedRedirect";

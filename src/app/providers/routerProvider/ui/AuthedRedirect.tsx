@@ -3,8 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { RouterPath } from "shared/config/routerConfig/routerConfig";
 
 export const AuthedRedirect = ({ children }: { children: JSX.Element }) => {
-    const auth = true;
-    //const auth = useAuthSelector();
+    const auth = useAuthSelector();
     const location = useLocation();
     const signinRoute = RouterPath.signin;
     const signupRoute = RouterPath.signup;

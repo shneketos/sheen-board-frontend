@@ -1,16 +1,26 @@
 import React from "react";
 import styles from "./AddWorkspaceForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
+
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import Input from "shared/ui/Input/Input";
+import { useUserStore } from "entities/User";
+import { AddWorkspace } from "../model/services/AddWorkspace";
+
 interface addWorkspaceProps {
     onClose?: () => void;
 }
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import Input from "shared/ui/Input/Input";
 export const AddWorkspaceForm = (props: addWorkspaceProps) => {
     const { onClose } = props;
     const [titleValue, setTitleValue] = React.useState("");
+    const user = useUserStore((state) => state.user);
+
     const onClickAddCard = () => {
-        console.log(`added workspace `);
+        AddWorkspace({
+            title: titleValue,
+            ownerId: user.id,
+            members: [user.id],
+        });
         onClose();
     };
     return (

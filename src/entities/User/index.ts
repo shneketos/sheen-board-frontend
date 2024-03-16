@@ -1,4 +1,4 @@
 import Logout from "./model/services/Logout";
-import { useUserStore } from "./store/UserStore";
+import { useUserStore } from "./model/store/UserStore";
 export { useUserStore };
 export { Logout };
