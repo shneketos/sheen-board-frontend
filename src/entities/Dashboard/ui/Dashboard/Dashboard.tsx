@@ -7,8 +7,8 @@ import { useUserStore } from "entities/User";
 export const Dashboard = memo(() => {
     const user = useUserStore((state) => state.user);
     const dashboards = useDashboardStore((state) => state.dashboards);
-    const { fetchDashboards, isLoading } = useDashboardStore();
-    const count = 5;
+    const isLoading = useDashboardStore((state) => state.isLoading);
+    const fetchDashboards = useDashboardStore((state) => state.fetchDashboards);
     useEffect(() => {
         fetchDashboards(user.id);
     }, [fetchDashboards, user.id]);
@@ -27,7 +27,7 @@ export const Dashboard = memo(() => {
                             key={card.id}
                         />
                     ))}
-                    {count <= 5 && <DashboardCreateCard />}
+                    <DashboardCreateCard />
                 </div>
             )}
         </div>

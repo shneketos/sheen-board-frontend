@@ -1,28 +1,28 @@
 import React from "react";
 import styles from "./AddWorkspaceForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
-
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
 import { useUserStore } from "entities/User";
 import { AddWorkspace } from "../model/services/AddWorkspace";
+import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
+import { addWorkspaceFormProps } from "../model/types/AddWorkspaceType";
 
-interface addWorkspaceProps {
-    onClose?: () => void;
-}
-export const AddWorkspaceForm = (props: addWorkspaceProps) => {
+export const AddWorkspaceForm = (props: addWorkspaceFormProps) => {
     const { onClose } = props;
     const [titleValue, setTitleValue] = React.useState("");
     const user = useUserStore((state) => state.user);
-
+    const fetchDashboards = useDashboardStore((state) => state.fetchDashboards);
     const onClickAddCard = () => {
         AddWorkspace({
             title: titleValue,
             ownerId: user.id,
             members: [user.id],
-        });
-        onClose();
+        })
+            .then(() => onClose())
+            .then(() => fetchDashboards(user.id));
     };
+
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
@@ -45,7 +45,11 @@ export const AddWorkspaceForm = (props: addWorkspaceProps) => {
                 />
             </div>
             <div className={styles.form_bottom}>
-                <Button className={styles.btn_cancel} theme={ButtonTheme.CLEAR}>
+                <Button
+                    className={styles.btn_cancel}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClose}
+                >
                     Cancel
                 </Button>
                 <Button

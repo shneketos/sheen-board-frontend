@@ -1,8 +1,7 @@
 import { create } from "zustand";
 import { DashboardState } from "../types/DashboardType";
 import { $api } from "shared/api/api";
-
-export const useDashboardStore = create<DashboardState>((set) => ({
+export const useDashboardStore = create<DashboardState>()((set) => ({
     dashboards: null,
     isLoading: true,
     errors: [],

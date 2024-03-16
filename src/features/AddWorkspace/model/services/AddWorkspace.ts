@@ -9,5 +9,5 @@ export const AddWorkspace = async (props: AddWorkspaceProps) => {
         ownerId: ownerId,
     };
     const response = await $api.post("/workspace", params);
-    console.log(response);
+    return response;
 };

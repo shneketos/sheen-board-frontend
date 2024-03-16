@@ -3,3 +3,6 @@ export interface AddWorkspaceProps {
     ownerId: number;
     members: number[];
 }
+export interface addWorkspaceFormProps {
+    onClose?: () => void;
+}
