@@ -5,7 +5,7 @@ import { EditBacklogTaskTitle } from "features/EditBacklogTaskTitle";
 import { EditBacklogStory } from "features/EditBacklogStory";
 import { EditBacklogPriority } from "features/EditBacklogPriority";
 import { EditBacklogStatus } from "features/EditBacklogStatus/ui/EditBacklogStatus";
-import { BacklogTaskI } from "entities/Backlog/types/BacklogTypes";
+import { BacklogTaskI } from "entities/Backlog/model/types/BacklogTypes";
 export const BacklogItem = memo((props: BacklogTaskI) => {
     const { taskId, title, storypoints, status, priority } = props;
     console.log(taskId);

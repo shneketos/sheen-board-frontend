@@ -1,5 +1,8 @@
+import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
 import styles from "./Overview.module.scss";
 export const Overview = () => {
+    const thisDash = useDashboardStore((state) => state.thisDash);
+    console.log(thisDash);
     const kanban = {
         total: 17,
         done: 10,

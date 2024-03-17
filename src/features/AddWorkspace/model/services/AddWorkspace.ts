@@ -7,6 +7,8 @@ export const AddWorkspace = async (props: AddWorkspaceProps) => {
         title: title,
         members: members,
         ownerId: ownerId,
+        backlog: [],
+        kanban: [],
     };
     const response = await $api.post("/workspace", params);
     return response;

@@ -11,3 +11,11 @@ export interface BacklogTaskI {
     storypoints: number;
     status: string;
 }
+interface Backlog {
+    id: number;
+}
+export interface BacklogStore {
+    backlog: Backlog;
+    isLoading: boolean;
+    fetchBacklog: (id: number) => Promise<void>;
+}

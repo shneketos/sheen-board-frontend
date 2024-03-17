@@ -3,7 +3,7 @@ import styles from "./BacklogList.module.scss";
 import { BacklogItem } from "../BacklogItem/BacklogItem";
 import { DeleteBacklogSprint } from "features/DeleteBacklogSprint";
 import { EditBacklogSprintTitle } from "features/EditBacklogSprintTitle";
-import { BacklogSprintI } from "entities/Backlog/types/BacklogTypes";
+import { BacklogSprintI } from "entities/Backlog/model/types/BacklogTypes";
 import { BacklogAddTask } from "../BacklogAddTask/BacklogAddTask";
 
 export const BacklogList = (props: BacklogSprintI) => {

@@ -9,9 +9,11 @@ export const Dashboard = memo(() => {
     const dashboards = useDashboardStore((state) => state.dashboards);
     const isLoading = useDashboardStore((state) => state.isLoading);
     const fetchDashboards = useDashboardStore((state) => state.fetchDashboards);
+    const nullThisDash = useDashboardStore((state) => state.nullThisDash);
     useEffect(() => {
         fetchDashboards(user.id);
-    }, [fetchDashboards, user.id]);
+        nullThisDash();
+    }, [fetchDashboards, nullThisDash, user.id]);
     return (
         <div className={styles.dashboard}>
             <div className={styles.dashboard_meet}>

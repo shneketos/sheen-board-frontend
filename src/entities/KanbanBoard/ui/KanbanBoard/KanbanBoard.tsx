@@ -2,7 +2,9 @@ import styles from "./KanbanBoard.module.scss";
 import { KanbanRowAddRow } from "../KanbanRowAddRow/KanbanRowAddRow";
 import { KanbanRow } from "../KanbanRow/KanbanRow";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
 
 export const KanbanBoard = memo(() => {
     const kanbanData = [
@@ -88,6 +90,16 @@ export const KanbanBoard = memo(() => {
             ],
         },
     ];
+    const dash = useDashboardStore((state) => state.thisDash);
+    const kanban = useKanbanStore((state) => state.kanban);
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
+    useEffect(() => {
+        if (dash !== null) {
+            fetchKanban(dash.kanban.id);
+        }
+    }, []);
+    console.log(dash);
+    console.log(kanban);
     return (
         <div className={styles.kanban_content}>
             {kanbanData.map((row) => (

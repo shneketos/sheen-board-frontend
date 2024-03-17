@@ -13,3 +13,12 @@ export interface KanbanRowProps {
     cards?: KanbanCardProps[];
     onClose?: () => void;
 }
+
+export interface Kanban {
+    id: number;
+}
+export interface KanbanStore {
+    kanban: Kanban;
+    isLoading: boolean;
+    fetchKanban: (id: number) => Promise<void>;
+}
