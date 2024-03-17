@@ -14,7 +14,7 @@ import { KanbanRowItem } from "../KanbanRowItem/KanbanRowItem";
 import { KanbanRowProps } from "entities/KanbanBoard";
 
 export const KanbanRow = memo((props: KanbanRowProps) => {
-    const { id, title, cards } = props;
+    const { id, title, tasks } = props;
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     const [editTitle, setEditTitle] = React.useState(false);
     return (
@@ -90,7 +90,7 @@ export const KanbanRow = memo((props: KanbanRowProps) => {
                 </Modal>
             )}
             <div className={styles.row_items}>
-                {cards.map((card) => (
+                {tasks.map((card) => (
                     <KanbanRowItem
                         rowId={id}
                         rowTitle={title}

@@ -15,8 +15,11 @@ import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import DatePicker from "react-datepicker";
 import "shared/ui/DatePicker/DatePicker.scss";
 import { EditKanbanCardProps } from "../model/types/EditKanbanCardFormType";
+import { formatDate } from "shared/lib/FormatDate/FormatDate";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 
 export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
+    const kanban = useKanbanStore((state) => state.kanban);
     const { id, title, desc, priority, date, rowTitle, onClose } = props;
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(desc);
@@ -45,7 +48,10 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     };
 
     console.log(newDate);
-    const ArrayTitles = ["TO do", "in progres", "done", "active"];
+    const variables = kanban.lists.reduce((acc, curr) => {
+        acc[curr.id] = curr.title;
+        return acc;
+    }, {});
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
@@ -87,7 +93,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                     {StageEditing ? (
                         <InfoModal className={styles.stage_modal}>
                             <ul onMouseLeave={() => setStageEditing(false)}>
-                                {ArrayTitles.map((item) => (
+                                {Object.values(variables).map((item) => (
                                     <li
                                         key={item}
                                         onClick={() => {
@@ -191,7 +197,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                                 minDate={new Date()}
                             />
                         ) : (
-                            <span>{date}</span>
+                            <span>{formatDate(date)}</span>
                         )}
                     </div>
                 </div>

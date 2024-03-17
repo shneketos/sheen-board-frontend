@@ -22,7 +22,7 @@ export const KanbanRowAddItem = memo((props: KanbanRowProps) => {
                 <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
                     <AddKanbanCard
                         id={id}
-                        title={title}
+                        rowTitle={title}
                         onClose={() => setOpenAdd(false)}
                     />
                 </Modal>

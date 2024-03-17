@@ -3,19 +3,19 @@ import styles from "./AddKanbanRow.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-
-interface addKanbanRowProps {
-    onClose?: () => void;
-}
+import { addKanbanRowProps } from "../model/types/AddKanbanRowType";
+import { AddKanbanRowService } from "../model/services/AddKanbanRowService";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 
 export const AddKanbanRow = (props: addKanbanRowProps) => {
-    const { onClose } = props;
-
+    const { onClose, id } = props;
     const [titleValue, setTitleValue] = React.useState("");
-
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
+    const kanban = useKanbanStore((state) => state.kanban);
     const onClickCreate = () => {
-        console.log(`created row ${titleValue}`);
-        onClose();
+        AddKanbanRowService({ id: id, title: titleValue })
+            .then(() => onClose())
+            .then(() => fetchKanban(kanban.id));
     };
 
     return (

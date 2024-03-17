@@ -1,18 +1,22 @@
-import { type KanbanRowProps } from "entities/KanbanBoard";
 import React from "react";
 import styles from "./AddKanbanCard.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { addKanbanCardProps } from "../model/types/AddKanbanCardType";
+import { AddKanbanRowService } from "../model/services/AddKanbanCardService";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 
-export const AddKanbanCard = (props: KanbanRowProps) => {
-    const { id, title, onClose } = props;
-    console.log(title, id);
+export const AddKanbanCard = (props: addKanbanCardProps) => {
+    const { id, onClose, rowTitle } = props;
+    console.log(id, rowTitle);
     const [titleValue, setTitleValue] = React.useState("");
-
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
+    const kanban = useKanbanStore((state) => state.kanban);
     const onClickAddCard = () => {
-        console.log(`added card ${titleValue}in row ${title},id ${id} `);
-        onClose();
+        AddKanbanRowService({ id: id, title: titleValue, rowTitle: rowTitle })
+            .then(() => onClose())
+            .then(() => fetchKanban(kanban.id));
     };
     return (
         <div className={styles.form}>

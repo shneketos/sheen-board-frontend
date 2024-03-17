@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { KanbanStore } from "../types/KanbanTypes";
 import { $api } from "shared/api/api";
-
 export const useKanbanStore = create<KanbanStore>((set) => ({
     kanban: null,
     isLoading: true,

@@ -9,6 +9,7 @@ import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanCardForm } from "features/EditKanbanCard";
 import { KanbanCardProps } from "entities/KanbanBoard";
+import { formatDate } from "shared/lib/FormatDate/FormatDate";
 
 export const KanbanRowItem = memo((props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
@@ -21,7 +22,6 @@ export const KanbanRowItem = memo((props: KanbanCardProps) => {
         );
         setRowModalOpened(false);
     }, [id, title, rowId, rowTitle]);
-
     return (
         <div className={styles.row_item_wrapper}>
             <div className={styles.row_item}>
@@ -82,7 +82,7 @@ export const KanbanRowItem = memo((props: KanbanCardProps) => {
                             height={18}
                         />
                         <span className={styles.row_item_bottom_due}>
-                            {date}
+                            {formatDate(date)}
                         </span>
                     </div>
                 </div>
