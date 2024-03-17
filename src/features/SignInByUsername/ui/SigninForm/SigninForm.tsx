@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./SigninForm.module.scss";
 import slogo from "shared/assets/icons/Slogo.png";
 import Input, { InputTheme } from "shared/ui/Input/Input";
@@ -6,12 +6,19 @@ import Email from "shared/assets/icons/email.svg?react";
 import Pass from "shared/assets/icons/password.svg?react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { useUserStore } from "entities/User";
 import { SignInByUsername } from "features/SignInByUsername/model/service/SignInByUsername";
 export const SigninForm = () => {
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
-    const [auth, setAuth] = React.useState(false);
+    const fetchUser = useUserStore((state) => state.fetchUser);
 
+    const onClickLogin = useCallback(() => {
+        SignInByUsername({
+            email: emailValue,
+            password: passValue,
+        }).then(() => fetchUser());
+    }, [emailValue, fetchUser, passValue]);
     return (
         <>
             <div className={styles.signinForm}>
@@ -48,16 +55,13 @@ export const SigninForm = () => {
                         </div>
                         <Button
                             theme={ButtonTheme.REGISTER}
-                            onClick={() => setAuth(true)}
+                            onClick={onClickLogin}
                         >
                             Sign In
                         </Button>
                     </div>
                 </div>
             </div>
-            {auth && (
-                <SignInByUsername email={emailValue} password={passValue} />
-            )}
         </>
     );
 };

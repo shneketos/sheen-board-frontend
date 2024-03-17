@@ -8,18 +8,20 @@ import Pass from "shared/assets/icons/password.svg?react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { onClickSignUpByEmail } from "../model/services/SignUpByEmail";
+import { useUserStore } from "entities/User";
 export const SignupForm = () => {
     const [loginValue, setLoginValue] = React.useState("");
     const [emailValue, setEmailValue] = React.useState("");
     const [passValue, setPassValue] = React.useState("");
+    const fetchUser = useUserStore((state) => state.fetchUser);
 
     const onClickRegister = useCallback(() => {
         onClickSignUpByEmail({
             name: loginValue,
             email: emailValue,
             password: passValue,
-        });
-    }, [emailValue, loginValue, passValue]);
+        }).then(() => fetchUser());
+    }, [emailValue, fetchUser, loginValue, passValue]);
     return (
         <>
             <div className={styles.signupForm}>
