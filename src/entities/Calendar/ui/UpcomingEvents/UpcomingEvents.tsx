@@ -3,18 +3,30 @@ import CalendarIcon from "shared/assets/icons/calendar.svg?react";
 import { UpcomingEventItem } from "../UpcomingEventItem/UpcomingEventItem";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
-import { memo } from "react";
+import React, { memo } from "react";
+import { AddCalendarEvent } from "features/AddCalendarEvent/ui/AddCalendarEventForm";
+import { Modal } from "shared/ui/modal/Modal";
+import { useCalendarStore } from "entities/Calendar/model/store/CalendarStore";
 export const UpcomingEvents = memo(() => {
+    const [openAdd, setOpenAdd] = React.useState(false);
+    const calendar = useCalendarStore((state) => state.calendar);
+    const calendarLoading = useCalendarStore((state) => state.isLoading);
     return (
         <div className={styles.upcoming}>
             <div>
                 <Button
                     theme={ButtonTheme.DEFAULT}
                     className={styles.create_event}
+                    onClick={() => setOpenAdd(true)}
                 >
                     <PlusIcon />
                     <span>Create new event</span>
                 </Button>
+                {openAdd && (
+                    <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
+                        <AddCalendarEvent onClose={() => setOpenAdd(false)} />
+                    </Modal>
+                )}
             </div>
             <div className={styles.upcoming_events}>
                 <div className={styles.title}>
@@ -22,9 +34,15 @@ export const UpcomingEvents = memo(() => {
                     <span>Upcoming events</span>
                 </div>
                 <div className={styles.events}>
-                    <UpcomingEventItem />
-                    <UpcomingEventItem />
-                    <UpcomingEventItem />
+                    {!calendarLoading &&
+                        calendar.events.map((item) => (
+                            <UpcomingEventItem
+                                title={item.title}
+                                start={item.start}
+                                end={item.end}
+                                color={item.color}
+                            />
+                        ))}
                 </div>
             </div>
         </div>

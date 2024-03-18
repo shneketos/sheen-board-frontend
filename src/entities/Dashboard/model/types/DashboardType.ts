@@ -9,6 +9,9 @@ export interface DashboardCard {
     backlog?: {
         id: number;
     };
+    calendar?: {
+        id: number;
+    };
 }
 
 export interface DashboardState {

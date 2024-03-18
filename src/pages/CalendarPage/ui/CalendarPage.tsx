@@ -6,7 +6,7 @@ export const CalendarPage = () => {
     console.log(id);
     return (
         <>
-            <Calendar />
+            <Calendar id={id} />
         </>
     );
 };

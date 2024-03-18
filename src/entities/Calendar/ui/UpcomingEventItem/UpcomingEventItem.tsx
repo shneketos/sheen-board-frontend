@@ -1,12 +1,21 @@
 import { memo } from "react";
 import styles from "./UpcomingEventItem.module.scss";
-export const UpcomingEventItem = memo(() => {
+import { UpcomingEventItemProps } from "entities/Calendar/model/types/CalendarType";
+import { formatDate } from "shared/lib/FormatDate/FormatDate";
+export const UpcomingEventItem = memo((props: UpcomingEventItemProps) => {
+    const { title, start, end, color } = props;
+    const date = `${formatDate(start.toString())} -
+    ${formatDate(end.toString())}`;
     return (
         <div className={styles.eventItem}>
-            <p className={styles.eventItem_date}>Today,All day</p>
-            <span className={styles.eventItem_title}>
-                Department Heads Summit
-            </span>
+            <div className={styles.top}>
+                <span
+                    className={styles.color_box}
+                    style={{ background: color }}
+                />
+                <p className={styles.eventItem_date}>{date}</p>
+            </div>
+            <span className={styles.eventItem_title}>{title}</span>
         </div>
     );
 });

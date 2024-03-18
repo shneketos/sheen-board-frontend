@@ -14,6 +14,7 @@ import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
 import { TextArea } from "shared/ui/TextArea/TextArea";
 import "shared/ui/DatePicker/DatePicker.scss";
 import Input from "shared/ui/Input/Input";
+import { formatDate } from "shared/lib/FormatDate/FormatDate";
 
 export const EditCalendarEventForm = (props: CalendarEventProps) => {
     const { title, desc, start, end, color, allDay, onClose } = props;
@@ -25,14 +26,9 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
     const [newEndDate, setNewEndDate] = useState(end);
     const [newColor, setNewColor] = useState(color);
     const [newAllDay, setNewAllDay] = useState(allDay);
-    const options: Intl.DateTimeFormatOptions = {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    };
 
-    const dateFormatter = new Intl.DateTimeFormat("en-gb", options);
-    const oneDay = dateFormatter.format(start) === dateFormatter.format(end);
+    //const oneDay = formatDate(start.toString()) === formatDate(end.toString());
+    const oneDay = false;
     const onClickDiscard = useCallback(() => {
         setEventEditing(false);
         setColorEditing(false);
@@ -43,14 +39,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
         setNewStartDate(start);
         setNewEndDate(end);
     }, [title, desc, allDay, color, start, end]);
-    console.log(
-        "start date-",
-        dateFormatter.format(newStartDate),
-        "end date - ",
-        dateFormatter.format(newEndDate),
-        "time -",
-        newStartDate.toLocaleTimeString()
-    );
+
     const handleAllDayCheckboxChange = () => {
         setNewAllDay(!newAllDay);
         if (!newAllDay) {
@@ -93,7 +82,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                         <>
                             <div className={styles.info_item}>
                                 <CalendarIcon className={styles.icon} />
-                                <span>{dateFormatter.format(start)}</span>
+                                <span>{formatDate(start.toString())}</span>
                             </div>
                         </>
                     ) : (
@@ -117,7 +106,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                                 ) : (
                                     <span>
                                         From:{" "}
-                                        {dateFormatter.format(newStartDate)}
+                                        {formatDate(newStartDate.toString())}
                                     </span>
                                 )}
                             </div>
@@ -137,7 +126,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                                     />
                                 ) : (
                                     <span>
-                                        To: {dateFormatter.format(newEndDate)}
+                                        To: {formatDate(newEndDate.toString())}
                                     </span>
                                 )}
                             </div>
@@ -162,8 +151,8 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                                     </span>
                                 ) : (
                                     <span>
-                                        {newStartDate.toLocaleTimeString()}-
-                                        {newEndDate.toLocaleTimeString()}
+                                        {formatDate(newStartDate.toString())}-
+                                        {formatDate(newEndDate.toString())}
                                     </span>
                                 )}
                             </>

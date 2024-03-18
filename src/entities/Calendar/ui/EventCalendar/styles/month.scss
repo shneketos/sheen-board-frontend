@@ -25,10 +25,10 @@
     font-size: 85%;
     height: auto;
     line-height: normal;
-    color: $event-bg;
+    color: $event-color;
     &:hover,
     &:focus {
-        color: $event-bg;
+        color: $event-color;
     }
 }
 
