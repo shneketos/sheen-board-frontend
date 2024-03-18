@@ -1,70 +1,39 @@
 import styles from "./Backlog.module.scss";
 import { BacklogList } from "../BacklogList/BacklogList";
 import { BacklogAddSprint } from "../BacklogAddSprint/BacklogAddSprint";
-import { memo } from "react";
-export const Backlog = memo(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const sprintsData = [
-        {
-            id: 1,
-            title: "Спринт 1",
-            tasks: [
-                {
-                    taskId: 1,
-                    title: "Задача 1",
-                    priority: "High",
-                    storypoints: 35,
-                    status: "Completed",
-                },
-                {
-                    taskId: 2,
-                    title: "Задача 2",
-                    priority: "Medium",
-                    storypoints: 20,
-                    status: "In Progress",
-                },
-                {
-                    taskId: 3,
-                    title: "Задача 3",
-                    priority: "Low",
-                    storypoints: 15,
-                    status: "Not Started",
-                },
-            ],
-        },
-        {
-            id: 2,
-            title: "Спринт 2",
-            tasks: [
-                {
-                    taskId: 4,
-                    title: "Задача 4",
-                    priority: "Medium",
-                    storypoints: 25,
-                    status: "Completed",
-                },
-                {
-                    taskId: 5,
-                    title: "Задача 5",
-                    priority: "High",
-                    storypoints: 40,
-                    status: "In Progress",
-                },
-            ],
-        },
-    ];
+import { memo, useEffect } from "react";
+import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
+import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
+export const Backlog = memo(({ id }: { id: string }) => {
+    const dash = useDashboardStore((state) => state.thisDash);
+    const getDash = useDashboardStore((state) => state.fetchThisDash);
+    const dashLoading = useDashboardStore((state) => state.thisDashIsLoading);
+    const backlog = useBacklogStore((state) => state.backlog);
+    const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
+    const BacklogLoading = useBacklogStore((state) => state.isLoading);
+    useEffect(() => {
+        getDash(parseInt(id));
+    }, [getDash, id]);
+    useEffect(() => {
+        if (dash !== null) {
+            fetchBacklog(dash.backlog.id);
+        }
+    }, [dash, fetchBacklog]);
 
     return (
         <div className={styles.backlog_content}>
-            {sprintsData.map((sprint) => (
-                <BacklogList
-                    key={sprint.id}
-                    id={sprint.id}
-                    title={sprint.title}
-                    tasks={sprint.tasks}
-                />
-            ))}
-            <BacklogAddSprint />
+            {!BacklogLoading &&
+                backlog.sprints
+                    .sort((a, b) => b.id - a.id)
+                    .map((sprint) => (
+                        <BacklogList
+                            key={sprint.id}
+                            id={sprint.id}
+                            title={sprint.title}
+                            tasks={sprint.tasks}
+                        />
+                    ))}
+            {!dashLoading && <BacklogAddSprint id={dash.kanban.id} />}
         </div>
     );
 });

@@ -3,18 +3,19 @@ import styles from "./AddBacklogTask.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
+import { addBacklogTaskProps } from "../model/types/AddBacklogTaskType";
+import { addBacklogTaskService } from "../model/services/AddBacklogTaskService";
+import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
 
-interface addBacklogTaskProps {
-    onClose?: () => void;
-}
 export const AddBacklogTask = (props: addBacklogTaskProps) => {
-    const { onClose } = props;
-
+    const { onClose, id } = props;
     const [titleValue, setTitleValue] = React.useState("");
-
+    const backlog = useBacklogStore((state) => state.backlog);
+    const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const onClickCreate = () => {
-        console.log(`created task ${titleValue}`);
-        onClose();
+        addBacklogTaskService({ id: id, title: titleValue })
+            .then(() => onClose())
+            .then(() => fetchBacklog(backlog.id));
     };
     return (
         <div className={styles.form}>

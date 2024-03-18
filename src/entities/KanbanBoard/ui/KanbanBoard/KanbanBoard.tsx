@@ -21,18 +21,19 @@ export const KanbanBoard = memo(({ id }: { id: string }) => {
         }
     }, [dash, fetchKanban]);
 
-    console.log(kanban);
     return (
         <div className={styles.kanban_content}>
             {!KanbanLoading &&
-                kanban.lists.map((row) => (
-                    <KanbanRow
-                        key={row.id}
-                        title={row.title}
-                        id={row.id}
-                        tasks={row.tasks}
-                    />
-                ))}
+                kanban.lists
+                    .sort((a, b) => a.id - b.id)
+                    .map((row) => (
+                        <KanbanRow
+                            key={row.id}
+                            title={row.title}
+                            id={row.id}
+                            tasks={row.tasks}
+                        />
+                    ))}
             {!dashLoading && <KanbanRowAddRow id={dash.kanban.id} />}
         </div>
     );

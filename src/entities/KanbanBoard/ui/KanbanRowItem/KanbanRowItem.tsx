@@ -17,9 +17,6 @@ export const KanbanRowItem = memo((props: KanbanCardProps) => {
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
 
     const onClickDeleteCard = useCallback(() => {
-        console.log(
-            `card ${title} id ${id} in row ${rowTitle} id ${rowId} deleted`
-        );
         setRowModalOpened(false);
     }, [id, title, rowId, rowTitle]);
     return (

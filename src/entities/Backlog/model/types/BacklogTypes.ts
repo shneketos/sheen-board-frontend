@@ -1,18 +1,19 @@
-export interface BacklogSprintI {
+export interface BacklogTask {
     id: number;
+    priority: string;
+    status: string;
+    story: number;
     title: string;
-    tasks: BacklogTaskI[];
 }
 
-export interface BacklogTaskI {
-    taskId: number;
-    title: string;
-    priority: string;
-    storypoints: number;
-    status: string;
-}
-interface Backlog {
+export interface BacklogSprint {
     id: number;
+    title: string;
+    tasks: BacklogTask[];
+}
+export interface Backlog {
+    id: number;
+    sprints: BacklogSprint[];
 }
 export interface BacklogStore {
     backlog: Backlog;

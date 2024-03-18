@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 export const BacklogPage = () => {
     const { id } = useParams();
-    console.log(id);
+    console.log("WORKSPACE", id);
     return (
         <>
-            <Backlog />
+            <Backlog id={id} />
         </>
     );
 };

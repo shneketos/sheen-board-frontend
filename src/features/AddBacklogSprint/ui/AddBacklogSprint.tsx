@@ -3,18 +3,19 @@ import styles from "./AddBacklogSprint.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
+import { AddBacklogSprintService } from "../model/services/AddBacklogSprintService";
+import { addBacklogSprintProps } from "../model/types/AddBacklogSprintType";
+import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
 
-interface addBacklogSprintProps {
-    onClose?: () => void;
-}
 export const AddBacklogSprint = (props: addBacklogSprintProps) => {
-    const { onClose } = props;
-
+    const { onClose, id } = props;
     const [titleValue, setTitleValue] = React.useState("");
-
+    const backlog = useBacklogStore((state) => state.backlog);
+    const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const onClickCreate = () => {
-        console.log(`created sprint ${titleValue}`);
-        onClose();
+        AddBacklogSprintService({ id: id, title: titleValue })
+            .then(() => onClose())
+            .then(() => fetchBacklog(backlog.id));
     };
     return (
         <div className={styles.form}>

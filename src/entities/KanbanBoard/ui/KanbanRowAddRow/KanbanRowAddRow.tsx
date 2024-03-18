@@ -6,7 +6,6 @@ import { Modal } from "shared/ui/modal/Modal";
 import { AddKanbanRow } from "features/AddKanbanRow";
 export const KanbanRowAddRow = memo(({ id }: { id: number }) => {
     const [openAdd, setOpenAdd] = React.useState(false);
-    console.log(id);
     return (
         <>
             <Button

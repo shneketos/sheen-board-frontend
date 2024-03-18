@@ -5,10 +5,9 @@ import { EditBacklogTaskTitle } from "features/EditBacklogTaskTitle";
 import { EditBacklogStory } from "features/EditBacklogStory";
 import { EditBacklogPriority } from "features/EditBacklogPriority";
 import { EditBacklogStatus } from "features/EditBacklogStatus/ui/EditBacklogStatus";
-import { BacklogTaskI } from "entities/Backlog/model/types/BacklogTypes";
-export const BacklogItem = memo((props: BacklogTaskI) => {
-    const { taskId, title, storypoints, status, priority } = props;
-    console.log(taskId);
+import { BacklogTask } from "entities/Backlog/model/types/BacklogTypes";
+export const BacklogItem = memo((props: BacklogTask) => {
+    const { title, story, status, priority } = props;
     const [titleEditing, setTitleEditing] = React.useState(false);
     const [storyEditing, setStoryEditing] = React.useState(false);
     const [priorityEditing, setPriorityEditing] = React.useState(false);
@@ -60,14 +59,14 @@ export const BacklogItem = memo((props: BacklogTaskI) => {
                 {storyEditing ? (
                     <EditBacklogStory
                         onStoryEditingChange={handleStoryEditingChange}
-                        storypoints={storypoints}
+                        storypoints={story}
                     />
                 ) : (
                     <p
                         className={styles.item_block_content}
                         onClick={() => setStoryEditing(!storyEditing)}
                     >
-                        {storypoints}
+                        {story}
                     </p>
                 )}
             </div>

@@ -5,7 +5,7 @@ import { Modal } from "shared/ui/modal/Modal";
 import PlusIcon from "shared/assets/icons/plus.svg?react";
 import { AddBacklogTask } from "features/AddBacklogTask";
 
-export const BacklogAddTask = memo(() => {
+export const BacklogAddTask = memo(({ id }: { id: number }) => {
     const [openAdd, setOpenAdd] = React.useState(false);
     return (
         <div className={styles.addTask}>
@@ -19,7 +19,7 @@ export const BacklogAddTask = memo(() => {
             </Button>
             {openAdd && (
                 <Modal isOpen={openAdd} onClose={() => setOpenAdd(false)}>
-                    <AddBacklogTask onClose={() => setOpenAdd(false)} />
+                    <AddBacklogTask id={id} onClose={() => setOpenAdd(false)} />
                 </Modal>
             )}
         </div>
