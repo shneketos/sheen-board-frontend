@@ -7,7 +7,7 @@ import { EditBacklogPriority } from "features/EditBacklogPriority";
 import { EditBacklogStatus } from "features/EditBacklogStatus/ui/EditBacklogStatus";
 import { BacklogTask } from "entities/Backlog/model/types/BacklogTypes";
 export const BacklogItem = memo((props: BacklogTask) => {
-    const { title, story, status, priority } = props;
+    const { id, title, story, status, priority } = props;
     const [titleEditing, setTitleEditing] = React.useState(false);
     const [storyEditing, setStoryEditing] = React.useState(false);
     const [priorityEditing, setPriorityEditing] = React.useState(false);
@@ -100,7 +100,7 @@ export const BacklogItem = memo((props: BacklogTask) => {
                     />
                 )}
             </div>
-            <DeleteBacklogTask />
+            <DeleteBacklogTask id={id} />
         </div>
     );
 });

@@ -7,7 +7,7 @@ export const UpcomingEventItem = memo((props: UpcomingEventItemProps) => {
     const date = `${formatDate(start.toString())} -
     ${formatDate(end.toString())}`;
     return (
-        <div className={styles.eventItem}>
+        <li className={styles.eventItem}>
             <div className={styles.top}>
                 <span
                     className={styles.color_box}
@@ -16,6 +16,6 @@ export const UpcomingEventItem = memo((props: UpcomingEventItemProps) => {
                 <p className={styles.eventItem_date}>{date}</p>
             </div>
             <span className={styles.eventItem_title}>{title}</span>
-        </div>
+        </li>
     );
 });

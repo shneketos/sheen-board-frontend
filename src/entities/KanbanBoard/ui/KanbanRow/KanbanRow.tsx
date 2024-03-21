@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import styles from "./KanbanRow.module.scss";
-
 import MoreIcon from "shared/assets/icons/more.svg?react";
 import PencilIcon from "shared/assets/icons/pencil.svg?react";
 import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
@@ -8,15 +7,29 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { KanbanRowAddItem } from "../KanbanRowAddItem/KanbanRowAddItem";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
-
 import { EditKanbanRowTitleForm } from "features/EditKanbanRowTitle";
 import { KanbanRowItem } from "../KanbanRowItem/KanbanRowItem";
 import { KanbanRowProps } from "entities/KanbanBoard";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import { DeleteKanbanRowService } from "features/DeleteKanbanRow";
+import { DeleteKanbanRowCards } from "features/DeleteKanbanRowCards";
 
 export const KanbanRow = memo((props: KanbanRowProps) => {
     const { id, title, tasks } = props;
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     const [editTitle, setEditTitle] = React.useState(false);
+    const kanban = useKanbanStore((state) => state.kanban);
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
+    const onClickDeleteCard = () => {
+        DeleteKanbanRowService({ id })
+            .then(() => setRowModalOpened(false))
+            .then(() => fetchKanban(kanban.id));
+    };
+    const onClickDeleteAllCards = () => {
+        DeleteKanbanRowCards({ id })
+            .then(() => setRowModalOpened(false))
+            .then(() => fetchKanban(kanban.id));
+    };
     return (
         <div className={styles.row}>
             <div className={styles.row_top}>
@@ -53,6 +66,7 @@ export const KanbanRow = memo((props: KanbanRowProps) => {
                                         className={
                                             styles.row_modal_wrapper_delete_cards
                                         }
+                                        onClick={onClickDeleteAllCards}
                                     >
                                         <TrashcanIcon
                                             width={15}
@@ -66,6 +80,7 @@ export const KanbanRow = memo((props: KanbanRowProps) => {
                                         className={
                                             styles.row_modal_wrapper_delete_row
                                         }
+                                        onClick={onClickDeleteCard}
                                     >
                                         <TrashcanIcon
                                             width={15}

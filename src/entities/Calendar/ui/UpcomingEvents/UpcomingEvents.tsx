@@ -33,17 +33,18 @@ export const UpcomingEvents = memo(() => {
                     <CalendarIcon width={20} height={20} />
                     <span>Upcoming events</span>
                 </div>
-                <div className={styles.events}>
+                <ul className={styles.events}>
                     {!calendarLoading &&
                         calendar.events.map((item) => (
                             <UpcomingEventItem
+                                key={item.id}
                                 title={item.title}
                                 start={item.start}
                                 end={item.end}
                                 color={item.color}
                             />
                         ))}
-                </div>
+                </ul>
             </div>
         </div>
     );

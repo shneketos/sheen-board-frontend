@@ -24,7 +24,7 @@ export const Calendar = memo(({ id }: { id: string }) => {
         <div className={styles.calendar}>
             {!dashLoading && (
                 <>
-                    <UpcomingEvents id={id} />
+                    <UpcomingEvents />
                     {!calendarLoading && <EventCalendar />}
                 </>
             )}

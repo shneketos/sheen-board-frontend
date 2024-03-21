@@ -7,7 +7,7 @@ describe("Header", () => {
     it("Check non authed header in document", () => {
         render(
             <BrowserRouter>
-                <Header authed={false} />
+                <Header />
             </BrowserRouter>
         );
         const text = screen.getByTestId("header");
@@ -16,7 +16,7 @@ describe("Header", () => {
     it("Check authed header in document", () => {
         render(
             <BrowserRouter>
-                <Header authed={true} />
+                <Header />
             </BrowserRouter>
         );
         const text = screen.getByTestId("header");

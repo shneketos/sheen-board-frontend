@@ -31,7 +31,7 @@ export const BacklogList = (props: BacklogSprint) => {
                         {title}
                     </p>
                 )}
-                <DeleteBacklogSprint />
+                <DeleteBacklogSprint id={id} />
             </div>
             <div className={styles.backlog_list}>
                 {tasks.map((task) => (

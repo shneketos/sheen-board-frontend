@@ -8,3 +8,6 @@ export interface CalendarEventProps {
     desc: string;
     onClose?: () => void;
 }
+export interface DeleteCalendarEventProps {
+    id: number;
+}

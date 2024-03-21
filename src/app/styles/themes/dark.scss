@@ -4,7 +4,7 @@
     --secondary-color: #222;
     --third-color: #3b3b3b; //    --sidebar-active-bg-color,--sidebar-hover-color
     --fourth-color: #cecdcd;
-    --border-color: #ff0000;
+    --border-color: #777777;
     --delete-color: rgb(248, 147, 147);
     --link-color: #5570f1;
     --box-shadow-color: #22222218;
@@ -36,7 +36,6 @@
     --svg-fill-color: white;
 
     //calendar
-    --calendar-active-border-color: green;
-    --calendar-active-bg-color: blue;
-    --calendar-today-color: #33f10c;
+    --calendar-today-color: #89deff;
+    --calendar-off-range-color: #eeeeee15;
 }

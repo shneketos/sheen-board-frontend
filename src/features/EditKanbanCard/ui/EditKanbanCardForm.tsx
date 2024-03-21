@@ -17,9 +17,11 @@ import "shared/ui/DatePicker/DatePicker.scss";
 import { EditKanbanCardProps } from "../model/types/EditKanbanCardFormType";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import { DeleteKanbanCardService } from "features/DeleteKanbanCard";
 
 export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const kanban = useKanbanStore((state) => state.kanban);
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     const { id, title, desc, priority, date, rowTitle, onClose } = props;
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(desc);
@@ -29,13 +31,16 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const [StageEditing, setStageEditing] = useState(false);
     const [PriorityEditing, setPriorityEditing] = useState(false);
     const [newDate, setNewDate] = useState(new Date());
+
     const onClickSave = () => {
         console.log(
             `saved with ${newTitle},${newDesc},${newPriority} in ${rowTitle}`
         );
     };
     const onClickDeleted = () => {
-        console.log(`deleted ${id} in ${rowTitle}`);
+        DeleteKanbanCardService({ id })
+            .then(() => onClose())
+            .then(() => fetchKanban(kanban.id));
     };
     const onClickDiscard = () => {
         setStageEditing(false);
@@ -46,12 +51,11 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
         setNewStage(rowTitle);
         setNewPriority(priority);
     };
-
-    console.log(newDate);
     const variables = kanban.lists.reduce((acc, curr) => {
         acc[curr.id] = curr.title;
         return acc;
     }, {});
+
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>

@@ -15,9 +15,11 @@ import { TextArea } from "shared/ui/TextArea/TextArea";
 import "shared/ui/DatePicker/DatePicker.scss";
 import Input from "shared/ui/Input/Input";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
+import { useCalendarStore } from "entities/Calendar/model/store/CalendarStore";
+import { DeleteCalendarEventService } from "../model/services/DeleteCalendarEventService";
 
 export const EditCalendarEventForm = (props: CalendarEventProps) => {
-    const { title, desc, start, end, color, allDay, onClose } = props;
+    const { id, title, desc, start, end, color, allDay, onClose } = props;
     const [eventEditing, setEventEditing] = useState(false);
     const [colorEditing, setColorEditing] = useState(false);
     const [newTitle, setNewTitle] = useState(title);
@@ -26,7 +28,8 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
     const [newEndDate, setNewEndDate] = useState(end);
     const [newColor, setNewColor] = useState(color);
     const [newAllDay, setNewAllDay] = useState(allDay);
-
+    const calendar = useCalendarStore((state) => state.calendar);
+    const fetchCalendar = useCalendarStore((state) => state.fetchCalendar);
     //const oneDay = formatDate(start.toString()) === formatDate(end.toString());
     const oneDay = false;
     const onClickDiscard = useCallback(() => {
@@ -55,6 +58,12 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
             });
         }
     };
+    const onClickDeleteEvent = () => {
+        DeleteCalendarEventService({ id })
+            .then(() => onClose())
+            .then(() => fetchCalendar(calendar.id));
+    };
+
     return (
         <div className={styles.eventForm}>
             <div className={styles.event}>
@@ -193,6 +202,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                     <Button
                         theme={ButtonTheme.CLEAR}
                         className={styles.btn_delete}
+                        onClick={onClickDeleteEvent}
                     >
                         <TrashcanIcon width={20} height={20} fill="red" />
                         <span>Delete event</span>

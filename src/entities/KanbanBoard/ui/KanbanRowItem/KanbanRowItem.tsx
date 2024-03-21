@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { memo } from "react";
 import styles from "./KanbanRowItem.module.scss";
 import MoreIcon from "shared/assets/icons/more.svg?react";
 import ClockIcon from "shared/assets/icons/clock.svg?react";
@@ -10,15 +10,21 @@ import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanCardForm } from "features/EditKanbanCard";
 import { KanbanCardProps } from "entities/KanbanBoard";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
+import { DeleteKanbanCardService } from "features/DeleteKanbanCard";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 
 export const KanbanRowItem = memo((props: KanbanCardProps) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
+    const kanban = useKanbanStore((state) => state.kanban);
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
+    const onClickDeleteCard = () => {
+        DeleteKanbanCardService({ id })
+            .then(() => setRowModalOpened(false))
+            .then(() => fetchKanban(kanban.id));
+    };
 
-    const onClickDeleteCard = useCallback(() => {
-        setRowModalOpened(false);
-    }, [id, title, rowId, rowTitle]);
     return (
         <div className={styles.row_item_wrapper}>
             <div className={styles.row_item}>

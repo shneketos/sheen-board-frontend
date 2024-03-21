@@ -17,7 +17,7 @@ export const Dashboard = memo(() => {
     return (
         <div className={styles.dashboard}>
             <div className={styles.dashboard_meet}>
-                <p>Hello,User!</p>
+                <p>{`Hello, ${user.name}!`}</p>
                 <span>Choose workspace</span>
             </div>
             {!isLoading && (

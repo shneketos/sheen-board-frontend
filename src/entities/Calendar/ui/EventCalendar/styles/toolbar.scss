@@ -35,24 +35,24 @@ $active-border: $btn-border;
         &.rbc-active {
             background-image: none;
             box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-            background-color: var(--calendar-active-bg-color);
-            border-color: var(--calendar-active-border-color);
+            background-color: var(--third-color);
+            border-color: var(--border-color);
 
             &:hover,
             &:focus {
-                background-color: var(--calendar-active-bg-color) !important;
-                border-color: var(--calendar-active-border-color) !important;
+                background-color: var(--third-color) !important;
+                border-color: var(--border-color) !important;
             }
         }
 
         &:focus {
-            background-color: var(--calendar-active-bg-color);
-            border-color: var(--calendar-active-border-color);
+            background-color: var(--third-color);
+            border-color: var(--border-color);
         }
 
         &:hover {
-            background-color: var(--calendar-active-bg-color);
-            border-color: var(--calendar-active-border-color);
+            background-color: var(--third-color);
+            border-color: var(--border-color);
             cursor: pointer;
         }
     }

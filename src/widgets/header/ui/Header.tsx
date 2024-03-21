@@ -19,7 +19,7 @@ export const Header = memo(() => {
                     <span className={styles.header_username}>{username}</span>
                     <div
                         className={styles.header_right_Authed_photo}
-                    >{`${username[0]}`}</div>
+                    >{`${username[0].toUpperCase()}`}</div>
                 </div>
             ) : (
                 <div className={styles.header_right_nonAuthed}>
