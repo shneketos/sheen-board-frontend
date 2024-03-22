@@ -33,6 +33,7 @@ export const SidebarButtons = memo((props: sidebarListProps) => {
                 className={styles.sidebar_buttons_settings}
                 onMouseEnter={() => setShowSettings(true)}
                 onMouseLeave={() => setShowSettings(false)}
+                onClick={() => navigate(RouterPath.settings)}
             >
                 <SettingsIcon width={20} height={20} />
                 <span>Settings</span>

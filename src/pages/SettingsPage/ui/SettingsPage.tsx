@@ -1,4 +1,10 @@
+import { User } from "entities/User";
+
 export const SettingsPage = () => {
-    return <>SettingsPage</>;
+    return (
+        <>
+            <User />
+        </>
+    );
 };
 export default SettingsPage;

@@ -1,0 +1,27 @@
+.user {
+    display: flex;
+    margin: 0 auto;
+    background: red;
+    width: 800px;
+    height: 800px;
+}
+.navbar {
+    background: green;
+    width: 300px;
+    display: flex;
+}
+.content {
+    width: 100%;
+}
+.list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &_item {
+        width: 100%;
+        padding: 0 20px;
+        background: yellow;
+    }
+}
