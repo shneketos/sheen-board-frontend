@@ -1,3 +1,30 @@
-.ThemeSwitcher {
-    color: rgb(0 255 34);
+.themeSwitcher {
+    width: 250px;
+    height: 265px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    .icon {
+        margin-top: 20px;
+    }
+    .title {
+        margin-top: 30px;
+        font: var(--font-l);
+    }
+    .desc {
+        margin-top: 30px;
+    }
+}
+.Dark {
+    background: #3b3b3b;
+    color: #fff !important;
+}
+.Light {
+    background: #fff;
+    border: 1px solid black;
+    color: #000000;
+}
+.active {
+    border: 2px solid #5874ff;
 }

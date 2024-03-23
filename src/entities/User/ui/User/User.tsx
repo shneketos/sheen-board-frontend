@@ -3,9 +3,9 @@ import styles from "./User.module.scss";
 import { UserInfo } from "../UserInfo/UserInfo";
 import { Preference } from "../Preference/Preference";
 import { Workspaces } from "../Workspaces/Workspaces";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 export const User = () => {
     const [tab, setTab] = React.useState("profile");
-
     const renderContent = () => {
         switch (tab) {
             case "profile":
@@ -22,24 +22,30 @@ export const User = () => {
         <div className={styles.user}>
             <div className={styles.navbar}>
                 <ul className={styles.list}>
-                    <li
-                        className={styles.list_item}
-                        onClick={() => setTab("profile")}
+                    <Button
+                        theme={ButtonTheme.CLEAR}
+                        className={`${styles.list_item} ${
+                            tab === "profile" ? styles.active : ""
+                        }`}
                     >
-                        Profile
-                    </li>
-                    <li
-                        className={styles.list_item}
-                        onClick={() => setTab("preference")}
+                        <li onClick={() => setTab("profile")}>Profile</li>
+                    </Button>
+                    <Button
+                        theme={ButtonTheme.CLEAR}
+                        className={`${styles.list_item} ${
+                            tab === "preference" ? styles.active : ""
+                        }`}
                     >
-                        Preference
-                    </li>
-                    <li
-                        className={styles.list_item}
-                        onClick={() => setTab("workspaces")}
+                        <li onClick={() => setTab("preference")}>Preference</li>
+                    </Button>
+                    <Button
+                        theme={ButtonTheme.CLEAR}
+                        className={`${styles.list_item} ${
+                            tab === "workspaces" ? styles.active : ""
+                        }`}
                     >
-                        Workspaces
-                    </li>
+                        <li onClick={() => setTab("workspaces")}>Workspaces</li>
+                    </Button>
                 </ul>
             </div>
             <div className={styles.content}>{renderContent()}</div>

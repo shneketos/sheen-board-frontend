@@ -1,18 +1,48 @@
 import { useThemes } from "app/providers/themeProvider";
 import styles from "./ThemeSwitcher.module.scss";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import MoonIcon from "shared/assets/icons/moon.svg?react";
+import SunIcon from "shared/assets/icons/sun.svg?react";
 
-export const ThemeSwitcher = () => {
-    const { toggleTheme } = useThemes();
+import { Theme } from "app/providers/themeProvider/lib/ThemeContext";
+export enum ThemeVars {
+    DARK = "Dark",
+    LIGHT = "Light",
+}
+interface themeProps {
+    color: ThemeVars;
+}
+export const ThemeSwitcher = (props: themeProps) => {
+    const { color } = props;
+    const { setTheme, theme } = useThemes();
+    const onClickChangeTheme = () => {
+        if (color === ThemeVars.DARK && theme === Theme.LIGHT) {
+            setTheme(Theme.DARK);
+        }
+        if (color === ThemeVars.LIGHT && theme === Theme.DARK) {
+            setTheme(Theme.LIGHT);
+        }
+    };
+    const isDarkActive = theme === Theme.DARK && color === ThemeVars.DARK;
+    const isLightActive = theme === Theme.LIGHT && color === ThemeVars.LIGHT;
 
     return (
         <Button
-            data-testid="themeswitcher"
-            className={styles.ThemeSwitcher}
-            onClick={toggleTheme}
             theme={ButtonTheme.CLEAR}
+            className={`${styles.themeSwitcher} ${styles[color]} ${
+                isDarkActive || isLightActive ? styles.active : ""
+            }`}
+            onClick={onClickChangeTheme}
         >
-            TOGGLESS
+            {color === ThemeVars.DARK ? (
+                <MoonIcon widths={75} height={75} className={styles.icon} />
+            ) : (
+                <SunIcon widths={75} height={75} className={styles.icon} />
+            )}
+            <p className={styles.title}>{color}</p>
+            <span
+                className={styles.desc}
+            >{`Toggle ${color} interface theme`}</span>
         </Button>
     );
 };
