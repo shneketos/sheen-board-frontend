@@ -22,6 +22,7 @@ export const BacklogList = (props: BacklogSprint) => {
                     <EditBacklogSprintTitle
                         onTitleEditingChange={handleTitleEditingChange}
                         title={title}
+                        id={id}
                     />
                 ) : (
                     <p

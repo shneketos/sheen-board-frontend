@@ -28,7 +28,18 @@
     fill: var(--svg-fill-color);
 }
 
-.btn {
+.btn_cancel {
+    height: 22px;
+    width: 30px;
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-left: none;
+}
+.btn_check {
     height: 22px;
     width: 30px;
     display: flex;
@@ -39,4 +50,7 @@
     background: var(--secondary-color);
     border-radius: 0 6px 6px 0;
     border-left: none;
+}
+.disabled {
+    fill: gray !important;
 }

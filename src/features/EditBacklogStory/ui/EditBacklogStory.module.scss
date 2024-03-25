@@ -32,7 +32,18 @@
     fill: var(--svg-fill-color);
 }
 
-.btn {
+.btn_cancel {
+    height: 22px;
+    width: 30px;
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-left: none;
+}
+.btn_check {
     height: 22px;
     width: 30px;
     display: flex;

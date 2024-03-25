@@ -44,6 +44,7 @@ export const BacklogItem = memo((props: BacklogTask) => {
                     <EditBacklogTaskTitle
                         onTitleEditingChange={handleTitleEditingChange}
                         title={title}
+                        id={id}
                     />
                 ) : (
                     <p
@@ -60,6 +61,7 @@ export const BacklogItem = memo((props: BacklogTask) => {
                     <EditBacklogStory
                         onStoryEditingChange={handleStoryEditingChange}
                         storypoints={story}
+                        id={id}
                     />
                 ) : (
                     <p
@@ -82,6 +84,7 @@ export const BacklogItem = memo((props: BacklogTask) => {
                     <EditBacklogPriority
                         onPriorityEditingChange={handlePriorityEditingChange}
                         priority={priority}
+                        id={id}
                     />
                 )}
             </div>
@@ -97,6 +100,7 @@ export const BacklogItem = memo((props: BacklogTask) => {
                     <EditBacklogStatus
                         onStatusEditingChange={handleStatusEditingChange}
                         status={status}
+                        id={id}
                     />
                 )}
             </div>

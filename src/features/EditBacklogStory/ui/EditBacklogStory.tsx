@@ -4,17 +4,29 @@ import { type EditBacklogStoryProps } from "../modal/types/EditBacklogStoryType"
 import Input, { InputTheme } from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import CheckIcon from "shared/assets/icons/check.svg?react";
+import CloseIcon from "shared/assets/icons/close.svg?react";
+import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
+import { EditBacklogStoryService } from "../modal/services/EditBacklogStoryService";
 
 export const EditBacklogStory = (props: EditBacklogStoryProps) => {
-    const { onStoryEditingChange, storypoints } = props;
+    const { onStoryEditingChange, storypoints, id } = props;
+    const backlog = useBacklogStore((state) => state.backlog);
+    const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const [newStoryValue, setNewStoryValue] = React.useState(
         storypoints.toString()
     );
 
-    const handleButtonClick = useCallback(() => {
+    const onClickCancel = useCallback(() => {
         onStoryEditingChange(false);
     }, [onStoryEditingChange]);
-
+    const onClickConfrim = () => {
+        EditBacklogStoryService({
+            id: id,
+            storypoints: newStoryValue,
+        })
+            .then(() => fetchBacklog(backlog.id))
+            .then(() => onStoryEditingChange(false));
+    };
     return (
         <div className={styles.editBlock}>
             <Input
@@ -29,8 +41,15 @@ export const EditBacklogStory = (props: EditBacklogStoryProps) => {
             ></Input>
             <Button
                 theme={ButtonTheme.CLEAR}
-                className={styles.btn}
-                onClick={handleButtonClick}
+                className={styles.btn_cancel}
+                onClick={onClickCancel}
+            >
+                <CloseIcon className={styles.icon} />
+            </Button>
+            <Button
+                theme={ButtonTheme.CLEAR}
+                className={styles.btn_check}
+                onClick={onClickConfrim}
             >
                 <CheckIcon className={styles.icon} />
             </Button>

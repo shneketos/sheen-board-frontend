@@ -26,14 +26,29 @@
     height: 18px;
 }
 
-.btn {
+.btn_cancel {
     height: 26px;
     width: 30px;
     display: flex;
+    padding-right: 5px;
     align-items: center;
     justify-content: center;
-    background: var(--secondary-color);
     border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-left: none;
+}
+.btn_check {
+    height: 26px;
+    width: 30px;
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
     border-radius: 0 6px 6px 0;
     border-left: none;
+}
+.disabled {
+    fill: gray !important;
 }

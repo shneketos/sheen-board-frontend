@@ -1,16 +1,29 @@
 import React, { useCallback } from "react";
 import styles from "./EditBacklogStatus.module.scss";
 import { type EditBacklogStatusProps } from "../model/types/EditBacklogStatusType";
+import { EditBacklogStatusService } from "../model/services/EditBacklogStatusService";
+import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
 
 export const EditBacklogStatus = (props: EditBacklogStatusProps) => {
-    const { onStatusEditingChange, status } = props;
+    const { onStatusEditingChange, status, id } = props;
+    const backlog = useBacklogStore((state) => state.backlog);
+    const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const StatusVariables = ["Not Started", "In Progress", "Completed"];
     const [newStatusValue, setNewStatusValue] = React.useState(status);
 
     const handleButtonClick = useCallback(() => {
         onStatusEditingChange(false);
     }, [onStatusEditingChange]);
-
+    const onClickConfirm = () => {
+        EditBacklogStatusService({ id: id, status: newStatusValue })
+            .then(() => fetchBacklog(backlog.id))
+            .then(() => onStatusEditingChange(false));
+    };
+    React.useEffect(() => {
+        if (status !== newStatusValue) {
+            onClickConfirm();
+        }
+    });
     return (
         <div className={styles.story} onMouseLeave={handleButtonClick}>
             <ul className={styles.variables_list}>
