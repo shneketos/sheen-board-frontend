@@ -15,6 +15,10 @@
     &_title {
         font-weight: 600;
     }
+    .btn {
+        display: flex;
+        flex-direction: column;
+    }
     .top {
         display: flex;
         align-items: center;

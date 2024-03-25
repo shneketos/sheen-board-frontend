@@ -6,13 +6,19 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { AddCalendarEventProps } from "../model/types/AddCalendarEventType";
 import { AddCalendarEventService } from "../model/service/AddCalendarEventService";
 import { useCalendarStore } from "entities/Calendar/model/store/CalendarStore";
+import { GenerateColor } from "shared/lib/GenerateColor/GenerateColor";
 export const AddCalendarEvent = (props: AddCalendarEventProps) => {
     const { onClose } = props;
     const [titleValue, setTitleValue] = React.useState("");
     const calendar = useCalendarStore((state) => state.calendar);
     const fetchCalendar = useCalendarStore((state) => state.fetchCalendar);
+    const color = GenerateColor();
     const onClickAddCard = () => {
-        AddCalendarEventService({ id: calendar.id, title: titleValue })
+        AddCalendarEventService({
+            id: calendar.id,
+            title: titleValue,
+            color: `#${color}`,
+        })
             .then(() => onClose())
             .then(() => fetchCalendar(calendar.id));
     };

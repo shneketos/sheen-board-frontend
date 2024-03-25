@@ -4,13 +4,13 @@ import { AddCalendarEventServiceProps } from "../types/AddCalendarEventType";
 export const AddCalendarEventService = async (
     props: AddCalendarEventServiceProps
 ) => {
-    const { id, title } = props;
+    const { id, title, color } = props;
     const params = {
         title: title,
         desc: "description",
         start: new Date(),
         end: new Date(),
-        color: "red",
+        color: color,
         allDay: false,
         calendarId: id,
     };

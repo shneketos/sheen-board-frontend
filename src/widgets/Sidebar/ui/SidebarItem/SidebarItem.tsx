@@ -14,6 +14,7 @@ export const SidebarItem = memo((props: sidebarListProps) => {
     const { id, Icon, name, to, collapsed } = props;
     const [showInfo, setShowInfo] = React.useState(false);
     const location = useLocation();
+
     return (
         <li
             className={`${styles.sidebar_list_item} ${

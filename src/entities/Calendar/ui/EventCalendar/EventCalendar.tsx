@@ -43,20 +43,22 @@ export const EventCalendar = memo(() => {
                     };
                 }}
             />
-            <CalendarModal isOpen={opened} onClose={onClickCloseModal}>
-                {thisEvent !== null && (
-                    <EditCalendarEventForm
-                        id={thisEvent.id}
-                        title={thisEvent.title}
-                        desc={thisEvent.desc}
-                        start={thisEvent.start}
-                        end={thisEvent.end}
-                        allDay={thisEvent.allDay}
-                        color={thisEvent.color}
-                        onClose={onClickCloseModal}
-                    />
-                )}
-            </CalendarModal>
+            {opened && (
+                <CalendarModal isOpen={opened} onClose={onClickCloseModal}>
+                    {thisEvent !== null && (
+                        <EditCalendarEventForm
+                            id={thisEvent.id}
+                            title={thisEvent.title}
+                            desc={thisEvent.desc}
+                            start={thisEvent.start}
+                            end={thisEvent.end}
+                            allDay={thisEvent.allDay}
+                            color={thisEvent.color}
+                            onClose={onClickCloseModal}
+                        />
+                    )}
+                </CalendarModal>
+            )}
         </div>
     );
 });

@@ -5,4 +5,5 @@ export interface AddCalendarEventProps {
 export interface AddCalendarEventServiceProps {
     id?: number;
     title: string;
+    color: string;
 }

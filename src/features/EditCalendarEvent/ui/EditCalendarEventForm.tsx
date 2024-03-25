@@ -17,6 +17,7 @@ import Input from "shared/ui/Input/Input";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
 import { useCalendarStore } from "entities/Calendar/model/store/CalendarStore";
 import { DeleteCalendarEventService } from "../model/services/DeleteCalendarEventService";
+import { EditCalendarEventService } from "../model/services/EditCalendarEventService";
 
 export const EditCalendarEventForm = (props: CalendarEventProps) => {
     const { id, title, desc, start, end, color, allDay, onClose } = props;
@@ -42,7 +43,6 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
         setNewStartDate(start);
         setNewEndDate(end);
     }, [title, desc, allDay, color, start, end]);
-
     const handleAllDayCheckboxChange = () => {
         setNewAllDay(!newAllDay);
         if (!newAllDay) {
@@ -53,10 +53,23 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
             });
             setNewEndDate((prevEndDate) => {
                 const newEndDateWithZeroTime = new Date(prevEndDate);
-                newEndDateWithZeroTime.setHours(0, 0, 0, 0);
+                newEndDateWithZeroTime.setHours(23, 59, 59, 59);
                 return newEndDateWithZeroTime;
             });
         }
+    };
+    const onClickConfirm = () => {
+        EditCalendarEventService({
+            id: id,
+            title: newTitle,
+            desc: newDesc,
+            start: newStartDate,
+            end: newEndDate,
+            color: newColor,
+            allDay: newAllDay,
+        })
+            .then(() => setEventEditing(false))
+            .then(() => fetchCalendar(calendar.id));
     };
     const onClickDeleteEvent = () => {
         DeleteCalendarEventService({ id })
@@ -111,6 +124,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                                         timeFormat={
                                             newAllDay ? null : "h:mm aa"
                                         }
+                                        minDate={new Date()}
                                     />
                                 ) : (
                                     <span>
@@ -132,6 +146,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                                         timeFormat={
                                             newAllDay ? null : "h:mm aa"
                                         }
+                                        minDate={newStartDate}
                                     />
                                 ) : (
                                     <span>
@@ -192,7 +207,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                                 cname={styles.edit_desc}
                             />
                         ) : (
-                            <span>{newDesc}</span>
+                            <span className={styles.desc}>{newDesc}</span>
                         )}
                     </div>
                 </div>
@@ -220,6 +235,7 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
                         <Button
                             className={styles.btn_save}
                             theme={ButtonTheme.CLEAR}
+                            onClick={onClickConfirm}
                         >
                             Save
                         </Button>

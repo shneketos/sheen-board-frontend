@@ -18,9 +18,3 @@ export interface CalendarStore {
     isLoading: boolean;
     fetchCalendar: (id: number) => Promise<void>;
 }
-export interface UpcomingEventItemProps {
-    title: string;
-    start: Date;
-    end: Date;
-    color: string;
-}

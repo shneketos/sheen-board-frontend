@@ -1,9 +1,10 @@
-import React from "react";
 import styles from "./SidebarUpper.module.scss";
 import OverviewIcon from "shared/assets/icons/overview.svg?react";
 import BoardIcon from "shared/assets/icons/kanban.svg?react";
 import BacklogIcon from "shared/assets/icons/backlog.svg?react";
 import CalendarIcon from "shared/assets/icons/calendar.svg?react";
+import ManageIcon from "shared/assets/icons/manage.svg?react";
+
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useLocation, useParams } from "react-router-dom";
 import { SidebarToDashboard } from "../SidebarItem/SidebarToDashboard";
@@ -15,13 +16,14 @@ export const SidebarUpper = (props: sidebarListProps) => {
     const { id } = useParams();
     const location = useLocation();
     const isWorkSpace = location.pathname.includes(`/dashboard/${id}`);
+
     const SidebarRoutes = [
         { name: "Overview", to: "overview", icon: OverviewIcon },
         { name: "Kanban", to: "kanban", icon: BoardIcon },
         { name: "Backlog", to: "backlog", icon: BacklogIcon },
         { name: "Calendar", to: "calendar", icon: CalendarIcon },
+        { name: "Manage", to: "manage", icon: ManageIcon },
     ];
-
     return (
         <div className={styles.sidebar_list} data-testid="sidebar_upper">
             <ul className={styles.list}>

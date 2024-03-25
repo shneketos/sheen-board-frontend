@@ -11,6 +11,7 @@ export const UpcomingEvents = memo(() => {
     const [openAdd, setOpenAdd] = React.useState(false);
     const calendar = useCalendarStore((state) => state.calendar);
     const calendarLoading = useCalendarStore((state) => state.isLoading);
+
     return (
         <div className={styles.upcoming}>
             <div>
@@ -35,15 +36,24 @@ export const UpcomingEvents = memo(() => {
                 </div>
                 <ul className={styles.events}>
                     {!calendarLoading &&
-                        calendar.events.map((item) => (
-                            <UpcomingEventItem
-                                key={item.id}
-                                title={item.title}
-                                start={item.start}
-                                end={item.end}
-                                color={item.color}
-                            />
-                        ))}
+                        calendar.events
+                            .sort(
+                                (a, b) =>
+                                    new Date(a.start).getTime() -
+                                    new Date(b.start).getTime()
+                            )
+                            .map((item) => (
+                                <UpcomingEventItem
+                                    key={item.id}
+                                    id={item.id}
+                                    title={item.title}
+                                    start={item.start}
+                                    end={item.end}
+                                    color={item.color}
+                                    allDay={item.allDay}
+                                    desc={item.desc}
+                                />
+                            ))}
                 </ul>
             </div>
         </div>

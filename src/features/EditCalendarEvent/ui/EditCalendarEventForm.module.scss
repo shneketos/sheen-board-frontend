@@ -31,6 +31,9 @@
         display: flex;
         gap: 10px;
     }
+    .desc {
+        overflow-wrap: anywhere;
+    }
 }
 .icon {
     width: 20px;
