@@ -1,17 +1,9 @@
-export interface KanbanCardProps extends KanbanCard {
-    rowId?: number;
-    rowTitle?: string;
-}
-export interface KanbanRowProps extends KanbanRow {
-    onClose?: () => void;
-}
-
 export interface KanbanCard {
     id?: number;
     title?: string;
     desc?: string;
     priority?: string;
-    date?: string;
+    date?: Date;
 }
 
 export interface KanbanRow {

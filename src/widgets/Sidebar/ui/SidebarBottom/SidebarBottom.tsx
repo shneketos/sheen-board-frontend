@@ -1,16 +1,17 @@
-import React, { memo, useCallback } from "react";
-import styles from "./SidebarButtons.module.scss";
+import React, { useCallback } from "react";
+import styles from "./SidebarBottom.module.scss";
+import { Logout } from "entities/User";
+import { useNavigate } from "react-router-dom";
+import { RouterPath } from "shared/config/routerConfig/routerConfig";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import SettingsIcon from "shared/assets/icons/settings.svg?react";
 import LogoutIcon from "shared/assets/icons/logout.svg?react";
-import { InfoModal } from "shared/ui/InfoModal/InfoModal";
-import { RouterPath } from "shared/config/routerConfig/routerConfig";
-import { useNavigate } from "react-router-dom";
-import { Logout } from "entities/User";
 interface sidebarListProps {
     collapsed: boolean;
 }
-export const SidebarButtons = memo((props: sidebarListProps) => {
+
+export const SidebarBottom = (props: sidebarListProps) => {
     const navigate = useNavigate();
     const { collapsed } = props;
     const [showSettings, setShowSettings] = React.useState(false);
@@ -23,7 +24,7 @@ export const SidebarButtons = memo((props: sidebarListProps) => {
 
     return (
         <div
-            data-testid="sidebar_buttons"
+            data-testid="sidebar_bottom"
             className={`${styles.sidebar_buttons} ${
                 collapsed ? styles.collapsed : ""
             }`}
@@ -61,4 +62,4 @@ export const SidebarButtons = memo((props: sidebarListProps) => {
             {logout && <Logout />}
         </div>
     );
-});
+};

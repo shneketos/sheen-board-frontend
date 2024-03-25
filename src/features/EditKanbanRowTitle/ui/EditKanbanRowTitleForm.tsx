@@ -1,18 +1,24 @@
-import React, { useCallback } from "react";
-import { KanbanRowProps } from "entities/KanbanBoard";
+import React from "react";
 import styles from "./EditKanbanRowTitleForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { EditKanbanRowTitleProps } from "../model/type/EditKanbanRowTitleType";
+import { EditKanbanRowTitleService } from "../model/services/EditKanbanRowTitleService";
+import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 
-export const EditKanbanRowTitleForm = (props: KanbanRowProps) => {
+export const EditKanbanRowTitleForm = (props: EditKanbanRowTitleProps) => {
     const { id, title, onClose } = props;
+    const kanban = useKanbanStore((state) => state.kanban);
+    const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     console.log(id);
     const [titleValue, setTitleValue] = React.useState(title);
 
-    const onConfirm = useCallback(() => {
-        onClose();
-    }, [onClose]);
+    const onClickConfirm = () => {
+        EditKanbanRowTitleService({ id: id, title: titleValue })
+            .then(() => onClose())
+            .then(() => fetchKanban(kanban.id));
+    };
 
     return (
         <div className={styles.form}>
@@ -46,7 +52,7 @@ export const EditKanbanRowTitleForm = (props: KanbanRowProps) => {
                 <Button
                     className={styles.btn_save}
                     theme={ButtonTheme.CLEAR}
-                    onClick={onConfirm}
+                    onClick={onClickConfirm}
                 >
                     Save
                 </Button>

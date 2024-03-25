@@ -7,22 +7,22 @@ import ClockIcon from "shared/assets/icons/clock.svg?react";
 import ListIcon from "shared/assets/icons/list.svg?react";
 import TrashcanIcon from "shared/assets/icons/trashcan.svg?react";
 import TitleIcon from "shared/assets/icons/title.svg?react";
-
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import Input from "shared/ui/Input/Input";
 import { TextArea } from "shared/ui/TextArea/TextArea";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import DatePicker from "react-datepicker";
 import "shared/ui/DatePicker/DatePicker.scss";
-import { EditKanbanCardProps } from "../model/types/EditKanbanCardFormType";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 import { DeleteKanbanCardService } from "features/DeleteKanbanCard";
+import { EditKanbanCardProps } from "../model/types/EditKanbanCardType";
+import { EditKanbanCardSerivce } from "../model/services/EditKanbanCardService";
 
 export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
+    const { id, title, desc, priority, date, rowTitle, onClose } = props;
     const kanban = useKanbanStore((state) => state.kanban);
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
-    const { id, title, desc, priority, date, rowTitle, onClose } = props;
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(desc);
     const [newStage, setNewStage] = useState(rowTitle);
@@ -30,12 +30,22 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [StageEditing, setStageEditing] = useState(false);
     const [PriorityEditing, setPriorityEditing] = useState(false);
-    const [newDate, setNewDate] = useState(new Date());
+    const [newDate, setNewDate] = useState(date);
 
     const onClickSave = () => {
-        console.log(
-            `saved with ${newTitle},${newDesc},${newPriority} in ${rowTitle}`
+        const stageId = Object.keys(variables).find(
+            (key) => variables[key] === newStage
         );
+        EditKanbanCardSerivce({
+            id: id,
+            title: newTitle,
+            desc: newDesc,
+            priority: newPriority,
+            date: newDate,
+            stage: parseInt(stageId),
+        })
+            .then(() => setIsEditing(false))
+            .then(() => fetchKanban(kanban.id));
     };
     const onClickDeleted = () => {
         DeleteKanbanCardService({ id })
@@ -201,7 +211,7 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                                 minDate={new Date()}
                             />
                         ) : (
-                            <span>{formatDate(date)}</span>
+                            <span>{formatDate(newDate.toString())}</span>
                         )}
                     </div>
                 </div>

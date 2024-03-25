@@ -85,7 +85,7 @@ export const KanbanRowItem = memo((props: KanbanCardProps) => {
                             height={18}
                         />
                         <span className={styles.row_item_bottom_due}>
-                            {formatDate(date)}
+                            {formatDate(date.toString())}
                         </span>
                     </div>
                 </div>
