@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Preference.module.scss";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { ThemeVars } from "widgets/ThemeSwitcher/ui/ThemeSwitcher";

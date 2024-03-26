@@ -1,5 +1,4 @@
 import { Overview, OverviewHeader } from "entities/Overview";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 export const OverviewPage = () => {

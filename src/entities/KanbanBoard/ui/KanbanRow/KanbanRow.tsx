@@ -9,10 +9,10 @@ import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanRowTitleForm } from "features/EditKanbanRowTitle";
 import { KanbanRowItem } from "../KanbanRowItem/KanbanRowItem";
-import { KanbanRowProps } from "entities/KanbanBoard";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 import { DeleteKanbanRowService } from "features/DeleteKanbanRow";
 import { DeleteKanbanRowCards } from "features/DeleteKanbanRowCards";
+import { KanbanRow as KanbanRowProps } from "entities/KanbanBoard/model/types/KanbanTypes";
 
 export const KanbanRow = memo((props: KanbanRowProps) => {
     const { id, title, tasks } = props;

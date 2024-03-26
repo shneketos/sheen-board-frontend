@@ -8,12 +8,12 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import { Modal } from "shared/ui/modal/Modal";
 import { EditKanbanCardForm } from "features/EditKanbanCard";
-import { KanbanCardProps } from "entities/KanbanBoard";
 import { formatDate } from "shared/lib/FormatDate/FormatDate";
 import { DeleteKanbanCardService } from "features/DeleteKanbanCard";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import { KanbanCard } from "entities/KanbanBoard/model/types/KanbanTypes";
 
-export const KanbanRowItem = memo((props: KanbanCardProps) => {
+export const KanbanRowItem = memo((props: KanbanCard) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);

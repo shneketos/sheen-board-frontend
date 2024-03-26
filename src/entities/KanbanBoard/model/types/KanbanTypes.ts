@@ -1,20 +1,22 @@
 export interface KanbanCard {
-    id?: number;
-    title?: string;
-    desc?: string;
-    priority?: string;
-    date?: Date;
+    id: number;
+    title: string;
+    desc: string;
+    priority: string;
+    date: Date;
+    rowId?: number;
+    rowTitle?: string;
 }
 
 export interface KanbanRow {
-    id?: number;
-    title?: string;
+    id: number;
+    title: string;
     tasks?: KanbanCard[];
 }
 
 export interface Kanban {
     id: number;
-    lists?: KanbanRow[];
+    lists: KanbanRow[];
 }
 export interface KanbanStore {
     kanban: Kanban;

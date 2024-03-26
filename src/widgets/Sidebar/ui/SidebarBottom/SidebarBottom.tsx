@@ -1,12 +1,13 @@
 import React, { useCallback } from "react";
 import styles from "./SidebarBottom.module.scss";
-import { Logout } from "entities/User";
+import { useUserStore } from "entities/User";
 import { useNavigate } from "react-router-dom";
 import { RouterPath } from "shared/config/routerConfig/routerConfig";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { InfoModal } from "shared/ui/InfoModal/InfoModal";
 import SettingsIcon from "shared/assets/icons/settings.svg?react";
 import LogoutIcon from "shared/assets/icons/logout.svg?react";
+import { LOCALSTORAGE_TOKEN_KEY } from "shared/const/localstorage";
 interface sidebarListProps {
     collapsed: boolean;
 }
@@ -16,11 +17,11 @@ export const SidebarBottom = (props: sidebarListProps) => {
     const { collapsed } = props;
     const [showSettings, setShowSettings] = React.useState(false);
     const [showLogout, setShowLogout] = React.useState(false);
-    const [logout, setLogout] = React.useState(false);
+    const fetchUser = useUserStore((state) => state.fetchUser);
     const onClickLogout = useCallback(() => {
-        setLogout(true);
-        logout && navigate(RouterPath.signin);
-    }, [logout, navigate]);
+        window.localStorage.removeItem(LOCALSTORAGE_TOKEN_KEY);
+        fetchUser();
+    }, [fetchUser]);
 
     return (
         <div
@@ -59,7 +60,6 @@ export const SidebarBottom = (props: sidebarListProps) => {
                     </InfoModal>
                 )}
             </Button>
-            {logout && <Logout />}
         </div>
     );
 };

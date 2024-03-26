@@ -4,8 +4,8 @@ import PlusIcon from "shared/assets/icons/plus.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/modal/Modal";
 import { AddKanbanCard } from "features/AddKanbanCard";
-import { KanbanRowProps } from "entities/KanbanBoard";
-export const KanbanRowAddItem = memo((props: KanbanRowProps) => {
+import { KanbanRow } from "entities/KanbanBoard/model/types/KanbanTypes";
+export const KanbanRowAddItem = memo((props: KanbanRow) => {
     const { id, title } = props;
     const [openAdd, setOpenAdd] = React.useState(false);
     return (

@@ -6,6 +6,8 @@ export const useDashboardStore = create<DashboardState>()((set) => ({
     thisDash: null,
     thisDashIsLoading: true,
     isLoading: true,
+    dashMembers: null,
+    membersIsLoading: true,
     errors: [],
     fetchDashboards: async (id: number) => {
         try {
@@ -25,6 +27,16 @@ export const useDashboardStore = create<DashboardState>()((set) => ({
         } catch (err) {
             set({ thisDash: null });
             set({ thisDashIsLoading: false });
+        }
+    },
+    fetchDashMembers: async (id: number) => {
+        try {
+            const { data } = await $api.get(`/workspace/members/${id}`);
+            set({ dashMembers: data });
+            set({ membersIsLoading: false });
+        } catch (err) {
+            set({ dashMembers: null });
+            set({ membersIsLoading: false });
         }
     },
     nullThisDash: () => set({ thisDash: null }),

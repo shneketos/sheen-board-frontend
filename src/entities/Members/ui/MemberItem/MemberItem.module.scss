@@ -1,0 +1,28 @@
+.avatar {
+    background-color: #5570f1;
+    border-radius: 50px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.member {
+    display: flex;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+    gap: 10px;
+    align-items: center;
+}
+.info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .name {
+        width: 230px;
+    }
+    .email {
+        width: 300px;
+    }
+}

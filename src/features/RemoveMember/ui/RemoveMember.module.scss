@@ -1,0 +1,11 @@
+.buttons {
+    .btn {
+        display: flex;
+        align-items: center;
+        background: var(--delete-color);
+        padding: 5px;
+        border-radius: 6px;
+        color: red;
+        font-size: 16px;
+    }
+}

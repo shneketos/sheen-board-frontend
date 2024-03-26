@@ -9,7 +9,6 @@ export const onClickSignUpByEmail = async (props: SignUpByEmailType) => {
         email: email,
         password: password,
         avatar: "",
-        workspaces: [],
     };
     try {
         const response = await $api.post("/auth/register", params);

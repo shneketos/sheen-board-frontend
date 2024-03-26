@@ -27,24 +27,27 @@ export const User = () => {
                         className={`${styles.list_item} ${
                             tab === "profile" ? styles.active : ""
                         }`}
+                        onClick={() => setTab("profile")}
                     >
-                        <li onClick={() => setTab("profile")}>Profile</li>
+                        <li>Profile</li>
                     </Button>
                     <Button
                         theme={ButtonTheme.CLEAR}
                         className={`${styles.list_item} ${
                             tab === "preference" ? styles.active : ""
                         }`}
+                        onClick={() => setTab("preference")}
                     >
-                        <li onClick={() => setTab("preference")}>Preference</li>
+                        <li>Preference</li>
                     </Button>
                     <Button
                         theme={ButtonTheme.CLEAR}
                         className={`${styles.list_item} ${
                             tab === "workspaces" ? styles.active : ""
                         }`}
+                        onClick={() => setTab("workspaces")}
                     >
-                        <li onClick={() => setTab("workspaces")}>Workspaces</li>
+                        <li>Workspaces</li>
                     </Button>
                 </ul>
             </div>

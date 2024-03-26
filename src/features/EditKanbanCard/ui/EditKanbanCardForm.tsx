@@ -107,17 +107,19 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
                     {StageEditing ? (
                         <InfoModal className={styles.stage_modal}>
                             <ul onMouseLeave={() => setStageEditing(false)}>
-                                {Object.values(variables).map((item) => (
-                                    <li
-                                        key={item}
-                                        onClick={() => {
-                                            setNewStage(item);
-                                            setStageEditing(false);
-                                        }}
-                                    >
-                                        {item}
-                                    </li>
-                                ))}
+                                {Object.values<string>(variables).map(
+                                    (item) => (
+                                        <li
+                                            key={item}
+                                            onClick={() => {
+                                                setNewStage(item);
+                                                setStageEditing(false);
+                                            }}
+                                        >
+                                            {item}
+                                        </li>
+                                    )
+                                )}
                             </ul>
                         </InfoModal>
                     ) : (

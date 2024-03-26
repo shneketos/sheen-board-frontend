@@ -1,6 +1,4 @@
-import { type KanbanCardProps } from "entities/KanbanBoard";
-
-export interface EditKanbanCardProps extends KanbanCardProps {
+export interface EditKanbanCardProps {
     id: number;
     title: string;
     desc: string;
