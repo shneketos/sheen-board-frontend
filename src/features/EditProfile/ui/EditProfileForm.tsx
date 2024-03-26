@@ -2,11 +2,13 @@ import React from "react";
 import styles from "./EditProfileForm.module.scss";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { useUserStore } from "entities/User";
 export const EditProfileForm = () => {
     const [editing, setEditing] = React.useState(false);
-    const [usernameValue, setUsernameValue] = React.useState("vasya");
-    const [emailValue, setEmailValue] = React.useState("vasya@mail.ru");
-    const [passValue, setPassValue] = React.useState("123123");
+    const user = useUserStore((state) => state.user);
+    const [usernameValue, setUsernameValue] = React.useState(user.name);
+    const [emailValue, setEmailValue] = React.useState(user.email);
+    const [passValue, setPassValue] = React.useState("");
 
     return (
         <div className={styles.form}>

@@ -3,7 +3,7 @@ import { CalendarPage } from "pages/CalendarPage";
 import { Dashboard } from "pages/DashboardPage";
 import { KanbanPage } from "pages/KanbanPage";
 import { MainPage } from "pages/MainPage";
-import { ManagePage } from "pages/ManagePage";
+import { MembersPage } from "pages/MembersPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { OverviewPage } from "pages/OverviewPage";
 import { SettingsPage } from "pages/SettingsPage";
@@ -27,7 +27,7 @@ export enum AppRoutes {
     BACKLOG = "backlog",
     CALENDAR = "calendar",
     SETTINGS = "settings",
-    MANAGE = "manage",
+    MEMBERS = "members",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
@@ -39,7 +39,7 @@ export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.KANBAN]: "/dashboard/:id/kanban",
     [AppRoutes.BACKLOG]: "/dashboard/:id/backlog",
     [AppRoutes.CALENDAR]: "/dashboard/:id/calendar",
-    [AppRoutes.MANAGE]: "/dashboard/:id/manage",
+    [AppRoutes.MEMBERS]: "/dashboard/:id/members",
     [AppRoutes.SETTINGS]: "/settings",
     ///
     [AppRoutes.NOTFOUND]: "*",
@@ -86,9 +86,9 @@ export const RoutesConfig: Record<AppRoutes, AppRouterProps> = {
         element: <CalendarPage />,
         authOnly: true,
     },
-    [AppRoutes.MANAGE]: {
-        path: RouterPath.manage,
-        element: <ManagePage />,
+    [AppRoutes.MEMBERS]: {
+        path: RouterPath.members,
+        element: <MembersPage />,
         authOnly: true,
     },
     [AppRoutes.SETTINGS]: {

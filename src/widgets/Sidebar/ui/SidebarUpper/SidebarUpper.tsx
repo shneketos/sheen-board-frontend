@@ -3,7 +3,7 @@ import OverviewIcon from "shared/assets/icons/overview.svg?react";
 import BoardIcon from "shared/assets/icons/kanban.svg?react";
 import BacklogIcon from "shared/assets/icons/backlog.svg?react";
 import CalendarIcon from "shared/assets/icons/calendar.svg?react";
-import ManageIcon from "shared/assets/icons/manage.svg?react";
+import MembersIcon from "shared/assets/icons/members.svg?react";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useLocation, useParams } from "react-router-dom";
@@ -22,7 +22,7 @@ export const SidebarUpper = (props: sidebarListProps) => {
         { name: "Kanban", to: "kanban", icon: BoardIcon },
         { name: "Backlog", to: "backlog", icon: BacklogIcon },
         { name: "Calendar", to: "calendar", icon: CalendarIcon },
-        { name: "Manage", to: "manage", icon: ManageIcon },
+        { name: "Members", to: "members", icon: MembersIcon },
     ];
     return (
         <div className={styles.sidebar_list} data-testid="sidebar_upper">
