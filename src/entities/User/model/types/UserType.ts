@@ -8,7 +8,6 @@ export interface User {
 export interface userState {
     user: User;
     isLoading: boolean;
-    errors: string[];
     fetchUser: () => Promise<void>;
     logoutUser: () => void;
 }

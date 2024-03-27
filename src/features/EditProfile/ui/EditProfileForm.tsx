@@ -3,13 +3,22 @@ import styles from "./EditProfileForm.module.scss";
 import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useUserStore } from "entities/User";
+import { EditProfileService } from "../model/services/EditProfileService";
 export const EditProfileForm = () => {
     const [editing, setEditing] = React.useState(false);
     const user = useUserStore((state) => state.user);
+    const fetchUser = useUserStore((state) => state.fetchUser);
     const [usernameValue, setUsernameValue] = React.useState(user.name);
     const [emailValue, setEmailValue] = React.useState(user.email);
-    const [passValue, setPassValue] = React.useState("");
-
+    const onClickConfirm = () => {
+        EditProfileService({
+            id: user.id,
+            name: usernameValue,
+            email: emailValue,
+        })
+            .then(() => setEditing(false))
+            .then(() => fetchUser());
+    };
     return (
         <div className={styles.form}>
             <div className={styles.form_top}>
@@ -39,19 +48,6 @@ export const EditProfileForm = () => {
                             />
                         )}
                     </div>
-                    <div className={styles.block}>
-                        <p className={styles.title}>Password</p>
-                        {!editing ? (
-                            <span className={styles.text}>******</span>
-                        ) : (
-                            <Input
-                                value={passValue}
-                                onChange={(val) => setPassValue(val)}
-                                className={styles.input}
-                                type="password"
-                            />
-                        )}
-                    </div>
                 </div>
                 <div className={styles.avatar}>
                     <div
@@ -72,6 +68,7 @@ export const EditProfileForm = () => {
                         <Button
                             theme={ButtonTheme.CLEAR}
                             className={styles.btn_save}
+                            onClick={onClickConfirm}
                         >
                             Save
                         </Button>

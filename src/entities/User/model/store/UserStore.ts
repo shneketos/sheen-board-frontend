@@ -4,10 +4,8 @@ import { userState } from "../types/UserType";
 
 export const useUserStore = create<userState>((set) => ({
     user: null,
-    currentUser: null,
-    settings: {},
     isLoading: true,
-    errors: [],
+
     fetchUser: async () => {
         try {
             const { data } = await $api.get("/users/me");

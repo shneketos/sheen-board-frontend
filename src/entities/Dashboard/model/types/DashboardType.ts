@@ -15,6 +15,12 @@ export interface DashboardCard {
         id: number;
     };
 }
+export interface Workspaces {
+    id: number;
+    title: string;
+    members: number[];
+    ownerId: number;
+}
 export interface DashboardState {
     dashboards: DashboardCard[];
     thisDash: DashboardCard;
@@ -22,9 +28,12 @@ export interface DashboardState {
     isLoading: boolean;
     dashMembers: User[];
     membersIsLoading: boolean;
-    errors: string[];
+    workspaces: Workspaces[];
+    workspacesLoading: boolean;
     fetchDashboards: (id: number) => Promise<void>;
     fetchThisDash: (id: number) => Promise<void>;
     fetchDashMembers: (id: number) => Promise<void>;
+    fetchUserWorkspaces: (id: number) => Promise<void>;
+
     nullThisDash: () => void;
 }
