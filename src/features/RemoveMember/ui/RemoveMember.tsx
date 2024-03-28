@@ -19,10 +19,12 @@ export const RemoveMember = (props: RemoveMemberProps) => {
     };
 
     return (
-        <div className={styles.buttons} onClick={onClickRemoveMember}>
-            <Button theme={ButtonTheme.CLEAR} className={styles.btn}>
-                <span>Remove</span>
-            </Button>
-        </div>
+        <Button
+            theme={ButtonTheme.CLEAR}
+            className={styles.btn}
+            onClick={onClickRemoveMember}
+        >
+            <span>Remove</span>
+        </Button>
     );
 };

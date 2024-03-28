@@ -11,3 +11,9 @@ export interface userState {
     fetchUser: () => Promise<void>;
     logoutUser: () => void;
 }
+export interface Workspace {
+    id: number;
+    title: string;
+    members: number[];
+    owner: number;
+}

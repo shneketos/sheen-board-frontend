@@ -2,6 +2,7 @@ import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore
 import styles from "./Workspaces.module.scss";
 import { useUserStore } from "entities/User";
 import { useEffect } from "react";
+import { WorkspaceItem } from "../WorkspaceItem/WorkspaceItem";
 export const Workspaces = () => {
     const workspaces = useDashboardStore((state) => state.workspaces);
     const fetchWorkspaces = useDashboardStore(
@@ -13,5 +14,24 @@ export const Workspaces = () => {
         fetchWorkspaces(user.id);
     }, [fetchWorkspaces, user.id]);
     console.log(workspaces);
-    return <div className={styles.Workspaces}>Workspaces</div>;
+    return (
+        <>
+            {workspaces !== null &&
+                (workspaces.length > 1 ? (
+                    <ul className={styles.workspaces}>
+                        {workspaces.map((space) => (
+                            <WorkspaceItem
+                                id={space.id}
+                                key={space.id}
+                                owner={space.ownerId}
+                                members={space.members}
+                                title={space.title}
+                            />
+                        ))}
+                    </ul>
+                ) : (
+                    <p className={styles.clear}>You don't have workspaces</p>
+                ))}
+        </>
+    );
 };
