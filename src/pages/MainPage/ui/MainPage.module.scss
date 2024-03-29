@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+}
+.sheen {
+    margin: 20px auto;
+    margin-top: 20px;
+    font-size: 40px;
+}
+.content {
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    &_left {
+        &_top {
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+            width: 500px;
+            gap: 10px;
+            &_title {
+                font-weight: 600;
+                font-size: 26px;
+            }
+            &_desc {
+                font-weight: 500;
+                font-size: 18px;
+            }
+        }
+    }
+    &_right {
+        width: 500px;
+    }
+    .list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

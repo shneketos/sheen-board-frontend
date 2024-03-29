@@ -12,7 +12,7 @@ export const MembersPage = () => {
     const isOwner = OwnerSelector();
     React.useEffect(() => {
         fetchDash(parseInt(id)).then(() => fetchMembers(parseInt(id)));
-    }, [fetchMembers, id]);
+    }, [fetchDash, fetchMembers, id]);
     console.log(isOwner, dash);
     return <Members />;
 };

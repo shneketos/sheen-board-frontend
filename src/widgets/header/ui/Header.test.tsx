@@ -13,13 +13,4 @@ describe("Header", () => {
         const text = screen.getByTestId("header");
         expect(text).toBeInTheDocument();
     });
-    it("Check authed header in document", () => {
-        render(
-            <BrowserRouter>
-                <Header />
-            </BrowserRouter>
-        );
-        const text = screen.getByTestId("header");
-        expect(text).toBeInTheDocument();
-    });
 });
