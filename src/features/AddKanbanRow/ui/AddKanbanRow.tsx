@@ -13,9 +13,10 @@ export const AddKanbanRow = (props: addKanbanRowProps) => {
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     const kanban = useKanbanStore((state) => state.kanban);
     const onClickCreate = () => {
-        AddKanbanRowService({ id: id, title: titleValue })
-            .then(() => onClose())
-            .then(() => fetchKanban(kanban.id));
+        AddKanbanRowService({ id: id, title: titleValue }).then(() => {
+            onClose();
+            fetchKanban(kanban.id);
+        });
     };
 
     return (

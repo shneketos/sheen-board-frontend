@@ -7,6 +7,7 @@ export const Members = () => {
     const dash = useDashboardStore((state) => state.thisDash);
     const isLoading = useDashboardStore((state) => state.thisDashIsLoading);
     const isOwner = OwnerSelector();
+    console.log(members);
     if (!isLoading) {
         return (
             <div className={styles.members}>
@@ -27,6 +28,7 @@ export const Members = () => {
                                 id={member.id}
                                 name={member.name}
                                 email={member.email}
+                                avatar={member.avatar}
                             />
                         ))}
                 </ul>

@@ -13,9 +13,10 @@ export const AddBacklogTask = (props: addBacklogTaskProps) => {
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const onClickCreate = () => {
-        addBacklogTaskService({ id: id, title: titleValue })
-            .then(() => onClose())
-            .then(() => fetchBacklog(backlog.id));
+        addBacklogTaskService({ id: id, title: titleValue }).then(() => {
+            onClose();
+            fetchBacklog(backlog.id);
+        });
     };
     return (
         <div className={styles.form}>

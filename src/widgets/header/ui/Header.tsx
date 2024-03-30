@@ -4,6 +4,7 @@ import { memo } from "react";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import useAuthSelector from "entities/User/model/selector/useAuthSelector";
 import { useUserStore } from "entities/User";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 
 export const Header = memo(() => {
     const auth = useAuthSelector();
@@ -17,9 +18,7 @@ export const Header = memo(() => {
             {auth ? (
                 <div className={styles.header_right_Authed}>
                     <span className={styles.header_username}>{username}</span>
-                    <div
-                        className={styles.header_right_Authed_photo}
-                    >{`${username[0].toUpperCase()}`}</div>
+                    <Avatar src={user.avatar} name={user.name} />
                 </div>
             ) : (
                 <div className={styles.header_right_nonAuthed}>

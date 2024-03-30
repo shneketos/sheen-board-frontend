@@ -18,9 +18,10 @@ export const AddWorkspaceForm = (props: addWorkspaceFormProps) => {
             title: titleValue,
             ownerId: user.id,
             members: [user.id],
-        })
-            .then(() => onClose())
-            .then(() => fetchDashboards(user.id));
+        }).then(() => {
+            onClose();
+            fetchDashboards(user.id);
+        });
     };
 
     return (

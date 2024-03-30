@@ -43,9 +43,10 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
             priority: newPriority,
             date: newDate,
             stage: parseInt(stageId),
-        })
-            .then(() => setIsEditing(false))
-            .then(() => fetchKanban(kanban.id));
+        }).then(() => {
+            setIsEditing(false);
+            fetchKanban(kanban.id);
+        });
     };
     const onClickDeleted = () => {
         DeleteKanbanCardService({ id })

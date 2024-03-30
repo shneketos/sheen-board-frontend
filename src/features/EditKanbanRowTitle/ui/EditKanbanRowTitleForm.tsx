@@ -15,9 +15,10 @@ export const EditKanbanRowTitleForm = (props: EditKanbanRowTitleProps) => {
     const [titleValue, setTitleValue] = React.useState(title);
 
     const onClickConfirm = () => {
-        EditKanbanRowTitleService({ id: id, title: titleValue })
-            .then(() => onClose())
-            .then(() => fetchKanban(kanban.id));
+        EditKanbanRowTitleService({ id: id, title: titleValue }).then(() => {
+            onClose();
+            fetchKanban(kanban.id);
+        });
     };
 
     return (

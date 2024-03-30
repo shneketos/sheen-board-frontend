@@ -67,14 +67,16 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
             end: newEndDate,
             color: newColor,
             allDay: newAllDay,
-        })
-            .then(() => setEventEditing(false))
-            .then(() => fetchCalendar(calendar.id));
+        }).then(() => {
+            setEventEditing(false);
+            fetchCalendar(calendar.id);
+        });
     };
     const onClickDeleteEvent = () => {
-        DeleteCalendarEventService({ id })
-            .then(() => onClose())
-            .then(() => fetchCalendar(calendar.id));
+        DeleteCalendarEventService({ id }).then(() => {
+            onClose();
+            fetchCalendar(calendar.id);
+        });
     };
 
     return (

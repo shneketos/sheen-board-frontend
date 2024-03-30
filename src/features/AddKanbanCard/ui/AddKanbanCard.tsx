@@ -14,9 +14,14 @@ export const AddKanbanCard = (props: addKanbanCardProps) => {
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     const kanban = useKanbanStore((state) => state.kanban);
     const onClickAddCard = () => {
-        AddKanbanRowService({ id: id, title: titleValue, rowTitle: rowTitle })
-            .then(() => onClose())
-            .then(() => fetchKanban(kanban.id));
+        AddKanbanRowService({
+            id: id,
+            title: titleValue,
+            rowTitle: rowTitle,
+        }).then(() => {
+            onClose();
+            fetchKanban(kanban.id);
+        });
     };
     return (
         <div className={styles.form}>

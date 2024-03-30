@@ -18,9 +18,10 @@ export const AddCalendarEvent = (props: AddCalendarEventProps) => {
             id: calendar.id,
             title: titleValue,
             color: `#${color}`,
-        })
-            .then(() => onClose())
-            .then(() => fetchCalendar(calendar.id));
+        }).then(() => {
+            onClose();
+            fetchCalendar(calendar.id);
+        });
     };
     return (
         <div className={styles.form}>

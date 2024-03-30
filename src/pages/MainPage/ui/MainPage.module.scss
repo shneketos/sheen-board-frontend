@@ -8,6 +8,11 @@
     margin-top: 20px;
     font-size: 40px;
 }
+.features {
+    margin: 20px auto;
+    margin-top: 20px;
+    font-size: 22px;
+}
 .content {
     margin-top: 50px;
     display: flex;
@@ -32,6 +37,9 @@
     }
     &_right {
         width: 500px;
+        background: var(--secondary-color);
+        border-radius: 6px;
+        padding: 10px;
     }
     .list {
         list-style: none;

@@ -13,9 +13,10 @@ export const AddBacklogSprint = (props: addBacklogSprintProps) => {
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const onClickCreate = () => {
-        AddBacklogSprintService({ id: id, title: titleValue })
-            .then(() => onClose())
-            .then(() => fetchBacklog(backlog.id));
+        AddBacklogSprintService({ id: id, title: titleValue }).then(() => {
+            onClose();
+            fetchBacklog(backlog.id);
+        });
     };
     return (
         <div className={styles.form}>

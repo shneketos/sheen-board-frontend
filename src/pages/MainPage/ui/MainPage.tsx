@@ -27,6 +27,7 @@ export const MainPage = () => {
         <>
             <div className={styles.main}>
                 <h1 className={styles.sheen}>Sheen Board</h1>
+                <h2 className={styles.features}>Features</h2>
                 <div className={styles.content}>
                     <div className={styles.content_left}>
                         <ul className={styles.list}>

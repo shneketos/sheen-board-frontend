@@ -1,8 +1,16 @@
 .workspaces {
-    margin-top: 40px;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 0 10px;
+}
+.title {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 0 10px;
 }
 .clear {
     display: flex;

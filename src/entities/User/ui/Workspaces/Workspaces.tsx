@@ -17,18 +17,24 @@ export const Workspaces = () => {
     return (
         <>
             {workspaces !== null &&
-                (workspaces.length > 1 ? (
-                    <ul className={styles.workspaces}>
-                        {workspaces.map((space) => (
-                            <WorkspaceItem
-                                id={space.id}
-                                key={space.id}
-                                owner={space.ownerId}
-                                members={space.members}
-                                title={space.title}
-                            />
-                        ))}
-                    </ul>
+                (workspaces.length > 0 ? (
+                    <>
+                        <div className={styles.title}>
+                            <span>Workspace title</span>
+                            <span>Workspace action</span>
+                        </div>
+                        <ul className={styles.workspaces}>
+                            {workspaces.map((space) => (
+                                <WorkspaceItem
+                                    id={space.id}
+                                    key={space.id}
+                                    owner={space.ownerId}
+                                    members={space.members}
+                                    title={space.title}
+                                />
+                            ))}
+                        </ul>
+                    </>
                 ) : (
                     <p className={styles.clear}>You don't have workspaces</p>
                 ))}

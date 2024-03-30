@@ -4,6 +4,7 @@ import Input from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useUserStore } from "entities/User";
 import { EditProfileService } from "../model/services/EditProfileService";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 export const EditProfileForm = () => {
     const [editing, setEditing] = React.useState(false);
     const user = useUserStore((state) => state.user);
@@ -15,9 +16,10 @@ export const EditProfileForm = () => {
             id: user.id,
             name: usernameValue,
             email: emailValue,
-        })
-            .then(() => setEditing(false))
-            .then(() => fetchUser());
+        }).then(() => {
+            setEditing(false);
+            fetchUser();
+        });
     };
     return (
         <div className={styles.form}>
@@ -50,9 +52,7 @@ export const EditProfileForm = () => {
                     </div>
                 </div>
                 <div className={styles.avatar}>
-                    <div
-                        className={styles.avatar}
-                    >{`${usernameValue[0].toUpperCase()}`}</div>
+                    <Avatar src={user.avatar} name={user.name} />
                 </div>
             </div>
             <div className={styles.form_btns}>
