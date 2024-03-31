@@ -7,6 +7,8 @@
     width: 100%;
 }
 .form_top {
+    margin-top: 20px;
+
     display: flex;
     justify-content: center;
     width: 100%;
@@ -45,7 +47,6 @@
     }
 }
 .fields {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -61,26 +62,15 @@
             font-size: 18px;
             height: 30px;
         }
-        .input {
-            border-radius: 7px;
-            border: 1px solid var(--border-color);
-            padding: 2px 2px 2px 8px;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            &:focus {
-                outline: none;
-                border-color: var(--border-color);
-                box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
-            }
-        }
     }
 }
+.column {
+    font-size: 26px;
+    font-weight: 500;
+}
 .avatar {
-    background-color: #5570f1;
-    border-radius: 50px;
-    width: 80px;
-    height: 80px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
 }

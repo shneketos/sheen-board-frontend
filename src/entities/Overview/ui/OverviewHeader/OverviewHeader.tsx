@@ -1,6 +1,7 @@
+import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
 import styles from "./OverviewHeader.module.scss";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 export const OverviewHeader = () => {
-    const Params = { name: "PGUTI TEST PAGE" };
     const total = {
         total: 340,
         done: 10,
@@ -8,57 +9,61 @@ export const OverviewHeader = () => {
         todo: 10,
     };
     const percentTotal = ((total.done / total.total) * 100).toFixed(0);
-    const userList = [
-        "Nikita Shinkevich",
-        "Andrey Markov",
-        "Ivan Smirnov",
-        "Ivan Rybakyn",
-        "Ivan Rybakyn",
-    ];
-    return (
-        <div className={styles.projectheader}>
-            <div className={styles.projectheader_top}>
-                <div className={styles.projectheader_left}>
-                    <p className={styles.title}>{Params.name}</p>
-                    <div className={styles.projectheader_left_bottom}>
-                        <div className={styles.projectheader_progressbar}>
-                            <div
+    const dash = useDashboardStore((state) => state.thisDash);
+    const userList = useDashboardStore((state) => state.dashMembers);
+    if (dash !== null) {
+        return (
+            <div className={styles.projectheader}>
+                <div className={styles.projectheader_top}>
+                    <div className={styles.projectheader_left}>
+                        <p className={styles.title}>{dash.title}</p>
+                        <div className={styles.projectheader_left_bottom}>
+                            <div className={styles.projectheader_progressbar}>
+                                <div
+                                    className={
+                                        styles.projectheader_progressbar_line
+                                    }
+                                    style={{ width: `${percentTotal}%` }}
+                                ></div>
+                            </div>
+                            <span
                                 className={
-                                    styles.projectheader_progressbar_line
+                                    styles.projectheader_progressbar_text
                                 }
-                                style={{ width: `${percentTotal}%` }}
-                            ></div>
+                            >
+                                {`${percentTotal}% completed`}
+                            </span>
                         </div>
-                        <span className={styles.projectheader_progressbar_text}>
-                            {`${percentTotal}% completed`}
-                        </span>
                     </div>
-                </div>
-                <div className={styles.projectheader_right}>
-                    <div className={styles.projectheader_right_users}>
-                        {userList.slice(0, 4).map((user, index) => (
-                            <span
-                                key={index}
-                                className={
-                                    styles.projectheader_right_users_user
-                                }
-                            >
-                                {user.toUpperCase()[0]}
-                                {user.toUpperCase()[1]}
-                            </span>
-                        ))}
-                        {userList.length > 4 && (
-                            <span
-                                className={
-                                    styles.projectheader_right_users_user
-                                }
-                            >
-                                +{userList.length - 4}
-                            </span>
-                        )}
+                    <div className={styles.projectheader_right}>
+                        <div className={styles.projectheader_right_users}>
+                            {userList !== null &&
+                                userList.slice(0, 4).map((user, index) => (
+                                    <span
+                                        key={index}
+                                        className={
+                                            styles.projectheader_right_users_user
+                                        }
+                                    >
+                                        <Avatar
+                                            src={user.avatar}
+                                            name={user.name}
+                                        />
+                                    </span>
+                                ))}
+                            {userList !== null && userList.length > 4 && (
+                                <span
+                                    className={
+                                        styles.projectheader_right_users_user
+                                    }
+                                >
+                                    +{userList.length - 4}
+                                </span>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 };

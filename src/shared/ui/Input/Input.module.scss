@@ -12,46 +12,95 @@
         width: 55px;
         height: 55px;
     }
-}
+    &_field {
+        width: 100%;
+        color: red;
+        height: 55px;
+        background-color: rgb(239 241 249 / 60%);
+        box-sizing: border-box;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        &::placeholder {
+            color: #c1c1c1;
+        }
 
-.auth_field {
-    width: 100%;
-    color: red;
-    height: 55px;
-    background-color: rgb(239 241 249 / 60%);
-    box-sizing: border-box;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    &::placeholder {
-        color: #c1c1c1;
-    }
+        &[type="text"] {
+            color: #5f5f5f;
+            padding-left: 15px;
+        }
 
-    &[type="text"] {
-        color: #5f5f5f;
-        padding-left: 15px;
-    }
+        &[type="email"] {
+            color: #5f5f5f;
+            padding-left: 15px;
+        }
 
-    &[type="email"] {
-        color: #5f5f5f;
-        padding-left: 15px;
-    }
+        &[type="password"] {
+            color: #5f5f5f;
+            padding-left: 15px;
+        }
 
-    &[type="password"] {
-        color: #5f5f5f;
-        padding-left: 15px;
-    }
-
-    &:focus {
-        outline: none;
+        &:focus {
+            outline: none;
+        }
     }
 }
 
 .default {
     margin: 0;
     padding: 0;
-}
+    &_field {
+        border-radius: 7px;
+        border: 1px solid var(--border-color);
+        padding: 2px 2px 2px 8px;
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        &:focus {
+            outline: none;
+            border-color: var(--border-color);
+            box-shadow: 0 0 5px rgb(0 123 255 / 34.9%);
+        }
+        &[type="text"] {
+            color: var(--primary-color);
+            padding-left: 15px;
+        }
+        &[type="email"] {
+            color: var(--primary-color);
+            padding-left: 15px;
+        }
 
-.default_field {
+        &[type="password"] {
+            color: var(--primary-color);
+            padding-left: 15px;
+        }
+    }
+}
+.form {
     margin: 0;
     padding: 0;
+    &_field {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        color: var(--primary-color);
+        background: var(--secondary-color);
+        &:focus {
+            outline: none;
+            border-color: var(--border-color);
+            box-shadow: 0 0 5px var(--box-shadow-color);
+        }
+        &[type="text"] {
+            color: var(--primary-color);
+            padding-left: 15px;
+        }
+        &[type="email"] {
+            color: var(--primary-color);
+            padding-left: 15px;
+        }
+
+        &[type="password"] {
+            color: var(--primary-color);
+            padding-left: 15px;
+        }
+    }
 }

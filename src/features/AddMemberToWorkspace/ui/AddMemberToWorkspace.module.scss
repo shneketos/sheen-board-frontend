@@ -1,0 +1,58 @@
+.form {
+    margin-top: 20px;
+}
+.field {
+    display: flex;
+    align-items: center;
+    input {
+        width: 500px;
+        border-radius: 10px 0 0 10px !important;
+        border-right: none;
+    }
+}
+.btn {
+    height: 45px;
+    width: 260px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    flex-shrink: 0;
+    border: 1px dotted gray !important;
+    gap: 10px;
+    &_text {
+        font-weight: 500;
+        font-size: 16px;
+    }
+}
+.btn_cancel {
+    height: 46px;
+    width: 40px;
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-left: none;
+}
+.btn_check {
+    height: 46px;
+    width: 40px;
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+}
+.disabled {
+    fill: gray !important;
+}

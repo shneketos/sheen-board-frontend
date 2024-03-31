@@ -7,8 +7,9 @@ type HTMLInputProps = Omit<
 >;
 
 export enum InputTheme {
-    AUTH = "auth",
     DEFAULT = "default",
+    AUTH = "auth",
+    FORM = "form",
 }
 
 type InputProps = {

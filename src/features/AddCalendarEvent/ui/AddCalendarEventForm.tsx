@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AddCalendarEventForm.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
-import Input from "shared/ui/Input/Input";
+import Input, { InputTheme } from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { AddCalendarEventProps } from "../model/types/AddCalendarEventType";
 import { AddCalendarEventService } from "../model/service/AddCalendarEventService";
@@ -38,7 +38,7 @@ export const AddCalendarEvent = (props: AddCalendarEventProps) => {
             <div className={styles.form_center}>
                 <span>Title</span>
                 <Input
-                    className={styles.input}
+                    theme={InputTheme.FORM}
                     value={titleValue}
                     onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"

@@ -1,21 +1,27 @@
 import React from "react";
 import styles from "./EditProfileForm.module.scss";
-import Input from "shared/ui/Input/Input";
+import Input, { InputTheme } from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useUserStore } from "entities/User";
 import { EditProfileService } from "../model/services/EditProfileService";
-import { Avatar } from "shared/ui/Avatar/Avatar";
+import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
 export const EditProfileForm = () => {
     const [editing, setEditing] = React.useState(false);
+    const [avatarUrl, setAvatarUrl] = React.useState("");
     const user = useUserStore((state) => state.user);
     const fetchUser = useUserStore((state) => state.fetchUser);
     const [usernameValue, setUsernameValue] = React.useState(user.name);
     const [emailValue, setEmailValue] = React.useState(user.email);
+    const onClickEdit = () => {
+        setAvatarUrl("");
+        setEditing(true);
+    };
     const onClickConfirm = () => {
         EditProfileService({
             id: user.id,
             name: usernameValue,
             email: emailValue,
+            avatar: avatarUrl,
         }).then(() => {
             setEditing(false);
             fetchUser();
@@ -25,6 +31,7 @@ export const EditProfileForm = () => {
         <div className={styles.form}>
             <div className={styles.form_top}>
                 <div className={styles.fields}>
+                    <p className={styles.column}>User info</p>
                     <div className={styles.block}>
                         <p className={styles.title}>Username</p>
                         {!editing ? (
@@ -33,7 +40,6 @@ export const EditProfileForm = () => {
                             <Input
                                 value={usernameValue}
                                 onChange={(val) => setUsernameValue(val)}
-                                className={styles.input}
                             />
                         )}
                     </div>
@@ -45,14 +51,26 @@ export const EditProfileForm = () => {
                             <Input
                                 value={emailValue}
                                 onChange={(val) => setEmailValue(val)}
-                                className={styles.input}
                                 type="email"
                             />
                         )}
                     </div>
                 </div>
                 <div className={styles.avatar}>
-                    <Avatar src={user.avatar} name={user.name} />
+                    <p className={styles.column}>Avatar</p>
+                    <Avatar
+                        src={user.avatar}
+                        name={user.name}
+                        size={AvatarSize.LARGE}
+                    />
+                    {editing && (
+                        <Input
+                            theme={InputTheme.DEFAULT}
+                            value={avatarUrl}
+                            onChange={(val) => setAvatarUrl(val)}
+                            placeholder="Enter image URL"
+                        />
+                    )}
                 </div>
             </div>
             <div className={styles.form_btns}>
@@ -76,7 +94,7 @@ export const EditProfileForm = () => {
                 ) : (
                     <Button
                         theme={ButtonTheme.CLEAR}
-                        onClick={() => setEditing(true)}
+                        onClick={onClickEdit}
                         className={styles.btn_edit}
                     >
                         Edit

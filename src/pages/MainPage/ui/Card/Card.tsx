@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Card.module.scss";
 export const Card = ({ title, desc, isActive, onClick }) => {
     return (

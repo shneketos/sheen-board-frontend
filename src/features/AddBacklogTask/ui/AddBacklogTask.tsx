@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./AddBacklogTask.module.scss";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import Input from "shared/ui/Input/Input";
+import Input, { InputTheme } from "shared/ui/Input/Input";
 import { addBacklogTaskProps } from "../model/types/AddBacklogTaskType";
 import { addBacklogTaskService } from "../model/services/AddBacklogTaskService";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
@@ -33,7 +33,7 @@ export const AddBacklogTask = (props: addBacklogTaskProps) => {
             <div className={styles.form_center}>
                 <span>Title</span>
                 <Input
-                    className={styles.input}
+                    theme={InputTheme.FORM}
                     value={titleValue}
                     onChange={(val) => setTitleValue(val)}
                     placeholder="Enter title"

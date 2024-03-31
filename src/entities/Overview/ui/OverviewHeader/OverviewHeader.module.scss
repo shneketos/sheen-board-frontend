@@ -1,5 +1,5 @@
 .projectheader {
-    background-color: white;
+    background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,31 +43,18 @@
         &_users {
             display: flex;
             width: 145px;
-
-            &_user {
-                display: flex;
-                font-weight: 600;
-                border-radius: 50px;
-                background-color: #fff;
-                border: 1px solid #5570f1;
-                height: 44px;
-                width: 44px;
-                align-items: center;
-                justify-content: center;
-                margin-right: -18px;
-            }
         }
     }
 
     .projectheader_progressbar {
         width: 300px;
-        background-color: #e4e4e4;
+        background-color: var(--third-color);
         border-radius: 5px;
         overflow: hidden;
 
         &_line {
             height: 10px;
-            background-color: #5570f1;
+            background-color: var(--primary-color);
             text-align: center;
             line-height: 10px;
             color: white;
@@ -76,7 +63,7 @@
         &_text {
             background: none;
             font-size: 14px;
-            color: #313131;
+            color: var(--primary-color);
             font-weight: 500;
         }
     }

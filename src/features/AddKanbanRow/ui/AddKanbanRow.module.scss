@@ -25,20 +25,6 @@
     padding: 10px 10px 60px;
     border-bottom: 1px solid var(--border-color);
     gap: 25px;
-
-    .input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 10px;
-        border: 1px solid var(--border-color);
-        color: var(--primary-color);
-        background: var(--secondary-color);
-        &:focus {
-            outline: none;
-            border-color: var(--border-color);
-            box-shadow: 0 0 5px var(--box-shadow-color);
-        }
-    }
 }
 
 .form_bottom {

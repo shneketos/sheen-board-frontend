@@ -2,12 +2,12 @@ import styles from "./Members.module.scss";
 import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
 import { MemberItem } from "../MemberItem/MemberItem";
 import OwnerSelector from "entities/Members/model/selector/OwnerSelector";
+import { AddMemberToWorkspace } from "features/AddMemberToWorkspace";
 export const Members = () => {
     const members = useDashboardStore((state) => state.dashMembers);
     const dash = useDashboardStore((state) => state.thisDash);
     const isLoading = useDashboardStore((state) => state.thisDashIsLoading);
     const isOwner = OwnerSelector();
-    console.log(members);
     if (!isLoading) {
         return (
             <div className={styles.members}>
@@ -32,6 +32,7 @@ export const Members = () => {
                             />
                         ))}
                 </ul>
+                {isOwner && <AddMemberToWorkspace />}
             </div>
         );
     }

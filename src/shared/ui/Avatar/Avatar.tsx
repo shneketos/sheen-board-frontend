@@ -1,13 +1,19 @@
-import React from "react";
 import styles from "./Avatar.module.scss";
+
+export enum AvatarSize {
+    DEFAULT = "default",
+    LARGE = "large",
+}
+
 interface AvatarProps {
     src: string;
     name: string;
+    size?: AvatarSize;
 }
 export const Avatar = (props: AvatarProps) => {
-    const { src, name } = props;
+    const { src, name, size = AvatarSize.DEFAULT } = props;
     return (
-        <div className={styles.avatar}>
+        <div className={`${styles.avatar} ${styles[size]}`}>
             {src !== "" ? (
                 <img className={styles.img} src={src} alt="avatar" />
             ) : (
