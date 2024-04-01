@@ -21,10 +21,10 @@ export const OverviewPage = () => {
     }, [fetchThisDash, id]);
     useEffect(() => {
         if (thisDash !== null) {
-            fetchDashMembers(thisDash.id);
-            fetchKanban(thisDash.kanban.id);
-            fetchBacklog(thisDash.backlog.id);
-            fetchCalendar(thisDash.calendar.id);
+            fetchDashMembers(thisDash.id)
+                .then(() => fetchKanban(thisDash.kanban.id))
+                .then(() => fetchBacklog(thisDash.backlog.id))
+                .then(() => fetchCalendar(thisDash.calendar.id));
         }
     }, [fetchBacklog, fetchCalendar, fetchDashMembers, fetchKanban, thisDash]);
     if (

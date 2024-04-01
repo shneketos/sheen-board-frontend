@@ -7,9 +7,15 @@ import CheckIcon from "shared/assets/icons/check.svg?react";
 import CloseIcon from "shared/assets/icons/close.svg?react";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
 import { EditBacklogStoryService } from "../modal/services/EditBacklogStoryService";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditBacklogStory = (props: EditBacklogStoryProps) => {
     const { onStoryEditingChange, storypoints, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const [newStoryValue, setNewStoryValue] = React.useState(
@@ -25,7 +31,12 @@ export const EditBacklogStory = (props: EditBacklogStoryProps) => {
             storypoints: newStoryValue,
         })
             .then(() => fetchBacklog(backlog.id))
-            .then(() => onStoryEditingChange(false));
+            .then(() => {
+                onStoryEditingChange(false);
+                setVisible(true);
+                setMessage("Story changed");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     return (
         <div className={styles.editBlock}>

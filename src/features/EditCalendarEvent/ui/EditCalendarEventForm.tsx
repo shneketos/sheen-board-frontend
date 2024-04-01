@@ -18,9 +18,15 @@ import { formatDate } from "shared/lib/FormatDate/FormatDate";
 import { useCalendarStore } from "entities/Calendar/model/store/CalendarStore";
 import { DeleteCalendarEventService } from "../model/services/DeleteCalendarEventService";
 import { EditCalendarEventService } from "../model/services/EditCalendarEventService";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditCalendarEventForm = (props: CalendarEventProps) => {
     const { id, title, desc, start, end, color, allDay, onClose } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [eventEditing, setEventEditing] = useState(false);
     const [colorEditing, setColorEditing] = useState(false);
     const [newTitle, setNewTitle] = useState(title);
@@ -70,11 +76,17 @@ export const EditCalendarEventForm = (props: CalendarEventProps) => {
         }).then(() => {
             setEventEditing(false);
             fetchCalendar(calendar.id);
+            setVisible(true);
+            setMessage("Event changed");
+            setNotificationTheme(NotificationTheme.SUCCESS);
         });
     };
     const onClickDeleteEvent = () => {
         DeleteCalendarEventService({ id }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Event deleted");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchCalendar(calendar.id);
         });
     };

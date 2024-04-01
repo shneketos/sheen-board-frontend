@@ -6,7 +6,7 @@
     justify-content: center;
 
     svg {
-        background-color: rgb(239 241 249 / 60%);
+        background-color: var(--third-color);
         border-radius: 4px 0 0 4px;
         padding: 5px;
         width: 55px;
@@ -14,28 +14,26 @@
     }
     &_field {
         width: 100%;
-        color: red;
+        color: var(--primary-color);
         height: 55px;
-        background-color: rgb(239 241 249 / 60%);
+        background-color: var(--third-color);
         box-sizing: border-box;
         border: none;
         border-radius: 0 4px 4px 0;
+
         &::placeholder {
-            color: #c1c1c1;
+            color: var(--primary-color);
         }
 
         &[type="text"] {
-            color: #5f5f5f;
             padding-left: 15px;
         }
 
         &[type="email"] {
-            color: #5f5f5f;
             padding-left: 15px;
         }
 
         &[type="password"] {
-            color: #5f5f5f;
             padding-left: 15px;
         }
 

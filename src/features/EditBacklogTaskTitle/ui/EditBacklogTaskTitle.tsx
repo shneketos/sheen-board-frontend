@@ -8,9 +8,15 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { type EditBacklogTaskTitleProps } from "../model/types/EditBacklogTaskTitleType";
 import { EditBacklogTaskTitleService } from "../model/services/EditBacklogTaskTitleService";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditBacklogTaskTitle = (props: EditBacklogTaskTitleProps) => {
     const { onTitleEditingChange, title, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [NewTitle, setNewTitle] = React.useState(title);
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
@@ -20,7 +26,12 @@ export const EditBacklogTaskTitle = (props: EditBacklogTaskTitleProps) => {
     const onClickConfrim = () => {
         EditBacklogTaskTitleService({ id: id, title: NewTitle })
             .then(() => fetchBacklog(backlog.id))
-            .then(() => onTitleEditingChange(false));
+            .then(() => {
+                onTitleEditingChange(false);
+                setVisible(true);
+                setMessage("Task title changed");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     return (
         <div className={styles.editBlock}>

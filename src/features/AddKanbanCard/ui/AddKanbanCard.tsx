@@ -6,10 +6,14 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { addKanbanCardProps } from "../model/types/AddKanbanCardType";
 import { AddKanbanRowService } from "../model/services/AddKanbanCardService";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import {
+    NotificationTheme,
+    useNotification,
+} from "app/providers/notificationProvider";
 
 export const AddKanbanCard = (props: addKanbanCardProps) => {
     const { id, onClose, rowTitle } = props;
-    console.log(id, rowTitle);
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
     const [titleValue, setTitleValue] = React.useState("");
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     const kanban = useKanbanStore((state) => state.kanban);
@@ -20,6 +24,9 @@ export const AddKanbanCard = (props: addKanbanCardProps) => {
             rowTitle: rowTitle,
         }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Card added");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchKanban(kanban.id);
         });
     };

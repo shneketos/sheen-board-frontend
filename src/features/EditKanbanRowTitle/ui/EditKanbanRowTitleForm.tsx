@@ -6,9 +6,15 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { EditKanbanRowTitleProps } from "../model/type/EditKanbanRowTitleType";
 import { EditKanbanRowTitleService } from "../model/services/EditKanbanRowTitleService";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditKanbanRowTitleForm = (props: EditKanbanRowTitleProps) => {
     const { id, title, onClose } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const kanban = useKanbanStore((state) => state.kanban);
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     console.log(id);
@@ -17,6 +23,9 @@ export const EditKanbanRowTitleForm = (props: EditKanbanRowTitleProps) => {
     const onClickConfirm = () => {
         EditKanbanRowTitleService({ id: id, title: titleValue }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Row title changed!");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchKanban(kanban.id);
         });
     };

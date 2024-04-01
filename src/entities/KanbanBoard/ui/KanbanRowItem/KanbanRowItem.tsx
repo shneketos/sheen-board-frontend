@@ -12,9 +12,15 @@ import { formatDate } from "shared/lib/FormatDate/FormatDate";
 import { DeleteKanbanCardService } from "features/DeleteKanbanCard";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 import { KanbanCard } from "entities/KanbanBoard/model/types/KanbanTypes";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const KanbanRowItem = memo((props: KanbanCard) => {
     const { id, title, desc, priority, date, rowId, rowTitle } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [cardOpened, setCardOpened] = React.useState(false);
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     const kanban = useKanbanStore((state) => state.kanban);
@@ -22,7 +28,12 @@ export const KanbanRowItem = memo((props: KanbanCard) => {
     const onClickDeleteCard = () => {
         DeleteKanbanCardService({ id })
             .then(() => setRowModalOpened(false))
-            .then(() => fetchKanban(kanban.id));
+            .then(() => {
+                fetchKanban(kanban.id);
+                setVisible(true);
+                setMessage("Card deleted!");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
 
     return (

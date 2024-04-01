@@ -6,15 +6,24 @@ import Input, { InputTheme } from "shared/ui/Input/Input";
 import { addBacklogTaskProps } from "../model/types/AddBacklogTaskType";
 import { addBacklogTaskService } from "../model/services/AddBacklogTaskService";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const AddBacklogTask = (props: addBacklogTaskProps) => {
     const { onClose, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [titleValue, setTitleValue] = React.useState("");
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const onClickCreate = () => {
         addBacklogTaskService({ id: id, title: titleValue }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Task added!");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchBacklog(backlog.id);
         });
     };

@@ -6,15 +6,24 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { addKanbanRowProps } from "../model/types/AddKanbanRowType";
 import { AddKanbanRowService } from "../model/services/AddKanbanRowService";
 import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
+import {
+    NotificationTheme,
+    useNotification,
+} from "app/providers/notificationProvider";
 
 export const AddKanbanRow = (props: addKanbanRowProps) => {
     const { onClose, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [titleValue, setTitleValue] = React.useState("");
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     const kanban = useKanbanStore((state) => state.kanban);
     const onClickCreate = () => {
         AddKanbanRowService({ id: id, title: titleValue }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Row added");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchKanban(kanban.id);
         });
     };

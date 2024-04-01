@@ -18,9 +18,15 @@ import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 import { DeleteKanbanCardService } from "features/DeleteKanbanCard";
 import { EditKanbanCardProps } from "../model/types/EditKanbanCardType";
 import { EditKanbanCardSerivce } from "../model/services/EditKanbanCardService";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
     const { id, title, desc, priority, date, rowTitle, onClose } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const kanban = useKanbanStore((state) => state.kanban);
     const fetchKanban = useKanbanStore((state) => state.fetchKanban);
     const [newTitle, setNewTitle] = useState(title);
@@ -45,13 +51,21 @@ export const EditKanbanCardForm = (props: EditKanbanCardProps) => {
             stage: parseInt(stageId),
         }).then(() => {
             setIsEditing(false);
+            setVisible(true);
+            setMessage("Card changed!");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchKanban(kanban.id);
         });
     };
     const onClickDeleted = () => {
         DeleteKanbanCardService({ id })
             .then(() => onClose())
-            .then(() => fetchKanban(kanban.id));
+            .then(() => {
+                fetchKanban(kanban.id);
+                setVisible(true);
+                setMessage("Card deleted");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     const onClickDiscard = () => {
         setStageEditing(false);

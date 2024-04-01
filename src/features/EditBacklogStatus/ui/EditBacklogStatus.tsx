@@ -3,9 +3,15 @@ import styles from "./EditBacklogStatus.module.scss";
 import { type EditBacklogStatusProps } from "../model/types/EditBacklogStatusType";
 import { EditBacklogStatusService } from "../model/services/EditBacklogStatusService";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditBacklogStatus = (props: EditBacklogStatusProps) => {
     const { onStatusEditingChange, status, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const StatusVariables = ["Not Started", "In Progress", "Completed"];
@@ -17,7 +23,12 @@ export const EditBacklogStatus = (props: EditBacklogStatusProps) => {
     const onClickConfirm = () => {
         EditBacklogStatusService({ id: id, status: newStatusValue })
             .then(() => fetchBacklog(backlog.id))
-            .then(() => onStatusEditingChange(false));
+            .then(() => {
+                onStatusEditingChange(false);
+                setVisible(true);
+                setMessage("Status changed");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     React.useEffect(() => {
         if (status !== newStatusValue) {

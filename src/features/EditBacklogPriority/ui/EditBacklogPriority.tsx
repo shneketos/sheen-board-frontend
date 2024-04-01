@@ -3,9 +3,15 @@ import styles from "./EditBacklogPriority.module.scss";
 import { EditBacklogPriorityProps } from "../model/types/EditBacklogPriorityType";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
 import { EditBacklogPriorityService } from "../model/services/EditBacklogPriorityService";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditBacklogPriority = (props: EditBacklogPriorityProps) => {
     const { onPriorityEditingChange, priority, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const PriorityVariables = ["Low", "Medium", "High"];
@@ -17,7 +23,12 @@ export const EditBacklogPriority = (props: EditBacklogPriorityProps) => {
     const onClickConfirm = () => {
         EditBacklogPriorityService({ id: id, priority: newPriorityValue })
             .then(() => fetchBacklog(backlog.id))
-            .then(() => onPriorityEditingChange(false));
+            .then(() => {
+                onPriorityEditingChange(false);
+                setVisible(true);
+                setMessage("Priority changed");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     React.useEffect(() => {
         if (priority !== newPriorityValue) {

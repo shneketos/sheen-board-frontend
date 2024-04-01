@@ -8,9 +8,15 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { type EditBacklogSprintTitleProps } from "../model/types/EditBacklogSprintTitleType";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
 import { EditBacklogSprintTitleService } from "../model/services/EditBacklogSprintTitleService";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const EditBacklogSprintTitle = (props: EditBacklogSprintTitleProps) => {
     const { onTitleEditingChange, title, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const [NewTitle, setNewTitle] = React.useState(title);
@@ -21,7 +27,12 @@ export const EditBacklogSprintTitle = (props: EditBacklogSprintTitleProps) => {
     const onClickConfrim = () => {
         EditBacklogSprintTitleService({ id: id, title: NewTitle })
             .then(() => fetchBacklog(backlog.id))
-            .then(() => onTitleEditingChange(false));
+            .then(() => {
+                onTitleEditingChange(false);
+                setVisible(true);
+                setMessage("Sprint title changed");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     return (
         <div className={styles.editBlock}>

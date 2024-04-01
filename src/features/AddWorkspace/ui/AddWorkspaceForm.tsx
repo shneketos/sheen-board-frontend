@@ -7,9 +7,15 @@ import { useUserStore } from "entities/User";
 import { AddWorkspace } from "../model/services/AddWorkspace";
 import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
 import { addWorkspaceFormProps } from "../model/types/AddWorkspaceType";
+import {
+    NotificationTheme,
+    useNotification,
+} from "app/providers/notificationProvider";
 
 export const AddWorkspaceForm = (props: addWorkspaceFormProps) => {
     const { onClose } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [titleValue, setTitleValue] = React.useState("");
     const user = useUserStore((state) => state.user);
     const fetchDashboards = useDashboardStore((state) => state.fetchDashboards);
@@ -20,6 +26,9 @@ export const AddWorkspaceForm = (props: addWorkspaceFormProps) => {
             members: [user.id],
         }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Workspace created!");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchDashboards(user.id);
         });
     };

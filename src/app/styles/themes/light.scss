@@ -2,7 +2,7 @@
     --bg-color: #f0f2f5;
     --primary-color: rgb(0 0 0);
     --secondary-color: #fff;
-    --third-color: #d9d9d9; //
+    --third-color: #d9d9d9;
     --fourth-color: #cecdcd;
     --border-color: #e2e4e2;
     --delete-color: rgb(248, 147, 147);
@@ -23,7 +23,6 @@
     // sidebar
     --sidebar-bg-color: #f7f8f9;
     --sidebar-bottom-color: rgb(255 255 255);
-    --auth-bg-color: rgb(255 255 255);
     --sidebar-active-bg-color: #e6f4ff;
     --sidebar-active-color: #1677ff;
     --sidebar-hover-color: #d9d9d9;
@@ -38,6 +37,10 @@
 
     // modal
     --modal-bg-color: white;
+
+    //notifictaion
+    --notification-success-color: #5fff81;
+    --notification-error-color: #fd6060;
 
     //svg fill {
     --svg-fill-color: black;

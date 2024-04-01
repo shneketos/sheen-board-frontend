@@ -8,8 +8,14 @@ import CloseIcon from "shared/assets/icons/close.svg?react";
 import { FindUserByEmail } from "../model/services/FindUserByEmail";
 import { useDashboardStore } from "entities/Dashboard/model/store/DashboardStore";
 import { AddMemberToWorkspaceService } from "../model/services/AddMemberToWorkspaceService";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 export const AddMemberToWorkspace = () => {
     const [adding, setAdding] = React.useState(false);
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [userValue, setUserValue] = React.useState("");
     const dash = useDashboardStore((state) => state.thisDash);
     const fetchMembers = useDashboardStore((state) => state.fetchDashMembers);
@@ -31,11 +37,17 @@ export const AddMemberToWorkspace = () => {
                         members: newMembers,
                     }).then(() => {
                         setAdding(false);
+                        setVisible(true);
+                        setMessage("Member added!");
+                        setNotificationTheme(NotificationTheme.SUCCESS);
                         fetchMembers(dash.id);
                     });
             })
             .catch(() => {
                 setAdding(false);
+                setVisible(true);
+                setMessage("User not found");
+                setNotificationTheme(NotificationTheme.ERROR);
             });
     };
     return (

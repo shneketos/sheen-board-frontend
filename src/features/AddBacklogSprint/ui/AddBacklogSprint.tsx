@@ -6,15 +6,24 @@ import Input, { InputTheme } from "shared/ui/Input/Input";
 import { AddBacklogSprintService } from "../model/services/AddBacklogSprintService";
 import { addBacklogSprintProps } from "../model/types/AddBacklogSprintType";
 import { useBacklogStore } from "entities/Backlog/model/store/BacklogStore";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const AddBacklogSprint = (props: addBacklogSprintProps) => {
     const { onClose, id } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [titleValue, setTitleValue] = React.useState("");
     const backlog = useBacklogStore((state) => state.backlog);
     const fetchBacklog = useBacklogStore((state) => state.fetchBacklog);
     const onClickCreate = () => {
         AddBacklogSprintService({ id: id, title: titleValue }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Sprint added!");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchBacklog(backlog.id);
         });
     };

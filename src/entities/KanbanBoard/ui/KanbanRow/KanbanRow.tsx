@@ -13,9 +13,15 @@ import { useKanbanStore } from "entities/KanbanBoard/model/store/KanbanStore";
 import { DeleteKanbanRowService } from "features/DeleteKanbanRow";
 import { DeleteKanbanRowCards } from "features/DeleteKanbanRowCards";
 import { KanbanRow as KanbanRowProps } from "entities/KanbanBoard/model/types/KanbanTypes";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 
 export const KanbanRow = memo((props: KanbanRowProps) => {
     const { id, title, tasks } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
+
     const [rowModalOpened, setRowModalOpened] = React.useState(false);
     const [editTitle, setEditTitle] = React.useState(false);
     const kanban = useKanbanStore((state) => state.kanban);
@@ -23,12 +29,22 @@ export const KanbanRow = memo((props: KanbanRowProps) => {
     const onClickDeleteCard = () => {
         DeleteKanbanRowService({ id })
             .then(() => setRowModalOpened(false))
-            .then(() => fetchKanban(kanban.id));
+            .then(() => {
+                fetchKanban(kanban.id);
+                setVisible(true);
+                setMessage("Row deleted!");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+            });
     };
     const onClickDeleteAllCards = () => {
         DeleteKanbanRowCards({ id })
             .then(() => setRowModalOpened(false))
-            .then(() => fetchKanban(kanban.id));
+            .then(() => {
+                setVisible(true);
+                setMessage("All card in row deleted!");
+                setNotificationTheme(NotificationTheme.SUCCESS);
+                fetchKanban(kanban.id);
+            });
     };
     return (
         <div className={styles.row}>

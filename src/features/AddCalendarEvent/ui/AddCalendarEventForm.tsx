@@ -7,8 +7,13 @@ import { AddCalendarEventProps } from "../model/types/AddCalendarEventType";
 import { AddCalendarEventService } from "../model/service/AddCalendarEventService";
 import { useCalendarStore } from "entities/Calendar/model/store/CalendarStore";
 import { GenerateColor } from "shared/lib/GenerateColor/GenerateColor";
+import {
+    useNotification,
+    NotificationTheme,
+} from "app/providers/notificationProvider";
 export const AddCalendarEvent = (props: AddCalendarEventProps) => {
     const { onClose } = props;
+    const { setMessage, setNotificationTheme, setVisible } = useNotification();
     const [titleValue, setTitleValue] = React.useState("");
     const calendar = useCalendarStore((state) => state.calendar);
     const fetchCalendar = useCalendarStore((state) => state.fetchCalendar);
@@ -20,6 +25,9 @@ export const AddCalendarEvent = (props: AddCalendarEventProps) => {
             color: `#${color}`,
         }).then(() => {
             onClose();
+            setVisible(true);
+            setMessage("Event added!");
+            setNotificationTheme(NotificationTheme.SUCCESS);
             fetchCalendar(calendar.id);
         });
     };

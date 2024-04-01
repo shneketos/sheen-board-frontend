@@ -1,0 +1,37 @@
+.notification {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    background: none;
+    padding: 10px;
+    text-align: center;
+    z-index: var(--notification-z-index);
+}
+.message {
+    width: 350px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+.error {
+    .message {
+        background-color: var(--notification-error-color);
+    }
+}
+.success {
+    .message {
+        background-color: var(--notification-success-color);
+    }
+}
+.visible {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
