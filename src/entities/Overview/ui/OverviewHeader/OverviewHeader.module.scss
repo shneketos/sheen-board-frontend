@@ -42,7 +42,17 @@
 
         &_users {
             display: flex;
-            width: 145px;
+            width: 200px;
+        }
+        &_users_plus {
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            height: 24px;
+            width: 24px;
+            font-size: 16px;
+            font-weight: 600;
         }
     }
 

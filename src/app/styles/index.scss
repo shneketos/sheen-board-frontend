@@ -9,6 +9,17 @@ body {
     svg {
         fill: var(--svg-fill-color);
     }
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--scroll-track-color);
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: var(--scroll-thumb-color);
+    }
 }
 
 .app {

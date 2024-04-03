@@ -38,26 +38,21 @@ export const OverviewHeader = () => {
                     <div className={styles.projectheader_right}>
                         <div className={styles.projectheader_right_users}>
                             {userList !== null &&
-                                userList.slice(0, 4).map((user, index) => (
-                                    <span
-                                        key={index}
-                                        className={
-                                            styles.projectheader_right_users_user
-                                        }
-                                    >
+                                userList
+                                    .slice(0, 3)
+                                    .map((user) => (
                                         <Avatar
                                             src={user.avatar}
                                             name={user.name}
                                         />
-                                    </span>
-                                ))}
-                            {userList !== null && userList.length > 4 && (
+                                    ))}
+                            {userList !== null && userList.length > 3 && (
                                 <span
                                     className={
-                                        styles.projectheader_right_users_user
+                                        styles.projectheader_right_users_plus
                                     }
                                 >
-                                    +{userList.length - 4}
+                                    +{userList.length - 3}
                                 </span>
                             )}
                         </div>

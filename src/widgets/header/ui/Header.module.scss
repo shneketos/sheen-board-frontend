@@ -49,34 +49,14 @@
     }
 
     .signin {
-        color: var(--header-btn-color);
+        color: var(--header-btn-signin-color);
         background: var(--header-btn-bg-color);
         border: 1px solid var(--header-btn-border-color);
     }
 
     .signup {
-        color: var(--header-btn-inverted-color);
+        color: var(--header-btn-signup-color);
         background: var(--header-btn-inverted-bg-color);
-        border: 1px solid var(--header-btn-inverted-border-color);
-    }
-}
-
-.logout_btn {
-    &:hover {
-        background-color: var(--header-modal-btn-hover-logout-color);
-    }
-
-    span {
-        color: red;
-    }
-}
-
-.settings_btn {
-    &:hover {
-        background-color: var(--header-modal-btn-hover-settings-color);
-    }
-
-    span {
-        color: var(--header-modal-settings-color);
+        border: 1px solid var(--header-btn-border-color);
     }
 }
