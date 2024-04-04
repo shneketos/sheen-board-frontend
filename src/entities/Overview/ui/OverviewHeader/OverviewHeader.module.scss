@@ -26,12 +26,7 @@
         flex-direction: column;
         height: 100px;
         margin-top: 20px;
-
-        &_bottom {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        gap: 10px;
     }
 
     .projectheader_right {
@@ -53,28 +48,6 @@
             width: 24px;
             font-size: 16px;
             font-weight: 600;
-        }
-    }
-
-    .projectheader_progressbar {
-        width: 300px;
-        background-color: var(--third-color);
-        border-radius: 5px;
-        overflow: hidden;
-
-        &_line {
-            height: 10px;
-            background-color: var(--primary-color);
-            text-align: center;
-            line-height: 10px;
-            color: white;
-        }
-
-        &_text {
-            background: none;
-            font-size: 14px;
-            color: var(--primary-color);
-            font-weight: 500;
         }
     }
 }

@@ -134,106 +134,156 @@ export const OverviewItem = (props: OverviewProps) => {
             {type === OveriewItemType.KANBAN && (
                 <>
                     <div className={styles.content}>
-                        <ul className={styles.stats}>
-                            <li className={styles.stats_item}>
-                                <p className={styles.stats_item_title}>Rows</p>
-                                <span className={styles.stats_item_value}>
-                                    {KanbanRowsCount}
-                                </span>
-                            </li>
-                            <li className={styles.stats_item}>
-                                <p className={styles.stats_item_title}>Cards</p>
-                                <span className={styles.stats_item_value}>
-                                    {getKanbanCards()}
-                                </span>
-                            </li>
-                        </ul>
-                        <ul className={styles.priority}>
-                            <li className={styles.priority_item}>
-                                <p className={styles.priority_item_title}>
-                                    Low priority
-                                </p>
-                                <span
-                                    className={`${styles.priority_item_value} ${styles.Low}`}
-                                >
-                                    {getKanbanPriorityCards().Low}
-                                </span>
-                            </li>
-                            <li className={styles.priority_item}>
-                                <p className={styles.priority_item_title}>
-                                    Medium priority
-                                </p>
-                                <span
-                                    className={`${styles.priority_item_value} ${styles.Medium}`}
-                                >
-                                    {getKanbanPriorityCards().Medium}
-                                </span>
-                            </li>
-                            <li className={styles.priority_item}>
-                                <p className={styles.priority_item_title}>
-                                    High priority
-                                </p>
-                                <span
-                                    className={`${styles.priority_item_value} ${styles.High}`}
-                                >
-                                    {getKanbanPriorityCards().High}
-                                </span>
-                            </li>
-                        </ul>
+                        {kanban.lists.length === 0 ? (
+                            <span className={styles.noevents}>No sprints</span>
+                        ) : (
+                            <>
+                                <ul className={styles.stats}>
+                                    <li className={styles.stats_item}>
+                                        <p className={styles.stats_item_title}>
+                                            Rows
+                                        </p>
+                                        <span
+                                            className={styles.stats_item_value}
+                                        >
+                                            {KanbanRowsCount}
+                                        </span>
+                                    </li>
+                                    <li className={styles.stats_item}>
+                                        <p className={styles.stats_item_title}>
+                                            Cards
+                                        </p>
+                                        <span
+                                            className={styles.stats_item_value}
+                                        >
+                                            {getKanbanCards()}
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul className={styles.priority}>
+                                    <li className={styles.priority_item}>
+                                        <p
+                                            className={
+                                                styles.priority_item_title
+                                            }
+                                        >
+                                            Low priority
+                                        </p>
+                                        <span
+                                            className={`${styles.priority_item_value} ${styles.Low}`}
+                                        >
+                                            {getKanbanPriorityCards().Low}
+                                        </span>
+                                    </li>
+                                    <li className={styles.priority_item}>
+                                        <p
+                                            className={
+                                                styles.priority_item_title
+                                            }
+                                        >
+                                            Medium priority
+                                        </p>
+                                        <span
+                                            className={`${styles.priority_item_value} ${styles.Medium}`}
+                                        >
+                                            {getKanbanPriorityCards().Medium}
+                                        </span>
+                                    </li>
+                                    <li className={styles.priority_item}>
+                                        <p
+                                            className={
+                                                styles.priority_item_title
+                                            }
+                                        >
+                                            High priority
+                                        </p>
+                                        <span
+                                            className={`${styles.priority_item_value} ${styles.High}`}
+                                        >
+                                            {getKanbanPriorityCards().High}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </>
+                        )}
                     </div>
                 </>
             )}
             {type === OveriewItemType.BACKLOG && (
                 <>
                     <div className={styles.content}>
-                        <ul className={styles.stats}>
-                            <li className={styles.stats_item}>
-                                <p className={styles.stats_item_title}>
-                                    Sprints
-                                </p>
-                                <span className={styles.stats_item_value}>
-                                    {BacklogSprintsCount}
-                                </span>
-                            </li>
-                            <li className={styles.stats_item}>
-                                <p className={styles.stats_item_title}>Tasks</p>
-                                <span className={styles.stats_item_value}>
-                                    {getBacklogTasks()}
-                                </span>
-                            </li>
-                        </ul>
-                        <ul className={styles.priority}>
-                            <li className={styles.priority_item}>
-                                <p className={styles.priority_item_title}>
-                                    Not started
-                                </p>
-                                <span
-                                    className={`${styles.priority_item_value}`}
-                                >
-                                    {getBacklogTasksStatus().Not}
-                                </span>
-                            </li>
-                            <li className={styles.priority_item}>
-                                <p className={styles.priority_item_title}>
-                                    In Progress
-                                </p>
-                                <span
-                                    className={`${styles.priority_item_value}`}
-                                >
-                                    {getBacklogTasksStatus().In}
-                                </span>
-                            </li>
-                            <li className={styles.priority_item}>
-                                <p className={styles.priority_item_title}>
-                                    Completed
-                                </p>
-                                <span
-                                    className={`${styles.priority_item_value}`}
-                                >
-                                    {getBacklogTasksStatus().Comp}
-                                </span>
-                            </li>
-                        </ul>
+                        {backlog.sprints.length === 0 ? (
+                            <span className={styles.noevents}>No sprints</span>
+                        ) : (
+                            <>
+                                <ul className={styles.stats}>
+                                    <li className={styles.stats_item}>
+                                        <p className={styles.stats_item_title}>
+                                            Sprints
+                                        </p>
+                                        <span
+                                            className={styles.stats_item_value}
+                                        >
+                                            {BacklogSprintsCount}
+                                        </span>
+                                    </li>
+                                    <li className={styles.stats_item}>
+                                        <p className={styles.stats_item_title}>
+                                            Tasks
+                                        </p>
+                                        <span
+                                            className={styles.stats_item_value}
+                                        >
+                                            {getBacklogTasks()}
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul className={styles.priority}>
+                                    <li className={styles.priority_item}>
+                                        <p
+                                            className={
+                                                styles.priority_item_title
+                                            }
+                                        >
+                                            Not started
+                                        </p>
+                                        <span
+                                            className={`${styles.priority_item_value}`}
+                                        >
+                                            {getBacklogTasksStatus().Not}
+                                        </span>
+                                    </li>
+                                    <li className={styles.priority_item}>
+                                        <p
+                                            className={
+                                                styles.priority_item_title
+                                            }
+                                        >
+                                            In Progress
+                                        </p>
+                                        <span
+                                            className={`${styles.priority_item_value}`}
+                                        >
+                                            {getBacklogTasksStatus().In}
+                                        </span>
+                                    </li>
+                                    <li className={styles.priority_item}>
+                                        <p
+                                            className={
+                                                styles.priority_item_title
+                                            }
+                                        >
+                                            Completed
+                                        </p>
+                                        <span
+                                            className={`${styles.priority_item_value}`}
+                                        >
+                                            {getBacklogTasksStatus().Comp}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </>
+                        )}
                     </div>
                 </>
             )}
@@ -244,7 +294,7 @@ export const OverviewItem = (props: OverviewProps) => {
                             {calendar !== null &&
                             calendar.events.length === 0 ? (
                                 <span className={styles.noevents}>
-                                    No events{" "}
+                                    No events
                                 </span>
                             ) : (
                                 calendar.events

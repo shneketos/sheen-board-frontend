@@ -13,11 +13,21 @@ interface AvatarProps {
 export const Avatar = (props: AvatarProps) => {
     const { src, name, size = AvatarSize.DEFAULT } = props;
     return (
-        <div className={`${styles.avatar} ${styles[size]}`}>
+        <div
+            className={`${styles.avatar} ${styles[size]}`}
+            data-testid="avatar"
+        >
             {src !== "" ? (
-                <img className={styles.img} src={src} alt="avatar" />
+                <img
+                    className={styles.img}
+                    data-testid="img"
+                    src={src}
+                    alt="avatar"
+                />
             ) : (
-                <div className={styles.name}>{name[0].toUpperCase()}</div>
+                <div className={styles.name} data-testid="name">
+                    {name[0].toUpperCase()}
+                </div>
             )}
         </div>
     );
